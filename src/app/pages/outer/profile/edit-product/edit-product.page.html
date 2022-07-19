@@ -1,0 +1,50 @@
+<ion-content [scrollEvents]="true">
+    <app-common-header (onFinishAction)="saveProduct()" [header]="moviliHeader"></app-common-header>
+    <div class="edit-product-photo">
+        <img class="edit-profile-avatar" src="assets/profile.jpg" alt="">
+        <button class="custom-transparent-button white-btn" (click)="editPhoto()">Заменить</button>
+    </div>
+    <div class="page-padding">
+        <div class="custom-margin-top"></div>
+        <div class="flex-grid">
+            <label class="bold-label" for="nameId">Название</label>
+            <input id="nameId" class="profile-input"
+                   [(ngModel)]="product.name"
+                   type="text" placeholder="Введите название">
+        </div>
+        <div class="custom-margin-top"></div>
+        <div class="flex-grid">
+            <label class="bold-label" for="descriptionId">Описание</label>
+            <div class="custom-div-textarea" id="descriptionId" contenteditable="">
+                {{product.description}}
+            </div>
+        </div>
+        <div class="custom-margin-top"></div>
+        <div class="flex-space-between">
+            <div class="bold-label">Время выполнения</div>
+            <div class="light-text">
+                <span>
+                {{product.duration}} минут
+                </span>
+                <img src="assets/icon/edit.svg" alt="" (click)="editDuration()">
+            </div>
+        </div>
+        <div class="custom-margin-top"></div>
+        <div class="flex-space-between">
+<!--            <label class="bold-label" for="priceId">Название</label>-->
+<!--            <input id="priceId" class="profile-input"-->
+<!--                   [(ngModel)]="product.price"-->
+<!--                   type="number" placeholder="Введите цену">-->
+            <div class="bold-label">Цена</div>
+            <div class="light-text">
+                <span>
+                {{product.price}} тг
+                </span>
+                <img src="assets/icon/edit.svg" alt="" (click)="editPrice()">
+            </div>
+        </div>
+
+
+    </div>
+</ion-content>
+

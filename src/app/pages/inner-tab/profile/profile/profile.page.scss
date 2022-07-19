@@ -1,0 +1,94 @@
+:host {
+
+  .profile-header {
+    display: grid;
+    grid-template-columns: 2fr 9fr;
+    grid-gap: 10px;
+    align-items: center;
+
+    .profile-logo {
+      display: flex;
+
+      .image {
+        width: 16vw;
+        height: 16vw;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    .flex {
+      display: flex;
+      align-items: center;
+
+      .name {
+        font-style: var(--custom-font-style-normal);
+        font-weight: var(--custom-font-weight-semibold);
+        font-size: var(--custom-font-size-6);
+        line-height: var(--custom-line-height); // todo 18px
+        color: var(--custom-text-color-movili-dark);
+      }
+
+      .edit {
+        margin-left: 20px;
+      }
+
+      .email {
+        font-style: var(--custom-font-style-normal);
+        font-weight: var(--custom-font-weight-regular);
+        font-size: var(--custom-font-size-8);
+        line-height: var(--custom-line-height); // todo 18px
+        color: var(--custom-text-color-gray);
+      }
+      .job {
+        font-weight: var(--custom-font-weight-semibold);
+        font-size: var(--custom-font-size-7);
+        line-height: var(--custom-line-height); // todo 18px
+        color: var(--custom-text-color-danger);
+      }
+      .balance {
+        font-style: var(--custom-font-style-normal);
+        font-size: var(--custom-font-size-8);
+        line-height: var(--custom-line-height); // todo 18px
+        color: var(--custom-text-color-light-gray);
+
+        & .balance-number {
+          color: var(--custom-text-color-black);
+        }
+      }
+    }
+  }
+  .horizontal-line {
+    margin-top: 4vw;
+    border-bottom: 1px solid var(--custom-backgrond-color-light-gray);
+  }
+  .go-to-section {
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+    column-gap: 2vw;
+    align-items: center;
+    border-bottom: 1px solid var(--custom-backgrond-color-light-gray);
+    padding: 5vw 1vw;
+    & .section-title {
+      font-weight: var(--custom-font-weight-semibold);
+      font-size: var(--custom-font-size-7);
+      line-height: var(--custom-line-height); //todo 25px;
+      color: var(--custom-text-color-movili-dark);
+    }
+
+    & .right-arrow {
+      justify-self: center;
+    }
+  }
+  .logout-btn {
+    background: var(--custom-backgrond-color-grey);
+
+    & img {
+      margin-right: auto;
+    }
+    & span {
+      margin-right: auto;
+    }
+  }
+
+}

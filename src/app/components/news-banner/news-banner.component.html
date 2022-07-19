@@ -1,0 +1,10 @@
+<ion-slides pager="true" [options]="slideOpts">
+	<ion-slide *ngFor="let banner of banners">
+		<div class="banner-img-text">
+			<img src="{{photoUrl + banner.outPhoto}}" class="banner-card" alt="">
+			<span class="banner-text">
+            {{banner.name}}
+        </span>
+		</div>
+	</ion-slide>
+</ion-slides>

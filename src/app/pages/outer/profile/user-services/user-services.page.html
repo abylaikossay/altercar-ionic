@@ -1,0 +1,18 @@
+<ion-content>
+  <app-common-header [header]="movilieHeader"></app-common-header>
+  <div class="page-padding">
+    <label>
+      <input type="text" class="custom-search-input" placeholder="Искать...">
+    </label>
+    <div *ngFor="let serv of services" class="services-list" (click)="openServiceProducts(serv)">
+      <app-usluga-card [serv]="serv"></app-usluga-card>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <div class="page-padding">
+    <button (click)="goNext()" class="custom-button-movili">
+      <span>Далее</span>
+    </button>
+  </div>
+</ion-footer>

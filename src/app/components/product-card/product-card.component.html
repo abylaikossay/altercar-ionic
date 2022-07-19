@@ -1,0 +1,34 @@
+<div class="product-card">
+  <img class="product-image" src="" [appBackgroundImage]="{id: product?.photos | imageId, index:0}"
+       alt="Product">
+  <div class="product-info">
+    <div class="product-name">
+      {{product?.name | appEmptyPipe}}
+    </div>
+    <p>
+      {{product?.description | appEmptyPipe}}
+    </p>
+    <div class="product-duration">
+      <img src="assets/icon/time-icon.svg" alt="">
+      {{product?.duration}} минут
+    </div>
+    <div class="product-price">
+      <span>{{product.price | appEmptyPipe}} тг </span>
+      <img src="assets/icon/edit.svg" alt="" (click)="editProduct()">
+    </div>
+<!--    <div class="card-footer">-->
+<!--      <div class="starts">-->
+<!--        stars-->
+<!--      </div>-->
+<!--&lt;!&ndash;      <button class="custom-button-movili add-button" (click)="addProduct()">&ndash;&gt;-->
+<!--&lt;!&ndash;        <ion-icon name="{{(product.isSelected)? 'checkmark': 'add'}}"></ion-icon>&ndash;&gt;-->
+<!--&lt;!&ndash;      </button>&ndash;&gt;-->
+<!--      <div class="price">-->
+<!--        {{product?.price | appEmptyPipe }} тг-->
+<!--      </div>-->
+
+<!--    </div>-->
+  </div>
+
+
+</div>

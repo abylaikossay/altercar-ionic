@@ -1,0 +1,29 @@
+<ion-content fullscreen="true">
+  <app-common-header [header]="moviliHeader"></app-common-header>
+  <div class="page-padding">
+    <div class="custom-margin-top"></div>
+    <div class="chose-location">
+      <img src="assets/illustration.png">
+      <h4>Выберите ваше местоположение</h4>
+      <p class="location-info">
+        Включите свое местоположение, чтобы
+        оставаться в курсе, что происходит в вашем районе
+      </p>
+    </div>
+    <div class="custom-margin-top"></div>
+    <form action="" autocomplete="off">
+      <div class="custom-margin-top"></div>
+      <label for="cityId">Ваш город</label>
+      <input id="cityId" class="custom-input" [(ngModel)]="cityName" name="cityName" (click)="openAlertCity()"
+             type="text" placeholder="Выберите город">
+
+      <div class="custom-margin-top"></div>
+      <label for="addressId">Ваш адрес</label>
+      <input id="addressId" class="custom-input" [(ngModel)]="address" name="address" type="text"
+             placeholder="Введите улицу или дом">
+      <div class="custom-margin-top"></div>
+      <button class="custom-button-movili" [disabled]="!city || !address" (click)="submitCity()">Подтвердить</button>
+    </form>
+  </div>
+
+</ion-content>

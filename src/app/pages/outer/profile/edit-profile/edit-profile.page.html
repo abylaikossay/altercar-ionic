@@ -1,0 +1,75 @@
+<ion-content>
+    <app-common-header (onFinishAction)="saveUserProfile()" [header]="moviliHeader"></app-common-header>
+    <div class="edit-user-photo">
+        <img class="edit-profile-avatar" src="assets/profile.jpg" alt="">
+        <button class="custom-transparent-button white-btn" (click)="editPhoto()">Заменить</button>
+    </div>
+    <div class="page-padding">
+        <div class="custom-margin-top"></div>
+        <div class="flex-grid">
+            <label class="bold-label" for="firstNameId">Имя</label>
+            <input id="firstNameId" class="profile-input"
+                   [(ngModel)]="ispResponse.username"
+                   type="text" placeholder="Введите имя">
+        </div>
+        <div class="custom-margin-top"></div>
+        <div class="flex-grid">
+            <label class="bold-label" for="surnameId">Фамилия</label>
+            <input id="surnameId" class="profile-input"
+                   [(ngModel)]="ispResponse.username"
+                   type="text" placeholder="Введите фамилию">
+        </div>
+        <div class="custom-margin-top"></div>
+        <div class="flex-grid">
+            <label class="bold-label" for="emailId">Email</label>
+            <input id="emailId" class="profile-input"
+                   [(ngModel)]="ispResponse.email"
+                   type="text" placeholder="Введите фамилию">
+        </div>
+        <div class="flex-grid">
+            <div class="bold-label">О себе</div>
+            <div class="custom-div-textarea" contenteditable="">
+                {{ispResponse.description}}
+            </div>
+        </div>
+<!--        <div class="custom-margin-top"></div>-->
+<!--        <div class="bold-label portfolio">Портфолио</div>-->
+<!--        <div class="custom-margin-top"></div>-->
+<!--        <div class="portfolio-photos">-->
+<!--            <img class="portfolio-photo" src="{{imageUrl + portfolioPhoto}}"-->
+<!--                 *ngFor="let portfolioPhoto of ispResponse.portfolioPhotos"-->
+<!--                 alt="">-->
+<!--        </div>-->
+<!--        <div class="center-align">-->
+<!--            <a (click)="addNewPhoto()">-->
+<!--                + Добавить фото-->
+<!--            </a>-->
+<!--        </div>-->
+<!--        <div class="custom-margin-top"></div>-->
+<!--        <div class="flex-with-action">-->
+<!--            <div class="bold-label">Профессия</div>-->
+<!--            <div class="d-flex">-->
+<!--                <span class="grey-description">Визажист</span>-->
+<!--                <img src="assets/icon/right-arrow.svg" alt="">-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="custom-margin-top"></div>
+        <div class="flex-with-action">
+            <div class="bold-label">Способы связи</div>
+            <div class="d-flex">
+                <img src="assets/icon/right-arrow.svg" alt="">
+            </div>
+        </div>
+        <div class="custom-margin-top"></div>
+        <div class="flex-with-action">
+            <div class="bold-label">Кнопки</div>
+            <div class="d-flex">
+                <span class="grey-description">Написать</span>
+                <img src="assets/icon/right-arrow.svg" alt="">
+            </div>
+        </div>
+
+
+    </div>
+
+</ion-content>

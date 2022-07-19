@@ -1,0 +1,31 @@
+:host {
+  ion-content {
+    --ion-background-color: var(--custom-backgrond-color-movili_gradient);
+  }
+  .welcome-content {
+
+  }
+  .custom-transparent-button {
+    background: transparent;
+    border-radius: 20px;
+    font-size: var(--custom-font-size-7);
+    border: 2px solid var(--custom-backgrond-color-white);
+    color: var(--custom-backgrond-color-white);
+    width: 100%;
+  }
+  .welcome-page-padding {
+    padding: 7vw;
+    display: grid;
+    align-items: end;
+    height: 100vh;
+
+    & img {
+      justify-self: center;
+    }
+
+    & label {
+      align-self: baseline;
+      justify-self: center;
+    }
+  }
+}

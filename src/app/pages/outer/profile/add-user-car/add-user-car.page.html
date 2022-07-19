@@ -1,0 +1,57 @@
+
+<ion-content>
+  <app-common-header [header]="moviliHeader"></app-common-header>
+  <div class="page-padding">
+    <div class="custom-margin-top"></div>
+    <label for="brandId">Выберите марку</label>
+    <input id="brandId" class="custom-input" readonly [(ngModel)]="userCar.carBrand.name" (click)="openAlertBrand()"
+           type="text" placeholder="Выберите марку">
+    <div class="custom-margin-top"></div>
+    <div *ngIf="userCar.carBrand.id">
+      <label for="modelId">Выберите модель</label>
+      <input id="modelId" class="custom-input" readonly [(ngModel)]="userCar.carModel.name" (click)="openAlertModel()"
+             type="text" placeholder="Выберите модель">
+    </div>
+  
+    <div class="custom-margin-top"></div>
+    <label for="yearId">Год выпуска</label>
+    <input id="yearId" class="custom-input"
+           [(ngModel)]="userCar.carYear"
+           type="number" placeholder="Введите Год">
+  
+    <div class="custom-margin-top"></div>
+    <label for="volumeId">Объем двигателя</label>
+    <input id="volumeId" class="custom-input"
+           [(ngModel)]="userCar.engineVolume"
+           type="number" placeholder="Введите Объем">
+  
+    <div class="custom-margin-top"></div>
+    <label for="vinId">VIN код</label>
+    <input id="vinId" class="custom-input"
+           [(ngModel)]="userCar.vinCode"
+           type="text" placeholder="Введите VIN">
+  
+    <div class="custom-margin-top"></div>
+    <label for="colorId">Цвет машины</label>
+    <input id="colorId" class="custom-input"
+           [(ngModel)]="userCar.color"
+           type="text" placeholder="Введите Цвет">
+    
+    <div class="custom-margin-top"></div>
+    <button class="custom-button-movili"
+            [disabled]="!userCar.carBrand.id
+        || !userCar.carModel.id "
+            (click)="save()">Сохранить
+    </button>
+  
+    <div class="custom-margin-top"></div>
+    <button *ngIf="carId" class="custom-button-movili-white-red"
+            (click)="delete()">Удалить
+    </button>
+    
+    
+    
+  </div>
+  
+  
+</ion-content>

@@ -1,0 +1,99 @@
+:host {
+  .edit-profile-avatar {
+    width: 100%;
+    object-fit: cover;
+    height: 78vw;
+    border-radius: 0 0 25px 25px;
+  }
+
+  .page-padding {
+    padding-top: 3px;
+  }
+
+  .edit-user-photo {
+    position: relative;
+
+    & button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+
+
+  .flex-grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+  }
+
+  .bold-label {
+    font-weight: var(--custom-font-weight-semibold);
+    font-size: var(--custom-font-size-7);
+    line-height: var(--custom-line-height); //todo fake 18px;
+    color: var(--custom-text-color-black);
+  }
+
+  .bold-label.portfolio {
+    text-align: center;
+  }
+
+  .profile-input {
+    font-weight: var(--custom-font-weight-regular);
+    font-size: var(--custom-font-size-9);
+    line-height: var(--custom-line-height);
+    text-transform: capitalize;
+    color: var(--custom-text-color-black);
+    position: relative;
+    background: var(--custom-background-color-white);
+    border: 0;
+    border-bottom: 1px solid var(--custom-backgrond-color-light-gray);
+    box-sizing: border-box;
+    outline-color: transparent;
+
+    &::placeholder {
+      color: #B1B1B1; //todo set new variable
+      //color: var(--custom-text-color-tertiary);
+    }
+  }
+
+  .portfolio-photos {
+    white-space: nowrap;
+    overflow-x: visible;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    & .portfolio-photo {
+      width: 17vw;
+      height: 17vw;
+      object-fit: cover;
+      margin-right: 1.5vw;
+    }
+
+  }
+
+  .center-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .flex-with-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .grey-description {
+    font-size: var(--custom-font-size-10);
+    line-height: var(--custom-line-height);
+    text-transform: capitalize;
+    color: var(--custom-text-color-gray);
+    margin-right: 3vw;
+  }
+
+
+}

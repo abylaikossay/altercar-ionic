@@ -1,0 +1,54 @@
+<app-common-header [header]="moviliHeader"></app-common-header>
+<ion-content>
+  <div class="page-padding">
+    <div class="profile-header">
+      <div class="profile-logo">
+        <img class="image" src="assets/profile.jpg" alt="">
+      </div>
+      <div class="profile-info">
+        <div class="flex">
+          <div class="name">
+            {{ispResponse?.username}}
+          </div>
+          <div class="edit">
+            <img (click)="editUser()" [appBackgroundImage]="{id:'/assets/icon/edit.svg',index:0}" src="" alt="">
+          </div>
+        </div>
+        <div class="flex">
+          <div class="email">
+            {{ispResponse?.description}}
+            <!--                        todo change to email-->
+          </div>
+        </div>
+        <div class="flex">
+          <div class="job">
+            {{ispResponse?.surname}}
+          </div>
+        </div>
+        <div class="flex">
+          <div class="balance" (click)="goToBalance()">
+            Баланс: <span class="balance-number">ТЕСТ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="custom-margin-top"></div>
+    <div class="horizontal-line"></div>
+    <div class="custom-margin-top"></div>
+    <div *ngFor="let button of buttons" class="go-to-section" (click)="goToSection(button.goToUrl)">
+      <img src="assets/icon/{{button.icon}}" alt="">
+      <div class="section-title">{{button.title}}</div>
+      <img class="right-arrow" src="assets/icon/right-arrow.svg" alt="">
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <div class="page-padding">
+    <button (click)="logOut()" class="custom-button-movili-white-red logout-btn">
+      <img src="assets/icon/logout.svg" alt="">
+      <span>Выйти</span>
+    </button>
+  </div>
+</ion-footer>
+

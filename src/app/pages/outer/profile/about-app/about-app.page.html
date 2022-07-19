@@ -1,0 +1,20 @@
+<ion-content>
+    <div class="main-blur-background"></div>
+    <div class="main-blured-content">
+        <app-common-header [isWhite]="true" [header]="moviliHeader"></app-common-header>
+        <div class="page-padding">
+            <img class="movili-about-img" src="assets/about-app.jpeg" alt="">
+        </div>
+            <div class="page-padding rating-grid">
+                <button (click)="rateApp()" class="custom-transparent-button">
+                    <span>Оценить приложение</span>
+                </button>
+                <p> Все права защищены. 2022</p>
+                <a (click)="goToAferta()">
+                    Пользовательское соглашение
+                </a>
+            </div>
+    </div>
+
+</ion-content>
+

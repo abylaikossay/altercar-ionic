@@ -1,0 +1,22 @@
+:host {
+  .banner-img-text {
+    display: flex;
+    position: relative;
+  }
+  .banner-card {
+    //background: var(--custom-backgrond-color-movili_gradient);
+    border: 1px solid #F2F3F2;
+    border-radius: 8px;
+    height: 36vw;
+    width: 100%;
+    object-fit: cover;
+  }
+  .banner-text {
+    position: absolute;
+    left: 40vw;
+    color: var(--custom-backgrond-color-white);
+    font-weight: var(--custom-font-weight-bold);
+    font-size: var(--custom-font-size-6);
+    top: 25%;
+  }
+}

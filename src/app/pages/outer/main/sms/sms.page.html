@@ -1,0 +1,26 @@
+<ion-content>
+  <app-common-header [header]="moviliHeader"></app-common-header>
+  <div class="page-padding">
+    <div class="custom-margin-top"></div>
+    <h4 id="h4Id">Подтвердите номер</h4>
+    <label for="h4Id" class="thin-label">Мы отправили SMS с кодом на номер {{phoneNumber}}</label>
+    <div class="custom-margin-top"></div>
+    <label for="codeId">Код</label>
+    <input maxlength="6" id="codeId" class="custom-input sms-code" type="text"
+           mask="000000"
+           name="smsCode"
+           [(ngModel)]="smsCode"
+           placeholder="------">
+    <div class="padding-registration"></div>
+    <div class="send-code-div">
+      <a (click)="resendCode()">Отправить код еще раз</a>
+      <button class="custom-button-movili next-button" [disabled]="smsCode.length != 6" (click)="goToLocation()">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+
+
+    </div>
+
+
+  </div>
+</ion-content>

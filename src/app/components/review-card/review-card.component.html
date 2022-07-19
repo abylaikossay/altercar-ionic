@@ -1,0 +1,11 @@
+<div class="main-card {{isChosen? 'isChosen' : ''}}">
+<!--    <img *ngIf="!ispRating.userProfile.photo" src="assets/unknown-avatar.jpeg" alt="">-->
+    <img *ngIf="tirePartner" src="{{photoUrl + tirePartner.partner?.logoUrl}}" alt="">
+    <div class="user-name">{{tirePartner.partner?.name}}</div>
+    <div class="rating">
+        <img class="star-img" src="assets/icon/star.svg" alt="">
+        <span>5</span>
+    </div>
+    <button class="custom-button-movili" (click)="chose()">Выбрать</button>
+    <div class="comment">{{tirePartner.price}} ₸</div>
+</div>

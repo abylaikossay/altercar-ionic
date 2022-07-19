@@ -1,0 +1,56 @@
+:host {
+  .chat-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+    grid-gap: 0 12px;
+  }
+  .user-photo {
+    grid-column: span 1;
+    grid-row: span 2;
+    align-self: center;
+    & img {
+      border-radius: 50%;
+      object-fit: cover;
+      width: 13vw;
+      height: 13vw;
+    }
+
+  }
+  .user-name {
+    font-weight: var(--custom-font-weight-bold);
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.24px;
+    background: var(--custom-text-color-movili_gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    align-self: center;
+  }
+  .date {
+    font-size: var(--custom-font-size-9);
+    line-height: var(--custom-line-height);
+    letter-spacing: -0.24px;
+    color: var(--custom-text-color-light-secondary);
+    justify-self: end;
+
+  }
+  .arrow-icon {
+    background-color: red;
+    width: 100px;
+    //-webkit-mask: url(~assets/movili/check-icon.svg) no-repeat center;
+    //mask: url(~assets/movili/check-icon.svg) no-repeat center;
+  }
+  .message {
+    grid-column: span 2;
+    grid-row: span 1;
+    font-size: var(--custom-font-size-9);
+    line-height: var(--custom-line-height);
+    letter-spacing: -0.078px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--custom-text-color-light-secondary);
+  }
+
+
+}

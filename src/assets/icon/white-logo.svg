@@ -1,0 +1,13 @@
+<svg width="110" height="63" viewBox="0 0 110 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="68.5369" height="19.7556" rx="9.87779" transform="matrix(0.701983 -0.712193 0.701983 0.712193 0.947266 48.9302)" fill="white"/>
+<rect opacity="0.6" width="68.5369" height="19.7556" rx="9.87779" transform="matrix(0.701983 -0.712193 0.701983 0.712193 35.8217 48.8115)" fill="white"/>
+<rect opacity="0.2" width="36.6272" height="19.7556" rx="9.87779" transform="matrix(0.701983 -0.712193 0.701983 0.712193 70.3679 48.8115)" fill="white"/>
+<rect opacity="0.7" x="39.7697" y="59.583" width="56.0782" height="19.7408" rx="9.87041" transform="rotate(-90 39.7697 59.583)" fill="url(#paint0_linear)"/>
+<rect opacity="0.4" x="74.3159" y="59.583" width="56.0782" height="19.7408" rx="9.87041" transform="rotate(-90 74.3159 59.583)" fill="white"/>
+<defs>
+<linearGradient id="paint0_linear" x1="58.5372" y1="70.642" x2="72.0666" y2="73.5421" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+</defs>
+</svg>

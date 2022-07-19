@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  .main-card {
+    display: grid;
+    grid-template-columns: 2fr 4fr 1fr 1fr;
+
+    & img {
+      grid-row: span 3;
+      width: 13vw;
+      height: 13vw;
+      border-radius: 50%;
+      justify-self: start;
+      align-self: center;
+      object-fit: contain;
+    }
+    & .user-name {
+      font-weight: var(--custom-font-weight-semibold);
+      font-size: var(--custom-font-size-7);
+      line-height: var(--custom-line-height);
+      letter-spacing: 0.1px;
+      color: var(--custom-text-color-movili-dark);
+    }
+    & .comment {
+      font-weight: var(--custom-font-weight-regular);
+      font-size: var(--custom-font-size-9);
+      line-height: var(--custom-line-height);
+      color: var(--custom-text-color-gray);
+    }
+    & .rating {
+      grid-row: span 3;
+      align-self: center;
+      justify-self: start;
+      display: flex;
+      align-items: center;
+      font-weight: var(--custom-font-weight-regular);
+      font-size: var(--custom-font-size-9);
+      line-height: var(--custom-line-height);
+      letter-spacing: 0.1px;
+      color: var(--custom-text-color-gray);
+    }
+    & .custom-button-movili {
+      grid-row: span 3;
+      justify-self: end;
+    }
+  }
+  .star-img {
+    object-fit: contain !important;
+    width: 5vw !important;
+    margin-right: 1vw;
+  }
+  .isChosen {
+    border: 2px solid var(--custom-backgrond-color-movili) !important;
+  }
+
+}

@@ -1,0 +1,61 @@
+<ion-content>
+    <app-common-header [header]="moviliHeader"></app-common-header>
+    <div class="page-padding">
+        <div class="user-info-grid">
+            <img *ngIf="!application.imgUrl" src="assets/unknown-avatar.jpeg" class="user-photo" alt="">
+            <img *ngIf="application.imgUrl" src="{{fullUrl + application.imgUrl}}" class="user-photo" alt="">
+            <div class="user-name">{{application.userName}}</div>
+            <div class="chat-img">
+                <img src="assets/icon/chat.svg" alt="">
+            </div>
+            <div class="user-address-info">
+                <img src="assets/icon/point.svg" alt="">
+                <span class="address">{{application.userLocation}}</span>
+            </div>
+        </div>
+        <div class="custom-margin-top"></div>
+        <div class="services-header">Услуи</div>
+        <app-used-service class="service-li" *ngFor="let service of services" [service]="service"></app-used-service>
+        <div class="horizontal-line"></div>
+        <div class="custom-margin-top"></div>
+        <div class="appointment-date-info">
+            <div class="day-time">
+                <div *ngIf="application.weekDay" class="calendar-day">{{application.weekDay === 1 ? 'Пн'
+                    : application.weekDay === 2 ? 'Вт'
+                        : application.weekDay === 3 ? 'Ср'
+                            : application.weekDay === 4 ? 'Чт'
+                                : application.weekDay === 5 ? 'Пт'
+                                    : application.weekDay === 6 ? 'Cб'
+                                        : application.weekDay === 7 ? 'Вс'
+                                            : ''}}</div>
+                {{application.orderDate}}
+            </div>
+            <div class="day-time">
+                <img src="assets/icon/time-icon.svg" alt="">
+                {{application.startTime}}
+            </div>
+        </div>
+        <div class="custom-margin-top"></div>
+        <div class="user-contacts">
+            <div class="bold-text">Контакты</div>
+            <div class="bold-text">{{application.userPhone}}
+                <img src="assets/icon/right-arrow.svg" alt="">
+            </div>
+        </div>
+        <div class="horizontal-line"></div>
+        <div class="custom-margin-top"></div>
+        <div class="bold-text">Коментарии</div>
+        <div class="custom-div-textarea" [contentEditable]="isEditable">{{application.comment}}
+        </div>
+    </div>
+</ion-content>
+<ion-footer>
+    <div class="page-padding bottom-fixed-buttons">
+        <button class="custom-transparent-button" (click)="submit(application)">
+            <span>Откликнуться</span>
+        </button>
+        <button class="custom-transparent-button" (click)="hide(application)">
+            <span>Скрыть</span>
+        </button>
+    </div>
+</ion-footer>

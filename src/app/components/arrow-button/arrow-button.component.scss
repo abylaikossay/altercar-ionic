@@ -1,0 +1,83 @@
+:host {
+  .grid-list-service {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+
+    .down {
+      background: var(--custom-text-color-movili-dark);
+      border: 0.2px solid var(--custom-text-color-movili-dark);
+      transform: rotate(-90deg);
+    }
+
+    .detail-service {
+      font-style: var(--custom-font-style-normal);
+      font-weight: var(--custom-font-weight-semibold);
+      font-size: var(--custom-font-size-8);
+      line-height: var(--custom-line-height);
+      color: var(--custom-text-color-movili-dark);
+      margin-bottom: 10px;
+    }
+
+    .detail-service-value {
+      font-style: var(--custom-font-style-normal);
+      font-weight: var(--custom-font-weight-regular);
+      font-size: var(--custom-font-size-10);
+      line-height: var(--custom-line-height);
+      color: var(--custom-text-color-gray);
+      margin-top: 10px;
+    }
+
+    .detail-service-arrow {
+
+      font-style: var(--custom-font-style-normal);
+      font-weight: var(--custom-font-weight-semibold);
+      font-size: var(--custom-font-size-8);
+      line-height: var(--custom-line-height);
+      color: var(--custom-text-color-movili-dark);
+    }
+
+    .detail-arrow-icon {
+      //padding-bottom: 10px;
+      //padding-top: 10px;
+      //border-top: 1px solid rgba(226, 226, 226, 0.7);
+    }
+
+    .grid-detail-service-arrow {
+      display: grid;
+      justify-content: space-between;
+      grid-template-columns: auto auto;
+    }
+
+    .add-info {
+      font-style: var(--custom-font-style-normal);
+      font-weight: var(--custom-font-weight-regular);
+      font-size: var(--custom-font-size-9);
+      line-height: var(--custom-line-height); // todo fake 18px
+      color: var(--custom-text-color-gray);
+    }
+
+    .flex-detail-service-value {
+      display: flex;
+      align-items: center;
+
+      .title {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      img {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .border-line-arrow {
+    border-top: 1px solid rgba(226, 226, 226, 0.7);
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+}

@@ -1,0 +1,21 @@
+<ion-content>
+  <app-common-header [header]="moviliHeader"></app-common-header>
+  <div class="page-padding">
+  
+  <img class="tire-photo" src="{{imgUrl + tire.photoUrl}}" alt="">
+  <div class="tire-header">
+    <div class="tire-name">
+      {{tire.name}}, {{tire.width}}/{{tire.height}} R{{tire.diameter}}
+    </div>
+    <div class="tire-header">
+      Сумма: {{tire.price}} ₸
+    </div>
+  </div>
+            <div class="custom-margin-top"></div>
+            <label>Продавцы</label>
+            <div class="review-card" *ngFor="let partner of partners">
+                <app-review-card [tirePartner]="partner" class="profile-review"></app-review-card>
+                <div class="profile-margin-top"></div>
+            </div>
+  </div>
+</ion-content>

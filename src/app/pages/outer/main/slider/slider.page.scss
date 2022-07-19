@@ -1,0 +1,46 @@
+:host {
+  ion-content {
+    --ion-background-color: var(--custom-backgrond-color-movili_gradient);
+  }
+
+  .slider-page-padding {
+    padding: 7vw;
+  }
+
+  ion-slides {
+    height: 78vh;
+  }
+
+  .logo-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5vh;
+  }
+
+  .banner-img-text {
+    height: 100%;
+    display: grid;
+    min-width: 80vw;
+  }
+
+  .banner-card-image {
+    height: 45vh;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 22px;
+  }
+  .slider-info {
+    color: var(--custom-text-color-white);
+  }
+
+  .custom-transparent-button {
+    background: transparent;
+    border-radius: 20px;
+    font-size: var(--custom-font-size-7);
+    border: 2px solid var(--custom-backgrond-color-white);
+    color: var(--custom-backgrond-color-white);
+    width: 98%;
+    align-self: end;
+  }
+
+}

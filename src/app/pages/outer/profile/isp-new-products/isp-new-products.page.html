@@ -1,0 +1,22 @@
+<ion-content [scrollEvents]="true">
+  <div slot="fixed" class="fixed-header-inside-content">
+    <app-common-header [header]="moviliHeader"></app-common-header>
+    <div class="header-categories">
+      <div *ngFor="let category of categories" (click)="changeProducts(category)"
+           class="category-name {{category.selected ? 'selected': ''}}">
+        {{category.name}}
+      </div>
+      <div *ngIf="!categories">Пожалуйста добавьте новые категории</div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="page-padding">
+      <div class="products-list">
+        <div class="product-card" *ngFor="let isProduct of ispProducts">
+          <app-product-card [product]="isProduct"></app-product-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+

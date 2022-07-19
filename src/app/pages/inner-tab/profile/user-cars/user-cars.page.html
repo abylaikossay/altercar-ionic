@@ -1,0 +1,26 @@
+<ion-content>
+	<app-common-header [header]="moviliHeader"></app-common-header>
+	<div class="page-padding">
+	<div class="custom-margin-top"></div>
+	<div class="user-card" *ngFor="let userCar of userCars" (click)="goToCar(userCar.id)">
+		<img src="{{logoUrl + userCar.carBrand.logoUrl}}" alt="" class="car-brand-logo">
+		<h5 class="car-name">{{userCar.carBrand.name}} {{userCar.carModel.name}}</h5>
+		<p class="car-year">{{userCar.carYear}} г.</p>
+		<img class="right-arrow" src="assets/icon/right-arrow.svg" alt="">
+	</div>
+	<div class="custom-margin-top"></div>
+		<button class="custom-button-movili"
+		        (click)="addCar()">Добавить машину
+		</button>
+		
+		
+
+	<!--  <div *ngFor="let userCar of userCars" class="go-to-section" (click)="goToCar(userCar.id)">-->
+	<!--    <img src="assets/icon/{{userCar.carBrand.logoUrl}}" alt="">-->
+	<!--    <div class="section-title">{{userCar.carBrand.name}}</div>-->
+	<!--    <img class="right-arrow" src="assets/icon/right-arrow.svg" alt="">-->
+	<!--  </div>-->
+	</div>
+
+
+</ion-content>

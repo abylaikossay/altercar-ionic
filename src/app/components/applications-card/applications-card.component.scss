@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  .main-card {
+    display: grid;
+    grid-template-columns: 2fr 5fr 1fr;
+    row-gap: 1vw;
+  }
+  .user-photo {
+    grid-row: span 6;
+    object-fit: cover;
+    border-radius: 27px;
+    width: 18vw;
+    height: 18vw;
+  }
+  .user-name {
+    font-weight: var(--custom-font-weight-semibold);
+    font-size: var(--custom-font-size-8);
+    line-height: var(--custom-line-height);
+    color: var(--custom-text-color-movili-dark);
+  }
+  .right-icon {
+    grid-row: span 6;
+    color: var(--custom-text-color-movili-dark);
+    align-self: center;
+  }
+  .user-address {
+    font-size: var(--custom-font-size-9);
+    line-height: var(--custom-line-height);
+    /* identical to box height, or 129% */
+    color: var(--custom-text-color-gray);
+
+    & .bold {
+      font-weight: var(--custom-font-weight-semibold);
+      color: var(--custom-text-color-black);
+    }
+  }
+  .day-time {
+    display: flex;
+    align-items: center;
+    font-weight: var(--custom-font-weight-semibold);
+    font-size: var(--custom-font-size-8);
+    line-height: var(--custom-line-height);
+    /* identical to box height, or 112% */
+    letter-spacing: 0.1px;
+    /* Dark Deep */
+    color: var(--custom-text-color-movili-dark);
+
+    & img {
+      width: 24px;
+      height: 24px;
+      margin: 0 10px 0 4px;
+    }
+  }
+  .calendar-day {
+    border: 1px solid var(--custom-backgrond-color-light-gray);
+    box-sizing: border-box;
+    border-radius: 9px;
+    padding: 6px;
+    margin-right: 10px;
+    font-weight: var(--custom-font-weight-semibold);
+    letter-spacing: 0.1px;
+    color: var(--custom-text-color-black);
+  }
+
+
+}

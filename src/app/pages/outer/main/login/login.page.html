@@ -1,0 +1,54 @@
+<ion-content fullscreen="true">
+    <div class="main-blur-background"></div>
+    <div class="main-blured-content">
+        <app-common-header [header]="moviliHeader"></app-common-header>
+
+        <div class="page-padding">
+            <div class="padding-registration"></div>
+
+            <h4 id="singupId">Вход</h4>
+            <label for="singupId">Введите номер и пароль</label>
+
+            <div class="custom-margin-top"></div>
+            <label for="phoneNumberId">Номер телефона</label>
+            <input [(ngModel)]="phoneNumber"
+                   (ngModelChange)="changePhoneNumber($event)"
+                   name="phoneNumber"
+                   id="phoneNumberId"
+                   prefix="+7 "
+                   class="custom-input"
+                   type="tel"
+                   mask="(000) 000-00-00"
+                   placeholder="Введите номер">
+
+
+            <div class="custom-margin-top"></div>
+            <label for="passwordId">Пароль</label>
+            <input [(ngModel)]="password"
+                   name="password"
+                   id="passwordId"
+                   autocomplete="new-password"
+                   class="custom-input"
+                   type="password"
+                   placeholder="Введите пароль">
+            <div class="custom-margin-top"></div>
+            <div class="forgot-password">
+                <label (click)="forgotPassword()">
+                    <a> Забыли пароль?</a>
+                </label>
+            </div>
+
+            <div class="custom-margin-top"></div>
+            <button [disabled]="!password.length || !phoneNumber.length"
+                    appThrottleClick (throttleClick)="login()"
+                    class="custom-button-movili">Войти
+            </button>
+
+            <div class="custom-margin-top"></div>
+            <div class="account">У вас нет аккаунта?
+                <a (click)="goToRegister()">Зарегистрироваться</a>
+            </div>
+        </div>
+    </div>
+</ion-content>
+

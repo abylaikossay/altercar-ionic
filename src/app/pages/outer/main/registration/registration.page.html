@@ -1,0 +1,80 @@
+<ion-content>
+  <app-common-header [header]="moviliHeader"></app-common-header>
+  <div class="page-padding">
+    <div class="padding-registration"></div>
+
+    <h4>Регистрация</h4>
+    <!--      <label for="registraionId">Enter your credentials to continue</label>-->
+
+    <div class="custom-margin-top"></div>
+    <label for="firstNameId">Имя пользователя</label>
+    <input id="firstNameId" class="custom-input"
+           [(ngModel)]="userTemplate.name"
+
+           type="text" placeholder="Введите имя">
+
+    <div class="custom-margin-top"></div>
+    <label for="lastNameId">Фамилия пользователя</label>
+    <input id="lastNameId" class="custom-input"
+           [(ngModel)]="userTemplate.surname"
+           type="text" placeholder="Введите фамилию">
+
+    <div class="custom-margin-top"></div>
+
+    <label for="phoneNumberId">Номер телефона</label>
+    <input id="phoneNumberId" class="custom-input"
+           [(ngModel)]="userPhone"
+           (ngModelChange)="changePhoneNumber($event)"
+           mask="(000) 000-00-00"
+           prefix="+7 "
+           type="tel"
+           placeholder="Введите номер">
+  
+    <div class="custom-margin-top"></div>
+    <label for="passwordId">Пароль</label>
+    <input id="passwordId" class="custom-input"
+           [(ngModel)]="userTemplate.password"
+           type="password" placeholder="Введите пароль">
+  
+    <div class="custom-margin-top"></div>
+
+    <div class="custom-margin-top"></div>
+    <label for="emailId">Email пользователя</label>
+    <input id="emailId" class="custom-input"
+           [(ngModel)]="userTemplate.email"
+           type="text" placeholder="Введите email">
+
+    <div class="custom-margin-top"></div>
+    <label for="genderId">Выберите пол</label>
+    <input id="genderId" class="custom-input" readonly [(ngModel)]="userGender" (click)="openAlertGender()"
+           type="text" placeholder="Выберите пол">
+
+
+
+    <!--      <div class="custom-margin-top"></div>-->
+    <!--      <label for="passwordId">Пароль</label>-->
+    <!--      <input id="passwordId" autocomplete="new-password" class="custom-input" type="password"-->
+    <!--             placeholder="Введите пароль">-->
+
+
+    <div class="custom-margin-top"></div>
+    <button class="custom-button-movili" [disabled]="!userPhone.length
+        || !userTemplate.name.length || !userTemplate.email.length"
+            (click)="registerUser()">Зарегистрироваться
+    </button>
+
+    <div class="custom-margin-top"></div>
+    <div class="confident">Продолжая, вы соглашаетесь с нашими
+      <a href="">Условиями использования</a>
+      и
+      <a href="">Политика конфиденциальности</a>
+    </div>
+
+    <div class="custom-margin-top"></div>
+    <div class="account">Уже есть аккаунт ?
+      <a (click)="goToLogin()">Войти</a>
+    </div>
+  </div>
+
+
+</ion-content>

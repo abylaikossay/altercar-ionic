@@ -1,0 +1,132 @@
+:host {
+  .edit-profile-avatar {
+    width: 100%;
+    object-fit: cover;
+    height: 78vw;
+    border-radius: 0 0 25px 25px;
+  }
+  .bottom-fixed-buttons {
+    display: flex;
+    column-gap: 5vw;
+    justify-content: space-between;
+  }
+  .user-name {
+    text-align: center;
+    font-size: var(--custom-font-size-5);
+    line-height: var(--custom-line-height); //todo  18px;
+    letter-spacing: 0.1px;
+    color: var(--custom-text-color-movili-dark);
+    margin-right: 3vw;
+  }
+  .user-profession {
+    text-align: center;
+    font-size: var(--custom-font-size-8);
+    line-height: var(--custom-line-height); //todo 18px;
+    color: var(--custom-text-color-gray);
+  }
+  .experience {
+    font-size: var(--custom-font-size-9);
+  }
+  .user-location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--custom-font-size-9);
+    line-height: var(--custom-line-height); //todo 19px;
+    color: var(--custom-text-color-black);
+
+    & img {
+      margin-right: 2vw;
+      width: 4.5vw;
+    }
+  }
+  .user-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .icon-with-text {
+    display: grid;
+    font-size: var(--custom-font-size-9);
+    line-height: var(--custom-line-height); //todo 19px;
+    color: var(--custom-text-color-gray);
+
+    & img {
+      justify-self: center;
+    }
+
+    & .small-text {
+      justify-self: center;
+    }
+  }
+
+
+  .custom-transparent-button {
+    width: 100%;
+    color: var(--custom-text-color-movili);
+    border-color: var(--custom-backgrond-color-movili);
+  }
+  .isp-info {
+    font-weight: var(--custom-font-style-normal);
+    font-size: var(--custom-font-size-10);
+    line-height: var(--custom-line-height);
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    color: var(--custom-text-color-black);
+  }
+
+  .portfolio-photos {
+    white-space: nowrap;
+    overflow-x: visible;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    & .portfolio-photo {
+      width: 17vw;
+      height: 17vw;
+      object-fit: cover;
+      margin-right: 1.5vw;
+    }
+
+  }
+  .profile-margin-top {
+    margin-top: 3.5vw;
+  }
+  .profile-review {
+    padding: 3vw 5vw 4vw 3vw;
+    background: var(--custom-backgrond-color-white);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 3vw;
+  }
+
+  .flex-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+  }
+  .small-label {
+    font-size: var(--custom-font-size-10);
+    font-weight: var(--custom-font-weight-regular);
+  }
+  .profile-input {
+    font-weight: var(--custom-font-weight-regular);
+    font-size: var(--custom-font-size-9);
+    line-height: var(--custom-line-height);
+    text-transform: capitalize;
+    color: var(--custom-text-color-black);
+    position: relative;
+    background: var(--custom-background-color-white);
+    border: 0;
+    border-bottom: 1px solid var(--custom-backgrond-color-light-gray);
+    box-sizing: border-box;
+    outline-color: transparent;
+
+    &::placeholder {
+      color: #B1B1B1; //todo set new variable
+      //color: var(--custom-text-color-tertiary);
+    }
+  }
+}

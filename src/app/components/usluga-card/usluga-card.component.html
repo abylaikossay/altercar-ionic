@@ -1,0 +1,11 @@
+<div class="service-card"
+     style="background: url({{imageUrl}}) no-repeat">
+    <div class="service-info">
+        <div class="product-name">
+            {{serv?.name | appEmptyPipe}}
+        </div>
+        <p *ngIf="serv?.productCount">
+            Доступно более {{serv?.productCount | appEmptyPipe}}
+        </p>
+    </div>
+</div>

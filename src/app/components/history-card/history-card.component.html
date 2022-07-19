@@ -1,0 +1,34 @@
+<div class="cart-inside-border">
+
+    <div class="cart-grid">
+        <div class="cart-grid-span-1 full-width">
+            <img src="{{photoUrl + order.tireHistories[0].tirePartner.tire.photoUrl}}" class="img" alt="">
+            <!--			<div class="img" [appBackgroundImage]="{id:'assets/movili/rectangle.png',index:1, linear:''}"></div>-->
+        </div>
+        <div class="inner-cart-grid">
+            <div class="cart-grid-span-2 title wrap-text">{{order.tireHistories[0]?.tirePartner?.tire?.name}}
+                <br>
+                <span class="service-name">Заказ №{{order.id}}</span></div>
+            <div class="cart-grid-span-2 cart-flex">
+                <div class="price">Общая сумма: {{order.sum}}</div>
+            </div>
+            <div class="cart-grid-span-2 cart-flex">
+                <div class="price">Количество: {{order.amount}}</div>
+            </div>
+        </div>
+        <div class="icons">
+            <div class="icon-margin" (click)="goToInfo()">
+                <svg width="5" height="22" viewBox="0 0 5 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.5 5.5C1.11929 5.5 -1.86594e-07 4.26878 -1.20206e-07 2.75C-5.38182e-08 1.23122 1.11929 -1.69631e-07 2.5 -1.09278e-07C3.88071 -4.89256e-08 5 1.23122 5 2.75C5 4.26878 3.88071 5.5 2.5 5.5Z"
+                          fill="#C4C4C4"/>
+                    <path d="M2.5 22C1.11929 22 -9.07832e-07 20.7688 -8.41444e-07 19.25C-7.75056e-07 17.7312 1.11929 16.5 2.5 16.5C3.88071 16.5 5 17.7312 5 19.25C5 20.7688 3.88071 22 2.5 22Z"
+                          fill="#C4C4C4"/>
+                    <path d="M2.5 13.75C1.11929 13.75 -5.47213e-07 12.5188 -4.80825e-07 11C-4.14437e-07 9.48122 1.11929 8.25 2.5 8.25C3.88071 8.25 5 9.48122 5 11C5 12.5188 3.88071 13.75 2.5 13.75Z"
+                          fill="#C4C4C4"/>
+                </svg>
+            </div>
+
+        </div>
+
+    </div>
+</div>

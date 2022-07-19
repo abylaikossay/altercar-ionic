@@ -1,0 +1,20 @@
+:host {
+  .padding-registration {
+    padding-top: 120px;
+  }
+  .forgot-password {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .account {
+    position: relative;
+    text-align: center;
+    font-style: var(--custom-font-style-normal);
+    font-weight: var(--custom-font-weight-semibold);
+    font-size: var(--custom-font-size-9);
+    line-height: 110%;
+    letter-spacing: 0.05em;
+    color: var(--custom-text-color-black);
+  }
+
+}

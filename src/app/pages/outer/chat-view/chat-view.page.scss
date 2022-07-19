@@ -1,0 +1,32 @@
+:host {
+  .chat-header {
+    background: var(--custom-backgrond-color-navigation-bar);
+    box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(27.1828px);
+    transform: rotate(-0.12deg);
+    padding: 16px
+  }
+  .new-chat-flex {
+    display: flex;
+    justify-content: space-between;
+  }
+  .user-name {
+    font-style: var(--custom-font-style-normal);
+    font-weight: var(--custom-font-weight-bold);
+    font-size: var(--custom-font-);
+    line-height: var(--custom-line-height);
+    letter-spacing: -0.24px;
+    color: var(--custom-text-color-movili);
+  }
+  .user-name-img {
+    display: flex;
+    align-items: flex-end;
+    & img {
+      border-radius: 50%;
+      object-fit: cover;
+      width: 11vw;
+      height: 11vw;
+      margin-right: 3vw;
+    }
+  }
+}

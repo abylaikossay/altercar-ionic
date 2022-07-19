@@ -1,0 +1,36 @@
+:host {
+  .chat-header {
+    background: var(--custom-backgrond-color-navigation-bar);
+    box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(27.1828px);
+    transform: rotate(-0.12deg);
+    padding: 16px
+  }
+  .new-chat-flex {
+    display: flex;
+    justify-content: space-between;
+   & h2 {
+     background: var(--custom-backgrond-color-movili_gradient);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+   }
+  }
+  .back-btn-date {
+    display: flex;
+    align-items: center;
+
+    & svg {
+      margin-right: 3vw;
+    }
+  }
+  .header-date {
+    font-size: var(--custom-font-size-10);
+    font-weight: var(--custom-font-weight-bold);
+    color: var(--custom-text-color-movili-dark);
+  }
+
+  .chat-item {
+    margin: 5vw 0;
+    border-bottom: 0.5px solid var(--custom-backgrond-color-light-primary);
+  }
+}

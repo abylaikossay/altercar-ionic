@@ -1,0 +1,25 @@
+<app-common-header [header]="moviliHeader"></app-common-header>
+<!--<div class="header-categories">-->
+<!--    <div *ngFor="let category of categories" (click)="changeProducts(category)"-->
+<!--         class="category-name {{category.selected ? 'selected': ''}}">-->
+<!--        {{category.name}}-->
+<!--    </div>-->
+<!--</div>-->
+<ion-content>
+    <div class="page-padding home-padding">
+        <app-news-banner [banners]="banners"></app-news-banner>
+        <div class="custom-margin-top"></div>
+        <div class="section-title">
+            <h5>{{headerText}}</h5>
+<!--            <img src="assets/icon/filter.svg" (click)="goToFilter()" alt="">-->
+        </div>
+            <div class="tire-card">
+                <app-tire-card class="custom-margin-top" *ngFor="let product of products" [product]="product" (click)="goToTire(product)"></app-tire-card>
+                
+<!--                <app-applications-card [application]="applicaton" (click)="goToApplication(applicaton)"-->
+<!--                                       class="application-card"></app-applications-card>-->
+            </div>
+            
+    </div>
+</ion-content>
+

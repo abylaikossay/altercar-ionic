@@ -1,0 +1,16 @@
+.user-card {
+  width: 100%;
+  border-radius: 18px;
+  display: grid;
+  background-color: aliceblue;
+  grid-template-columns: 2fr 4fr 2fr 1fr;
+  margin-bottom: 4vw;
+  align-items: center;
+}
+.car-brand-logo {
+  width: 100%;
+}
+
+.car-name {
+  font-size: 17px !important;
+}

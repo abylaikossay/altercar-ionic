@@ -1,0 +1,34 @@
+:host {
+  .confident {
+    font-style: var(--custom-font-style-normal);
+    font-weight: var(--custom-font-weight-regular);
+    font-size: var(--custom-font-size-9);
+    color: var(--custom-text-color-gray);
+    letter-spacing: 0.05em;
+    line-height: 110%;
+  }
+
+  .account {
+    position: relative;
+    text-align: center;
+    font-style: var(--custom-font-style-normal);
+    font-weight: var(--custom-font-weight-semibold);
+    font-size: var(--custom-font-size-9);
+    line-height: 110%;
+    letter-spacing: 0.05em;
+    color: var(--custom-text-color-black);
+  }
+
+  .padding-registration {
+    padding-top: 3vw;
+  }
+  form {
+    & h4 {
+      margin-bottom: 10vw;
+    }
+  }
+  button.custom-button-movili {
+    margin-top: 10vw;
+  }
+
+}

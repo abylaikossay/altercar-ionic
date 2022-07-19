@@ -1,0 +1,19 @@
+:host {
+  display: block;
+
+  .tire-img {
+    width: 70vw;
+  }
+
+  .tire-card {
+    display: grid;
+    align-items: center;
+    background-color: aliceblue;
+    grid-template-columns: 1fr 2fr;
+    border-radius: var(--custom-border-radius);
+  }
+  .small-text {
+    font-size: var(--custom-font-size-8);
+    color: var(--custom-text-color-gray);
+  }
+}

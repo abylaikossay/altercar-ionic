@@ -1,31 +1,25 @@
 <div class="main-card">
-    <img *ngIf="!application?.imgUrl" src="../../../assets/unknown-avatar.jpeg" class="user-photo" alt="">
-    <img *ngIf="application?.imgUrl" src="{{fullUrl + application?.imgUrl}}" class="user-photo" alt="">
-    <div class="user-name">{{application?.userName}}</div>
+    <img *ngIf="!partner?.logoUrl" src="../../../assets/unknown-avatar.jpeg" class="user-photo" alt="">
+    <img *ngIf="partner?.logoUrl" src="{{fullUrl + partner?.logoUrl}}" class="user-photo" alt="">
+    <div class="user-name">{{partner?.name}}</div>
     <div class="right-icon">
         <img src="assets/icon/right-arrow.svg" alt="">
     </div>
-    <div class="user-address">{{application?.userLocation}}
+    <div class="user-address">
+        <span class="bold">Адресс: </span>
+        {{partner?.address}}
     </div>
     <div class="user-address">
-        <span class="bold">Услуга: </span>
-        {{application?.productName}}
+        <span class="bold">Номер: </span>
+        {{partner?.phone}}
     </div>
-
-    <div class="day-time">
-        <div *ngIf="application?.weekDay" class="calendar-day">{{application?.weekDay === 1 ? 'Пн'
-            : application?.weekDay === 2 ? 'Вт'
-                : application?.weekDay === 3 ? 'Ср'
-                    : application?.weekDay === 4 ? 'Чт'
-                        : application?.weekDay === 5 ? 'Пт'
-                            : application?.weekDay === 6 ? 'Cб'
-                                : application?.weekDay === 7 ? 'Вс'
-                                    : ''}}</div>
-        {{application?.orderDate}}
-    </div>
-    <div class="day-time">
-        <img src="assets/icon/time-icon.svg" alt="">
-        {{application?.startTime}}
-    </div>
+<!--    <div class="day-time">-->
+<!--        <div class="calendar-day">{{'Пн'}}</div>-->
+<!--        01.01.2022-->
+<!--    </div>-->
+<!--    <div class="day-time">-->
+<!--        <img src="assets/icon/time-icon.svg" alt="">-->
+<!--        18:00-->
+<!--    </div>-->
 
 </div>

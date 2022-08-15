@@ -1,0 +1,13 @@
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  & h5 {
+    font-size: var(--custom-font-size-7);
+  }
+}
+.empty-list {
+  text-align: center;
+  font-style: italic;
+  color: var(--custom-text-color-movili);
+  font-weight: var(--custom-font-weight-semibold);
+}

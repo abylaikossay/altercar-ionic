@@ -1,0 +1,7 @@
+<div class="car-item">
+    <img src="assets/profile.jpg" *ngIf="!carItem?.carBrand.logoUrl" class="car-brand-logo" alt="">
+    <img *ngIf="carItem?.carBrand.logoUrl" src="{{fullUrl + carItem?.carBrand.logoUrl}}" class="car-brand-logo" alt="">
+    <div class="car-name">{{carItem?.carBrand.name}} {{carItem?.carModel.name}}</div>
+    <div class="car-year">{{carItem?.carYear}}</div>
+
+</div>

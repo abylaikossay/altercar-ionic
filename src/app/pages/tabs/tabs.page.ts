@@ -12,13 +12,13 @@ export class TabsPage {
     @ViewChild('ionTabs') ionTabs: IonTabs;
 
     HOME_TAB = 'home-tab';
-    QR_TAB = 'qr-tab';
+    SERVICE_TAB = 'service-tab';
     HISTORY_TAB = 'history-tab';
     PROFILE_TAB = 'profile-tab';
     tabs: IonicTab[] = [];
     list: string[] = [
         this.HOME_TAB,
-        this.QR_TAB,
+        this.SERVICE_TAB,
         this.HISTORY_TAB,
         this.PROFILE_TAB,
     ];

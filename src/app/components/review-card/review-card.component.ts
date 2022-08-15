@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {OrderResponse} from '../../models/responses/OrderResponse';
 import {IspRatingResponse} from '../../models/responses/ispRatingResponse';
 import {environment} from '../../../environments/environment';
@@ -10,6 +10,7 @@ import {environment} from '../../../environments/environment';
 })
 export class ReviewCardComponent implements OnInit {
   @Input() tirePartner: any;
+  @Output() selectPartner: EventEmitter<any> = new EventEmitter<any>();
   photoUrl: string = environment.imageUrl + '/partner-logo/';
   isChosen: boolean = false;
   constructor() { }
@@ -20,9 +21,13 @@ export class ReviewCardComponent implements OnInit {
 
   chose() {
     // if (this.isChosen)
-    this.isChosen = true;
-    console.log(this.isChosen);
-    console.log( this.tirePartner);
+    if (this.isChosen) {
+      this.isChosen = false;
+      this.selectPartner.emit(null);
+    } else {
+      this.isChosen = true;
+      this.selectPartner.emit(this.tirePartner);
+    }
 
   }
 }

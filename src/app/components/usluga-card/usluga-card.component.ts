@@ -10,14 +10,14 @@ import {environment} from '../../../environments/environment';
 export class UslugaCardComponent implements OnInit {
 
 
-    @Input() serv: ServiceResponse;
+    @Input() serv: any;
     imageUrl: string;
 
     constructor() {
     }
 
     ngOnInit() {
-        this.imageUrl = environment.imageUrl + '/usluga/' + this.serv?.photo;
+        this.imageUrl = 'assets/images/' + this.serv?.imageName;
     }
 
 }

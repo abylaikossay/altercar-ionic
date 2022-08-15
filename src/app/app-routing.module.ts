@@ -125,10 +125,34 @@ const routes: Routes = [
     path: 'user-cars',
     loadChildren: () => import('./pages/inner-tab/profile/user-cars/user-cars.module').then( m => m.UserCarsPageModule)
   },
-  {
-    path: 'tire',
-    loadChildren: () => import('./pages/inner-tab/home/tire/tire.module').then( m => m.TirePageModule)
-  },
+  // {
+  //   path: 'auto-service-list',
+  //   loadChildren: () => import('./pages/inner-tab/home/auto-service-list/auto-service-list.module').then( m => m.AutoServiceListPageModule)
+  // },
+
+  // {
+  //   path: 'tire-list',
+  //   loadChildren: () => import('./pages/inner-tab/home/tire-list/tire-list.module').then( m => m.TireListPageModule)
+  // },
+  // {
+  //   path: 'service-list',
+  //   loadChildren: () => import('./pages/inner-tab/home/service-list/service-list.module').then( m => m.ServiceListPageModule)
+  // },
+
+  // {
+  //   path: 'user-car',
+  //   loadChildren: () => import('./pages/inner-tab/home/user-car/user-car.module').then( m => m.UserCarPageModule)
+  // },
+
+  // {
+  //   path: 'tire',
+  //   loadChildren: () => import('./pages/inner-tab/home/tire/tire.module').then( m => m.TirePageModule)
+  // },
+  // {
+  //   path: 'home',
+  //   loadChildren: () => import('./pages/inner-tab/home/home/home.module').then( m => m.HomePageModule)
+  // },
+
 
   // {
   //   path: 'user-cars',

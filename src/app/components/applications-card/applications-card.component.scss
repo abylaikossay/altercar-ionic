@@ -6,8 +6,8 @@
     row-gap: 1vw;
   }
   .user-photo {
-    grid-row: span 6;
-    object-fit: cover;
+    grid-row: span 3;
+    object-fit: contain;
     border-radius: 27px;
     width: 18vw;
     height: 18vw;
@@ -19,7 +19,7 @@
     color: var(--custom-text-color-movili-dark);
   }
   .right-icon {
-    grid-row: span 6;
+    grid-row: span 3;
     color: var(--custom-text-color-movili-dark);
     align-self: center;
   }

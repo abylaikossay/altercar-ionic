@@ -96,9 +96,8 @@ export class MoviliHeader {
     }
 
     static APPOINTMENT_INFO(): MoviliHeader {
-        return new MoviliHeader('Информация о записи',
-            true,
-            'end');
+        return new MoviliHeader('Информация',
+            true);
     }
 
 

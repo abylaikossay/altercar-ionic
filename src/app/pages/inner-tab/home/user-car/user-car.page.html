@@ -1,0 +1,27 @@
+<ion-content>
+  <app-common-header [header]="moviliHeader"></app-common-header>
+  <div class="page-padding">
+    <div class="custom-margin-bottom" *ngFor="let service of services">
+      <app-usluga-card (click)="goToType(service)" [serv]="service"></app-usluga-card>
+    </div>
+<!--    <div class="categories-list">-->
+<!--      <ul>-->
+<!--        <li class="filter-item-element {{(category.selected) ? 'checked': ''}}" *ngFor="let category of categories"-->
+<!--            (click)="checkCategory(category)">-->
+<!--          <span class="category-name">-->
+<!--          {{category.name}}-->
+<!--          </span>-->
+<!--          <div class="checkbox">-->
+<!--          </div>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+  </div>
+</ion-content>
+<!--<ion-footer>-->
+<!--  <div class="page-padding">-->
+<!--    <button class="custom-button-movili">-->
+<!--      <span>Далее</span>-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</ion-footer>-->

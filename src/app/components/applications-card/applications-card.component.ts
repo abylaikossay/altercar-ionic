@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ProductResponse} from '../../models/responses/ProductResponse';
 import {ApplicationResponse} from '../../models/responses/ApplicationResponse';
 import {environment} from '../../../environments/environment';
+import {PartnerResponse} from '../../models/responses/PartnerResponse';
 
 @Component({
   selector: 'app-applications-card',
@@ -10,12 +11,12 @@ import {environment} from '../../../environments/environment';
 })
 export class ApplicationsCardComponent implements OnInit {
 
-  @Input() application: ApplicationResponse;
-  fullUrl: string = environment.imageUrl + '/user/';
+  @Input() partner: PartnerResponse;
+  fullUrl: string = environment.imageUrl + '/partner-logo/';
   constructor() { }
 
   ngOnInit() {
-    console.log(this.application);
+    console.log(this.partner);
   }
 
 }

@@ -1,0 +1,37 @@
+:host {
+  display: block;
+  background: var(--custom-backgrond-color-white);
+  padding: 2vw;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  .car-item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 3vw;
+
+    .car-brand-logo {
+      width: 20vw;
+      height: 20vw;
+      border-radius: 50%;
+      object-fit: cover;
+      grid-row: span 2;
+    }
+    .car-name {
+      font-weight: var(--custom-font-weight-semibold);
+      font-size: var(--custom-font-size-7);
+      line-height: 18px;
+      align-self: end;
+      letter-spacing: 0.1px;
+      color: var(--custom-text-color-movili);
+    }
+    .car-year {
+      font-weight: var(--custom-font-weight-semibold);
+      font-size: var(--custom-font-size-9);
+      line-height: 18px;
+      align-self: start;
+      letter-spacing: 0.1px;
+      color: var(--custom-text-color-gray);
+    }
+
+  }
+
+}

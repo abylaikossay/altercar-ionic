@@ -1,0 +1,37 @@
+:host {
+  .history-category {
+    font-weight: var(--custom-font-weight-semibold);
+    font-size: var(--custom-font-size-7);
+    letter-spacing: -0.28px;
+    color: var(--custom-text-color-movili);
+  }
+  .header-categories {
+    display: flex;
+    justify-content: space-around;
+  }
+  .home-padding {
+    padding: 0 16px;
+  }
+  .section-title {
+    display: flex;
+    justify-content: space-between;
+    & h5 {
+      font-size: var(--custom-font-size-7);
+    }
+  }
+  .tire-card-scroll {
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .card {
+      display: inline-block;
+    }
+  }
+  .car-item-list {
+    margin-top: 3vw;
+  }
+}

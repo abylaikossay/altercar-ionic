@@ -10,4 +10,5 @@ export class TireResponse {
   quality: string;
   photoUrl: string;
   brand: any;
+  id: number;
 }

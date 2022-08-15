@@ -1,21 +1,38 @@
 <ion-content>
-  <app-common-header [header]="moviliHeader"></app-common-header>
-  <div class="page-padding">
-  
-  <img class="tire-photo" src="{{imgUrl + tire.photoUrl}}" alt="">
-  <div class="tire-header">
-    <div class="tire-name">
-      {{tire.name}}, {{tire.width}}/{{tire.height}} R{{tire.diameter}}
-    </div>
-    <div class="tire-header">
-      Сумма: {{tire.price}} ₸
-    </div>
-  </div>
-            <div class="custom-margin-top"></div>
-            <label>Продавцы</label>
-            <div class="review-card" *ngFor="let partner of partners">
-                <app-review-card [tirePartner]="partner" class="profile-review"></app-review-card>
-                <div class="profile-margin-top"></div>
+    <app-common-header [header]="moviliHeader"></app-common-header>
+    <div class="page-padding">
+
+        <img class="tire-photo" src="{{imgUrl + tire.photoUrl}}" alt="">
+        <div class="tire-header">
+            <div class="tire-name">
+                {{tire.name}}, {{tire.width}}/{{tire.height}} R{{tire.diameter}}
             </div>
-  </div>
+            <div class="tire-header">
+                Сумма: {{tire.price}} ₸
+            </div>
+        </div>
+        <div class="custom-margin-top"></div>
+        <label>Продавцы</label>
+        <div class="review-card" *ngFor="let partner of partners">
+            <app-review-card [tirePartner]="partner" (selectPartner)="selectedPartnerEvent($event)"
+                             class="profile-review custom-margin-top"></app-review-card>
+            <div class="profile-margin-top"></div>
+        </div>
+        <div *ngIf="partnerSelected" class="select-amount">
+            <label for="amountId">Введите количество</label>
+            <input id="amountId" class="custom-input"
+                   [(ngModel)]="tireOrderProductRequest.amount"
+                   type="number" placeholder="Введите количество">
+            <div class="custom-margin-top"></div>
+            <label for="commentId">Напишите коментарий</label>
+            <input id="commentId" class="custom-input"
+                   [(ngModel)]="tireOrderRequest.comment"
+                   type="text" placeholder="Напишите коментарий">
+            <div class="custom-margin-top"></div>
+            <button class="custom-button-movili"
+                    [disabled]="!tireOrderProductRequest.amount || !tireOrderProductRequest.amount > 0"
+                    (click)="createOrder()">Создать заказ
+            </button>
+        </div>
+    </div>
 </ion-content>

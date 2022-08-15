@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { BannerControllerService } from './banner-controller.service';
-import { ApplicationControllerService } from './application-controller.service';
-import { TireControllerService } from './tire-controller.service';
-import { PartnerControllerService } from './partner-controller.service';
+import {Injectable} from '@angular/core';
+import {BannerControllerService} from './banner-controller.service';
+import {ApplicationControllerService} from './application-controller.service';
+import {TireControllerService} from './tire-controller.service';
+import {PartnerControllerService} from './partner-controller.service';
 
 @Injectable({
     providedIn: 'root',
@@ -15,6 +15,18 @@ export class PartnerService {
 
     getPartnersByTireId(id: number) {
         return this.partnerControllerService.getPartnersByTireId(id);
+    }
+
+    getAllServicePartners(id: number) {
+        return this.partnerControllerService.getAllServicePartners(id);
+    }
+
+    getAll() {
+        return this.partnerControllerService.getAll();
+    }
+
+    getById(id: number) {
+        return this.partnerControllerService.getById(id);
     }
 
 

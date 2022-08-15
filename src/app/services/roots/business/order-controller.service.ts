@@ -7,6 +7,7 @@ import { OrderResponse } from '../../../models/responses/OrderResponse';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserCarResponse } from '../../../models/responses/UserCarResponse';
+import {TireOrderRequest} from '../../../models/requests/TireOrderRequest';
 
 @Injectable({
     providedIn: 'root',
@@ -30,5 +31,9 @@ export class OrderControllerService {
         } else {
             return this.http.get<any[]>(this.fullUrl + 'order/all/user');
         }
+    }
+
+    createOrder(tireOrderRequest: TireOrderRequest): Observable<any> {
+        return this.http.post(this.fullUrl + 'order/tire', tireOrderRequest);
     }
 }

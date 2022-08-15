@@ -13,7 +13,7 @@ export class NewsBannerComponent implements OnInit {
         speed: 400,
     };
     @Input() banners: BannersResponse[];
-    photoUrl: string = environment.imageUrl + '/tire-photo/';
+    photoUrl: string = environment.imageUrl + '/';
 
     // banners: any = [1, 2, 3];
 

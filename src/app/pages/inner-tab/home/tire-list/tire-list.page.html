@@ -1,0 +1,18 @@
+<ion-content>
+  <app-common-header [header]="moviliHeader"></app-common-header>
+  <div class="page-padding">
+    <div class="custom-margin-top"></div>
+    <div class="section-title">
+      <h5>Все шины</h5>
+      <img src="assets/icon/filter.svg" (click)="goToFilter()" alt="">
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="card" *ngFor="let tireResponse of tireResponses" >
+      <app-tire-card class="custom-margin-top"  [product]="tireResponse" (click)="goToTire(tireResponse)"></app-tire-card>
+    </div>
+    <div *ngIf="tireResponses.length === 0"  class="empty-list">
+      <div class="custom-margin-top"></div>
+      <h3>На вашу машину нет шин</h3>
+    </div>
+  </div>
+</ion-content>

@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
-import { ToastService } from '../../../../services/controllers/toast.service';
-import { NavController } from '@ionic/angular';
-import { MoviliHeader } from '../../../../models/commons/MoviliHeader';
-import { TireService } from '../../../../services/roots/business/tire.service';
-import { TireResponse } from '../../../../models/responses/TireResponse';
-import { environment } from '../../../../../environments/environment';
-import { PartnerService } from '../../../../services/roots/business/partner.service';
+import {Component, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
+import {ToastService} from '../../../../services/controllers/toast.service';
+import {NavController} from '@ionic/angular';
+import {MoviliHeader} from '../../../../models/commons/MoviliHeader';
+import {TireService} from '../../../../services/roots/business/tire.service';
+import {TireResponse} from '../../../../models/responses/TireResponse';
+import {environment} from '../../../../../environments/environment';
+import {PartnerService} from '../../../../services/roots/business/partner.service';
+import {TireOrderRequest} from '../../../../models/requests/TireOrderRequest';
+import {TireOrderProductRequest} from '../../../../models/requests/TireOrderProductRequest';
+import {OrderService} from '../../../../services/roots/business/order.service';
 
 @Component({
     selector: 'app-tire',
@@ -21,12 +24,16 @@ export class TirePage implements OnInit {
     moviliHeader: MoviliHeader = MoviliHeader.TITLE_WITH_BACK('Купить шину');
     imgUrl: string = environment.imageUrl + '/tire-photo/';
     partners: any[] = [];
+    partnerSelected: any;
+    tireOrderRequest: TireOrderRequest = new TireOrderRequest();
+    tireOrderProductRequest: TireOrderProductRequest = new TireOrderProductRequest();
 
     constructor(private route: ActivatedRoute,
                 private toastService: ToastService,
                 private navCtrl: NavController,
                 private tireService: TireService,
                 private partnerService: PartnerService,
+                private orderService: OrderService,
     ) {
     }
 
@@ -61,4 +68,30 @@ export class TirePage implements OnInit {
         });
     }
 
+
+    selectedPartnerEvent(event: any) {
+        console.log(event);
+        if (event) {
+            this.partnerSelected = event;
+        } else {
+            this.partnerSelected = null;
+        }
+    }
+
+    createOrder() {
+        this.tireOrderProductRequest.tireId = this.partnerSelected.tire.id;
+        this.tireOrderProductRequest.partnerId = this.partnerSelected.partner.id;
+        this.tireOrderRequest.tireOrderProductRequests = [];
+        this.tireOrderRequest.tireOrderProductRequests.push(this.tireOrderProductRequest);
+        console.log(this.tireOrderRequest);
+        this.orderService.createOrder(this.tireOrderRequest).toPromise().then(resp => {
+            console.log(resp);
+            this.toastService.present('Заказ успешно создан!');
+            this.navCtrl.navigateRoot(['/tabs/home-tab']);
+        }).catch( err => {
+            console.log(err);
+            this.toastService.present(err.error.debugMessage);
+        });
+
+    }
 }

@@ -30,6 +30,10 @@ export class TireControllerService {
         return this.http.get<TireResponse[]>(this.fullUrl + 'tire/all');
     }
 
+    getAllTiresByUserCar(userCarId: number): Observable<TireResponse[]> {
+        return this.http.get<TireResponse[]>(this.fullUrl + 'tire/user-car/' + userCarId);
+    }
+
     getTireById(id: number): Observable<TireResponse> {
         return this.http.get<TireResponse>(this.fullUrl + 'tire/' + id);
     }

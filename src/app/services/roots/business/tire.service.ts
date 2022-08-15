@@ -18,6 +18,9 @@ export class TireService {
     getAllTires() {
         return this.tireControllerService.getAllTires();
     }
+    getAllTiresByUserCar(userCarId: number) {
+        return this.tireControllerService.getAllTiresByUserCar(userCarId);
+    }
 
     getTireById(id: number) {
         return this.tireControllerService.getTireById(id);

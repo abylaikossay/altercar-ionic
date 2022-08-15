@@ -1,0 +1,20 @@
+<ion-content>
+  <app-common-header [header]="moviliHeader"></app-common-header>
+  <div class="page-padding">
+    <div class="filter-header-scroll">
+      <div class="filter-item" *ngFor="let filter of filters"></div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="active-applications">
+      <div class="card-margin-border" *ngFor="let partner of partners">
+        <app-applications-card [partner]="partner" (click)="goToPartner(partner)"
+                               class="application-card"></app-applications-card>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+</ion-content>

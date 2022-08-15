@@ -1,0 +1,7 @@
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  & h5 {
+    font-size: var(--custom-font-size-7);
+  }
+}

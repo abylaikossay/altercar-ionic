@@ -25,6 +25,10 @@ const routes: Routes = [
                 path: 'profile-tab',
                 loadChildren: () => import('../tab/profile-tab/profile-tab.module').then(m => m.ProfileTabPageModule),
             },
+            {
+                path: 'service-tab',
+                loadChildren: () => import('../tab/service-tab/service-tab.module').then(m => m.ServiceTabPageModule),
+            },
         ],
     },
     {

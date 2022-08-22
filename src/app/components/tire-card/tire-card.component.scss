@@ -3,6 +3,8 @@
 
   .tire-img {
     width: 70vw;
+    border-radius: var(--custom-border-radius);
+    height: 30vw;
   }
 
   .tire-card {
@@ -10,6 +12,8 @@
     align-items: center;
     background-color: aliceblue;
     grid-template-columns: 1fr 2fr;
+    padding: 3vw;
+    grid-gap: 4vw;
     border-radius: var(--custom-border-radius);
   }
   .small-text {

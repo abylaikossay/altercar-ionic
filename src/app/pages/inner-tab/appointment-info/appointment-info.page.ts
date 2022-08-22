@@ -9,6 +9,9 @@ import {PartnerService} from '../../../services/roots/business/partner.service';
 import {PartnerResponse} from '../../../models/responses/PartnerResponse';
 import {AppointmentService} from '../../../services/roots/business/appointment.service';
 import {AppointmentRequest} from '../../../models/requests/AppointmentRequest';
+import {UserCarResponse} from '../../../models/responses/UserCarResponse';
+import {UserCarService} from '../../../services/roots/business/user-car.service';
+import {SettingControllerService} from '../../../services/controllers/setting-controller.service';
 
 @Component({
     selector: 'app-appointment-info',
@@ -24,12 +27,15 @@ export class AppointmentInfoPage implements OnInit {
                 private partnerService: PartnerService,
                 private toastService: ToastService,
                 private appointmentService: AppointmentService,
+                private userCarService: UserCarService,
+                private settingControllerService: SettingControllerService,
                 private navCtrl: NavController) {
     }
 
     fullUrl: string = environment.imageUrl + '/partner-logo/';
-    services: any = [];
+    services: any = [{productName: 'test'}, {productName: 'test3'}, {productName: 'test2'}];
     userCarId: number;
+    userCarResponse: UserCarResponse;
     partnerId: number;
     partner: PartnerResponse = new PartnerResponse();
     works: any[] = [{text: ''}];
@@ -55,10 +61,20 @@ export class AppointmentInfoPage implements OnInit {
             }
             if (data.carId) {
                 this.userCarId = data.carId;
+                this.getUserCar();
             }
 
         });
         this.$url.unsubscribe();
+    }
+
+    getUserCar() {
+        this.userCarService.getCarById(this.userCarId).toPromise().then(resp => {
+            this.userCarResponse = resp;
+            console.log(this.userCarResponse);
+        }).catch(err => {
+            console.error(err);
+        });
     }
 
     call(partnerResponse: PartnerResponse) {
@@ -74,32 +90,48 @@ export class AppointmentInfoPage implements OnInit {
     }
 
     appoint(partnerResponse: PartnerResponse) {
-        this.appointmentRequest.userCarId = this.userCarId;
-        this.appointmentRequest.partnerId = this.partnerId;
-        this.appointmentRequest.appointmentDate = new Date();
-        this.appointmentRequest.setOfWorks = [];
-        this.works.forEach(element => {
-            this.appointmentRequest.setOfWorks.push(element.text);
-        });
-        console.log(this.appointmentRequest);
-        this.appointmentService.create(this.appointmentRequest).toPromise().then(resp => {
-            console.log(resp);
-            this.toastService.present(resp.message);
-            this.navCtrl.navigateRoot(['/tabs/home-tab']);
-        }).catch(err => {
-            console.log(err);
-        });
-        // this.applicationService.hideApp(application.appId).toPromise().then(resp => {
-        //     console.log(resp);
-        //     this.toastService.present(resp.message);
-        // }).catch(err => {
-        //     this.toastService.present(err.error.message);
-        //     this.navCtrl.navigateRoot([`tabs/home-tab`]);
-        //     console.error(err);
-        // })
+        if (!this.userCarResponse) {
+            this.toastService.present('Выберите для начала машину');
+        } else {
+            this.appointmentRequest.userCarId = this.userCarId;
+            this.appointmentRequest.partnerId = this.partnerId;
+            this.appointmentRequest.appointmentDate = new Date();
+            this.appointmentRequest.setOfWorks = [];
+            this.works.forEach(element => {
+                this.appointmentRequest.setOfWorks.push(element.text);
+            });
+            console.log(this.appointmentRequest);
+            this.appointmentService.create(this.appointmentRequest).toPromise().then(resp => {
+                console.log(resp);
+                this.toastService.present(resp.message);
+                this.navCtrl.navigateRoot(['/tabs/home-tab']);
+            }).catch(err => {
+                console.log(err);
+            });
+        }
     }
 
     addWork() {
         this.works.push({text: ''});
+    }
+
+    async selectCar() {
+        this.userCarService.getUserCars().toPromise().then(async resp => {
+            const alertChooseCar = this.settingControllerService.setAlertUserCar(resp);
+            const value = await alertChooseCar.present();
+            console.log(value);
+            if (value.data) {
+                this.userCarResponse = value.data;
+                this.userCarId = this.userCarResponse.id;
+            }
+        }).catch(err => {
+            console.error(err);
+        });
+    }
+
+    carRemoved(event: any) {
+        console.log(event);
+        this.userCarResponse = null;
+
     }
 }

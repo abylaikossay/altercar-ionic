@@ -36,13 +36,24 @@ export class TireListPage implements OnInit {
                 this.userCarId = data.id;
                 this.getUserCar();
                 this.getAllCarTires();
+            } else {
+                this.getAllTires();
             }
         });
     }
 
     getAllCarTires() {
-        console.log(this.userCar);
         this.tireService.getAllTiresByUserCar(this.userCarId).toPromise().then(resp => {
+            console.log(resp);
+            this.tireResponses = resp;
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+
+
+    getAllTires() {
+        this.tireService.getAllTires().toPromise().then(resp => {
             console.log(resp);
             this.tireResponses = resp;
         }).catch(err => {
@@ -69,6 +80,10 @@ export class TireListPage implements OnInit {
 
     goToTire(tireResponse: TireResponse) {
         console.log(tireResponse);
-        this.navCtrl.navigateForward([`tabs/home-tab/tire/${tireResponse.id}`]);
+        if (this.userCarId) {
+            this.navCtrl.navigateForward([`tabs/home-tab/tire/${tireResponse.id}`]);
+        } else {
+            this.navCtrl.navigateForward([`tabs/service-tab/tire/${tireResponse.id}`]);
+        }
     }
 }

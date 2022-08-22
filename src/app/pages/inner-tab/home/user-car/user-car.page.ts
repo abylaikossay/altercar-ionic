@@ -12,7 +12,7 @@ import {NavController} from '@ionic/angular';
     styleUrls: ['./user-car.page.scss'],
 })
 export class UserCarPage implements OnInit {
-    moviliHeader: MoviliHeader = MoviliHeader.TITLE_WITH_BACK('Моя машина');
+    moviliHeader: MoviliHeader = MoviliHeader.TITLE_WITH_BACK('Сервисы');
     url: Subscription;
     userCarId: number;
     services: any[] = [
@@ -67,10 +67,44 @@ export class UserCarPage implements OnInit {
 
     goToType(service: any) {
         console.log(service);
-        if (service.id === 'TIRES') {
-            this.navCtrl.navigateForward('/tabs/home-tab/tire-list/' + this.userCarId);
-        } else if (service.id === 'SERVICES') {
-            this.navCtrl.navigateForward('/tabs/home-tab/service-list/' + this.userCarId);
+        switch (service.id) {
+            case 'TIRES':
+                if (this.userCarId) {
+                    this.navCtrl.navigateForward('/tabs/home-tab/tire-list/' + this.userCarId);
+                } else {
+                    this.navCtrl.navigateForward('/tabs/service-tab/tire-list');
+                }
+                break;
+            case 'SERVICES':
+                if (this.userCarId) {
+                    this.navCtrl.navigateForward('/tabs/home-tab/service-list/' + this.userCarId);
+                } else {
+                    this.navCtrl.navigateForward('/tabs/service-tab/service-list');
+                }
+                break;
+            case 'AUTOPARTS':
+                console.log('test AUTOPARTS');
+                break;
+            case 'HELP':
+                console.log('test HELP');
+                break;
         }
+        // if (service.id === 'TIRES') {
+        //     if (this.userCarId) {
+        //         this.navCtrl.navigateForward('/tabs/home-tab/tire-list/' + this.userCarId);
+        //     } else {
+        //         this.navCtrl.navigateForward('/tabs/home-tab/tire-list/');
+        //     }
+        // } else if (service.id === 'SERVICES') {
+        //     if (this.userCarId) {
+        //         this.navCtrl.navigateForward('/tabs/home-tab/service-list/' + this.userCarId);
+        //     } else {
+        //         this.navCtrl.navigateForward('/tabs/home-tab/service-list/');
+        //     }
+        // } else if (service.id === 'AUTOPARTS') {
+        //     console.log('test AUTOPARTS');
+        // } else if (service.id === 'HELP') {
+        //     console.log('test HELP');
+        // }
     }
 }

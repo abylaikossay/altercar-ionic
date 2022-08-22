@@ -14,6 +14,7 @@ import { UserLocationResponse } from '../../models/responses/UserLocationRespons
 import { FilterComponent } from 'src/app/components/filter/filter.component';
 import { CarBrandResponse } from '../../models/responses/CarBrandResponse';
 import { CarModelResponse } from '../../models/responses/CarModelResponse';
+import {UserCarResponse} from '../../models/responses/UserCarResponse';
 
 /*
 * Use only with Option, if you want use specific ionic controller use other service
@@ -161,6 +162,23 @@ export class SettingControllerService extends AbstractSettingController {
             return {
                 animated: true,
                 header: 'Выберите ардесс:',
+                buttons: [...buttons],
+            };
+        });
+    }
+    public setAlertUserCar(userCars: UserCarResponse[]): IonicControllerAbstract {
+        return this.setExtraOption(this.actionSheetService, (ionicController): IonicControllerOptionType => {
+            const buttons = userCars.map((item) => {
+                return {
+                    text: item.carBrand.name + ' ' + item.carModel.name,
+                    handler: data => {
+                        ionicController.dismiss(item);
+                    },
+                };
+            });
+            return {
+                animated: true,
+                header: 'Выберите машину:',
                 buttons: [...buttons],
             };
         });

@@ -49,6 +49,11 @@ export class ServiceListPage implements OnInit {
 
     goToServices(category: any) {
         console.log(category);
-        this.navCtrl.navigateForward([`tabs/home-tab/auto-service-list/${category.id}/car/${this.userCarId}`]);
+        console.log(this.userCarId);
+        if (this.userCarId) {
+            this.navCtrl.navigateForward([`tabs/home-tab/auto-service-list/${category.id}/car/${this.userCarId}`]);
+        } else {
+            this.navCtrl.navigateForward([`tabs/service-tab/auto-service-list/${category.id}`]);
+        }
     }
 }

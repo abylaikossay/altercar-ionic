@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MoviliHeader} from '../../../../models/commons/MoviliHeader';
 import {BannersResponse} from '../../../../models/responses/BannersResponse';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-service',
@@ -24,9 +25,14 @@ export class ServicePage implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(private navCtrl: NavController) {
+  }
 
   ngOnInit() {
   }
 
+  goToCategories() {
+    this.navCtrl.navigateRoot(['/tabs/service-tab/user-car/']);
+
+  }
 }

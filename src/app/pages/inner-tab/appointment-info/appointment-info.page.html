@@ -14,8 +14,10 @@
             </div>
         </div>
         <div class="custom-margin-top"></div>
-        <div class="services-header">Услуи</div>
-        <app-used-service class="service-li" *ngFor="let service of services" [service]="service"></app-used-service>
+        <div class="services-header">Машина</div>
+        <div class="custom-margin-top"></div>
+        <app-used-service *ngIf="userCarResponse" class="service-li" (carRemoved)="carRemoved($event)" [service]="userCarResponse"></app-used-service>
+        <button *ngIf="!userCarResponse" class="custom-transparent-button white-btn" (click)="selectCar()">Выберите машину</button>
         <div class="horizontal-line"></div>
         <div class="custom-margin-top"></div>
         <div class="appointment-date-info">
@@ -68,7 +70,7 @@
 </ion-content>
 <ion-footer>
     <div class="page-padding bottom-fixed-buttons">
-        <button class="custom-transparent-button" (click)="call(partner)">
+        <button class="custom-button-movili call" (click)="call(partner)">
             <span>Позвонить</span>
         </button>
         <button class="custom-button-movili" (click)="appoint(partner)">

@@ -70,6 +70,10 @@ export class AutoServiceListPage implements OnInit {
     }
 
     goToPartner(partner: any) {
-        this.navCtrl.navigateForward([`appointment-info/${partner.id}/user-car/${this.userCarId}`]);
+        if (this.userCarId) {
+            this.navCtrl.navigateForward([`appointment-info/${partner.id}/user-car/${this.userCarId}`]);
+        } else {
+            this.navCtrl.navigateForward([`appointment-info/${partner.id}`]);
+        }
     }
 }

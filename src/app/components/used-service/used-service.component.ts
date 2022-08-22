@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ApplicationResponse} from '../../models/responses/ApplicationResponse';
+import {UserCarResponse} from '../../models/responses/UserCarResponse';
 
 @Component({
   selector: 'app-used-service',
@@ -7,9 +8,15 @@ import {ApplicationResponse} from '../../models/responses/ApplicationResponse';
   styleUrls: ['./used-service.component.scss'],
 })
 export class UsedServiceComponent implements OnInit {
-  @Input() service: any;
+  @Input() service: UserCarResponse;
+  @Output() carRemoved: EventEmitter<any> = new EventEmitter<any>();
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.service);
+  }
 
+  changeCar() {
+    this.carRemoved.emit(this.service);
+  }
 }

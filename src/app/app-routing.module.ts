@@ -124,11 +124,7 @@ const routes: Routes = [
   {
     path: 'user-cars',
     loadChildren: () => import('./pages/inner-tab/profile/user-cars/user-cars.module').then( m => m.UserCarsPageModule)
-  },  {
-    path: 'category',
-    loadChildren: () => import('./pages/inner-tab/service/category/category.module').then( m => m.CategoryPageModule)
   },
-
   // {
   //   path: 'auto-service-list',
   //   loadChildren: () => import('./pages/inner-tab/home/auto-service-list/auto-service-list.module').then( m => m.AutoServiceListPageModule)

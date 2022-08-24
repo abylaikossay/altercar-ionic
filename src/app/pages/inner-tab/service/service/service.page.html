@@ -9,9 +9,12 @@
             <h5>Выберите сервис</h5>
         </div>
         <div class="custom-margin-top"></div>
-        <div class="categories">
-            <button class="custom-button-movili" (click)="goToCategories()">Выбрать категорию</button>
+        <div class="custom-margin-bottom" *ngFor="let service of services">
+            <app-usluga-card (click)="goToType(service)" [serv]="service"></app-usluga-card>
         </div>
+<!--        <div class="categories">-->
+<!--            <button class="custom-button-movili" (click)="goToCategories()">Выбрать категорию</button>-->
+<!--        </div>-->
 
     </div>
 </ion-content>

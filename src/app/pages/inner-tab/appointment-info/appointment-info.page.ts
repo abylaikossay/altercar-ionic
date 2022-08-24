@@ -121,8 +121,12 @@ export class AppointmentInfoPage implements OnInit {
             const value = await alertChooseCar.present();
             console.log(value);
             if (value.data) {
-                this.userCarResponse = value.data;
-                this.userCarId = this.userCarResponse.id;
+                if (value.data !== 'New') {
+                    this.userCarResponse = value.data;
+                    this.userCarId = this.userCarResponse.id;
+                } else {
+                    this.navCtrl.navigateForward(['/add-user-car']);
+                }
             }
         }).catch(err => {
             console.error(err);

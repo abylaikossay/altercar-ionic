@@ -176,6 +176,11 @@ export class SettingControllerService extends AbstractSettingController {
                     },
                 };
             });
+            buttons.push({
+                handler(data): void {
+                    ionicController.dismiss('New');
+                }, text: 'Добавить машину'});
+            console.log(buttons);
             return {
                 animated: true,
                 header: 'Выберите машину:',

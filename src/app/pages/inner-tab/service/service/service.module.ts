@@ -9,6 +9,7 @@ import {ServicePage} from './service.page';
 import {CommonHeaderModule} from '../../../../components/header/common-header/common-header.module';
 import {NewsBannerModule} from '../../../../components/news-banner/news-banner.module';
 import {ServiceCategoryModule} from '../../../../components/service-category/service-category.module';
+import {UslugaCardModule} from '../../../../components/usluga-card/usluga-card.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {ServiceCategoryModule} from '../../../../components/service-category/ser
         CommonHeaderModule,
         NewsBannerModule,
         ServiceCategoryModule,
+        UslugaCardModule,
     ],
     declarations: [ServicePage],
 })

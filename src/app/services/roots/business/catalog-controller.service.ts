@@ -19,9 +19,5 @@ export class CatalogControllerService {
     }
 
 
-    getCatalogByType(type: TireCatalogTypeEnum) {
-        return this.httpService.get('/api/tire-catalog/type?type=' + type)
-            .pipe(map(value => value.body as TireCatalogResponse[]));
-    }
 
 }

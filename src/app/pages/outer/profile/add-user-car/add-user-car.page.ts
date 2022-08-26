@@ -106,7 +106,7 @@ export class AddUserCarPage implements OnInit {
         if (this.carId) {
             this.userCarService.update(userCarRequest, this.carId).toPromise().then(resp => {
                 this.toastService.present('Машина успешно обновлена!');
-                this.navCtrl.navigateRoot(['user-cars']);
+                this.navCtrl.back({animated: true});
                 console.log(resp);
             }).catch(err => {
                 console.log(err);
@@ -115,7 +115,7 @@ export class AddUserCarPage implements OnInit {
             this.userCarService.add(userCarRequest).toPromise().then(resp => {
                 console.log(resp);
                 this.toastService.present('Машина успешно добавлена!');
-                this.navCtrl.navigateRoot(['user-cars']);
+                this.navCtrl.back({animated: true});
             }).catch(err => {
                 console.log(err);
             });

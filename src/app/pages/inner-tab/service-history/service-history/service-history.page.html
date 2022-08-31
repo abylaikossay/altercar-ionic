@@ -14,7 +14,8 @@
       <div class="custom-margin-top"></div>
       <div class="history-list">
         <div class="history-card" *ngFor="let history of history">
-          <app-history-card [order]="history"></app-history-card>
+            <app-appointment-card [appointment]="history"></app-appointment-card>
+<!--          <app-history-card [order]="history"></app-history-card>-->
         </div>
       </div>
     </div>

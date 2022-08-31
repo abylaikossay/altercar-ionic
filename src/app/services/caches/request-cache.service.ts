@@ -79,6 +79,7 @@ export class RequestCacheService {
       '/api/applications',
       '/api/user-car',
       '/api/order/all',
+      '/api/appointment',
       // '/api/tire/all',
       '/api/applications/isp/all',
       '/order/create/',

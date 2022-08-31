@@ -11,6 +11,10 @@ export class AppointmentService {
     constructor(private appointmentControllerService: AppointmentControllerService) {
     }
 
+    getOrders(status?: string) {
+        return this.appointmentControllerService.getUserOrders(status);
+    }
+
     create(appointmentRequest: AppointmentRequest) {
         return this.appointmentControllerService.create(appointmentRequest);
     }

@@ -49,7 +49,7 @@ export class HistoryPage implements OnInit, RefreshListener, OnDestroy {
         this.resolveOnListener.add('history', this.call.bind(this));
     }
 
-    ionViewWillLeave() {
+    ionViewDidLeave() {
         this.resolveOnListener.delete('history');
     }
 

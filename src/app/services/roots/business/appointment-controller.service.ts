@@ -39,6 +39,14 @@ export class AppointmentControllerService {
         return this.http.get<any>(this.fullUrl + 'partner');
     }
 
+    getUserOrders(orderStatus?: string): Observable<any[]> {
+        if (orderStatus) {
+            return this.http.get<any[]>(this.fullUrl + 'appointment?status=' + orderStatus);
+        } else {
+            return this.http.get<any[]>(this.fullUrl + 'appointment');
+        }
+    }
+
     getById(id: number): Observable<PartnerResponse> {
         return this.http.get<PartnerResponse>(this.fullUrl + 'partner/' + id);
     }

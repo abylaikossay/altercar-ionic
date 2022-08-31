@@ -28,13 +28,13 @@ export class HomePage implements OnInit, OnDestroy, RefreshListener {
       id: 1,
       name: 'Тест банер 1',
       description: 'Тестово описание банера',
-      outPhoto: 'car-brand-logo/car-brand-logo_1656924738115.png',
+      outPhoto: 'car-brand-logo/car-brand-logo_1661921468066.png',
     },
     {
       id: 2,
       name: 'Тест банер 2',
       description: 'Описание',
-      outPhoto: 'car-brand-logo/car-brand-logo_1656497302331.png',
+      outPhoto: 'car-brand-logo/car-brand-logo_1661921468066.png',
     },
   ];
   categories: any = [

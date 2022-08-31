@@ -40,6 +40,15 @@ h5 {
   padding: 0;
 }
 
+h6 {
+  font-size: var(--custom-font-size-7);
+  font-weight: var(--custom-font-weight-semibold);
+  font-style: var(--custom-font-style-normal);
+  color: var(--custom-text-color-black);
+  margin: 0;
+  padding: 0;
+}
+
 
 p {
   font-size: var(--custom-font-size-9);

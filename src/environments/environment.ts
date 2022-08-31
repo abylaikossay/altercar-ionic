@@ -14,9 +14,10 @@ export const environment = {
   // imageUrl: 'http://37.228.66.154:8884/api/file',
   // imageUrl: 'http://10.110.1.71:8884/api/file',
   // url: 'http://37.228.66.154:8884',
-  url: 'http://10.4.10.119:8080',
+  url: 'http://10.3.10.117:8085',
   // url: 'http://localhost:8080',
-  imageUrl: 'http://10.4.10.119:8080/api/file',
+  // http://10.3.10.117:8085/swagger-ui/index.html#/
+  imageUrl: 'http://10.3.10.117:8085/api/file',
   // imageUrl: 'http://localhost:8080/api/file',
 };
 

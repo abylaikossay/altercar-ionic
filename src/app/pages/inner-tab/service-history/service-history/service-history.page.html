@@ -1,0 +1,23 @@
+<app-common-header [header]="moviliHeader"></app-common-header>
+<div class="header-categories">
+  <div *ngFor="let category of categories" (click)="changeProducts(category)"
+       class="category-name {{category.selected ? 'selected': ''}}">
+    {{category.name}}
+  </div>
+</div>
+<ion-content>
+  <div class="page-padding">
+    <div class="order-type">
+      <div class="history-category">
+        {{selectedCategory?.name}}
+      </div>
+      <div class="custom-margin-top"></div>
+      <div class="history-list">
+        <div class="history-card" *ngFor="let history of history">
+          <app-history-card [order]="history"></app-history-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

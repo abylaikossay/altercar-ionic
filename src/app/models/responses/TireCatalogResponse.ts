@@ -5,4 +5,5 @@ export class TireCatalogResponse {
   type: TireCatalogTypeEnum;
   filterName: string;
   code: string;
+  checked: boolean = false;
 }

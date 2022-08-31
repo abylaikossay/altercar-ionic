@@ -14,12 +14,14 @@ export class TabsPage {
     HOME_TAB = 'home-tab';
     SERVICE_TAB = 'service-tab';
     HISTORY_TAB = 'history-tab';
+    SERVICE_HISTORY_TAB = 'service-history-tab';
     PROFILE_TAB = 'profile-tab';
     tabs: IonicTab[] = [];
     list: string[] = [
         this.HOME_TAB,
         this.SERVICE_TAB,
         this.HISTORY_TAB,
+        this.SERVICE_HISTORY_TAB,
         this.PROFILE_TAB,
     ];
     selected: string = '';

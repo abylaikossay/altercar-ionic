@@ -15,6 +15,8 @@ import { FilterComponent } from 'src/app/components/filter/filter.component';
 import { CarBrandResponse } from '../../models/responses/CarBrandResponse';
 import { CarModelResponse } from '../../models/responses/CarModelResponse';
 import {UserCarResponse} from '../../models/responses/UserCarResponse';
+import { TireFilterRequest } from '../../models/requests/TireFilterRequest';
+import { TireCatalogResponse } from '../../models/responses/TireCatalogResponse';
 
 /*
 * Use only with Option, if you want use specific ionic controller use other service
@@ -242,6 +244,25 @@ export class SettingControllerService extends AbstractSettingController {
       };
     });
   }
+
+    public setAlertChooseFilter(filter: TireCatalogResponse[], header: string): IonicControllerAbstract {
+        return this.setExtraOption(this.actionSheetService, (ionicController): IonicControllerOptionType => {
+            const buttons = filter.map((item) => {
+                return {
+                    text: item.filterName,
+                    handler: data => {
+                        ionicController.dismiss(item);
+                    },
+                };
+            });
+            return {
+                animated: true,
+                header: '' + header,
+                buttons: [...buttons],
+            };
+        });
+    }
+
 
 
     /*

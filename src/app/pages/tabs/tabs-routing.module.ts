@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import {TabsPage} from './tabs.page';
-import {UserLocationResolver} from '../../services/resolvers/location/user-location.resolver';
+import { TabsPage } from './tabs.page';
+import { UserLocationResolver } from '../../services/resolvers/location/user-location.resolver';
 
 const routes: Routes = [
     {
@@ -22,6 +22,11 @@ const routes: Routes = [
                 loadChildren: () => import('../tab/history-tab/history-tab.module').then(m => m.HistoryTabPageModule),
             },
             {
+                path: 'service-history-tab',
+                loadChildren: () => import('../tab/service-history-tab/service-history-tab.module')
+                    .then(m => m.ServiceHistoryTabPageModule),
+            },
+            {
                 path: 'profile-tab',
                 loadChildren: () => import('../tab/profile-tab/profile-tab.module').then(m => m.ProfileTabPageModule),
             },
@@ -34,7 +39,7 @@ const routes: Routes = [
     {
         path: '',
         redirectTo: '/tabs/home-tab',
-        pathMatch: 'full'
+        pathMatch: 'full',
     },
 ];
 

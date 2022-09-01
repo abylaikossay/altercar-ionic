@@ -9,16 +9,10 @@ export const environment = {
   language: 'ru',
   name: 'altercar',
   roleName: 'ROLE_USER',
-  // url: 'http://10.110.1.71:8884',
-  // url: 'http://37.228.66.154:8884',
-  // imageUrl: 'http://37.228.66.154:8884/api/file',
-  // imageUrl: 'http://10.110.1.71:8884/api/file',
-  // url: 'http://37.228.66.154:8884',
-  url: 'http://10.3.10.117:8085',
-  // url: 'http://localhost:8080',
-  // http://10.3.10.117:8085/swagger-ui/index.html#/
-  imageUrl: 'http://10.3.10.117:8085/api/file',
-  // imageUrl: 'http://localhost:8080/api/file',
+  // url: 'http://10.3.10.117:8085',
+  url: 'http://89.219.13.211:8085',
+  // imageUrl: 'http://10.3.10.117:8085/api/file',
+  imageUrl: 'http://89.219.13.211:8085/api/file',
 };
 
 /*

@@ -13,13 +13,13 @@ export class ServicePage implements OnInit {
     banners: BannersResponse[] = [
         {
             id: 1,
-            name: 'Тест банер 1',
+            name: '',
             description: 'Тестово описание банера',
             outPhoto: 'car-brand-logo/car-brand-logo_1661921501623.png',
         },
         {
             id: 2,
-            name: 'Тест банер 2',
+            name: '',
             description: 'Описание',
             outPhoto: 'car-brand-logo/car-brand-logo_1661921501623.png',
         },
@@ -46,6 +46,12 @@ export class ServicePage implements OnInit {
             name: 'Шины',
             imageName: 'tire.jpg',
         },
+
+        {
+            id: 'CAR_WASH',
+            name: 'Автомойки',
+            imageName: 'car-wash.jpg',
+        },
     ];
 
 
@@ -62,6 +68,9 @@ export class ServicePage implements OnInit {
                 break;
             case 'SERVICES':
                 this.navCtrl.navigateForward('/tabs/service-tab/service-list');
+                break;
+            case 'CAR_WASH':
+                this.navCtrl.navigateForward('/appointment-info/4');
                 break;
             case 'AUTOPARTS':
                 console.log('test AUTOPARTS');

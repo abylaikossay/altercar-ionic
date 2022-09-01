@@ -2,8 +2,8 @@
 
   <div class="cart-grid">
     <div class="cart-grid-span-1 full-width">
-      <img src="assets/profile.jpg" *ngIf="!appointment?.partner.logoUrl" class="img" alt="">
-      <img *ngIf="appointment?.partner.logoUrl" src="{{photoUrl + appointment.partner.logoUrl}}" class="img" alt="">
+      <img src="assets/profile.jpg" *ngIf="!partner?.logoUrl" class="img" alt="">
+      <img *ngIf="partner?.logoUrl" src="{{photoUrl + partner?.logoUrl}}" class="img" alt="">
     </div>
     <div class="inner-cart-grid">
       <div class="cart-grid-span-2 title wrap-text">{{appointment.partner.name}}

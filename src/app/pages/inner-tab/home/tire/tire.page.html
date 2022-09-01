@@ -5,7 +5,7 @@
         <img class="tire-photo" src="{{imgUrl + tire.photoUrl}}" alt="">
         <div class="tire-header">
             <div class="tire-name">
-                {{tire.name}}, {{tire.width}}/{{tire.height}} R{{tire.diameter}}
+                {{tire.name}}, {{tire.width?.filterName}}/{{tire.height?.filterName}} {{tire.diameter?.filterName}}
             </div>
             <div class="tire-header">
                 Сумма: {{tire.price}} ₸

@@ -1,4 +1,5 @@
 export class PartnerResponse {
+  id: number;
   name: string;
   link: string;
   email: string;

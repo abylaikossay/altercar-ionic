@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {MoviliHeader} from '../../../../models/commons/MoviliHeader';
-import {ActivatedRoute} from '@angular/router';
-import {Subscription} from 'rxjs';
-import {UserCarService} from '../../../../services/roots/business/user-car.service';
-import {UserCarResponse} from '../../../../models/responses/UserCarResponse';
-import {NavController} from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { MoviliHeader } from '../../../../models/commons/MoviliHeader';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { UserCarService } from '../../../../services/roots/business/user-car.service';
+import { UserCarResponse } from '../../../../models/responses/UserCarResponse';
+import { NavController } from '@ionic/angular';
 
 @Component({
     selector: 'app-user-car',
@@ -36,6 +36,12 @@ export class UserCarPage implements OnInit {
             id: 'TIRES',
             name: 'Шины',
             imageName: 'tire.jpg',
+        },
+
+        {
+            id: 'CAR_WASH',
+            name: 'Автомойки',
+            imageName: 'car-wash.jpg',
         },
     ];
     userCar: UserCarResponse = new UserCarResponse();
@@ -80,6 +86,13 @@ export class UserCarPage implements OnInit {
                     this.navCtrl.navigateForward('/tabs/home-tab/service-list/' + this.userCarId);
                 } else {
                     this.navCtrl.navigateForward('/tabs/service-tab/service-list');
+                }
+                break;
+            case 'CAR_WASH':
+                if (this.userCarId) {
+                    this.navCtrl.navigateForward('/appointment-info/4/user-car/' + this.userCarId);
+                } else {
+                    this.navCtrl.navigateForward('/appointment-info/4');
                 }
                 break;
             case 'AUTOPARTS':

@@ -26,13 +26,13 @@ export class HomePage implements OnInit, OnDestroy, RefreshListener {
   banners: BannersResponse[] = [
     {
       id: 1,
-      name: 'Тест банер 1',
+      name: '',
       description: 'Тестово описание банера',
       outPhoto: 'car-brand-logo/car-brand-logo_1661921468066.png',
     },
     {
       id: 2,
-      name: 'Тест банер 2',
+      name: '',
       description: 'Описание',
       outPhoto: 'car-brand-logo/car-brand-logo_1661921468066.png',
     },

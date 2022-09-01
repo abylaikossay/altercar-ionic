@@ -15,13 +15,13 @@ export class ServicePage implements OnInit {
             id: 1,
             name: 'Тест банер 1',
             description: 'Тестово описание банера',
-            outPhoto: 'partner-logo/partner-logo_1658995124546.png',
+            outPhoto: 'car-brand-logo/car-brand-logo_1661921501623.png',
         },
         {
             id: 2,
             name: 'Тест банер 2',
             description: 'Описание',
-            outPhoto: 'tire-brand-logo/tire-brand-logo_1658995161984.png',
+            outPhoto: 'car-brand-logo/car-brand-logo_1661921501623.png',
         },
     ];
     services: any[] = [

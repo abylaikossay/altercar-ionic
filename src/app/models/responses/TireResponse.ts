@@ -1,11 +1,12 @@
+import { TireCatalogResponse } from './TireCatalogResponse';
 
 export class TireResponse {
-  diameter: number;
-  width: number;
-  height: number;
+  diameter: TireCatalogResponse;
+  width: TireCatalogResponse;
+  height: TireCatalogResponse;
   price: number;
   amount: number;
-  season: string;
+  season: TireCatalogResponse;
   name: string;
   quality: string;
   photoUrl: string;

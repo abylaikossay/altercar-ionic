@@ -5,6 +5,7 @@ import {AutoServiceService} from '../../../../services/roots/business/auto-servi
 import {MoviliHeader} from '../../../../models/commons/MoviliHeader';
 import {PartnerService} from '../../../../services/roots/business/partner.service';
 import {NavController} from '@ionic/angular';
+import { CategoryService } from '../../../../services/roots/business/category.service';
 
 @Component({
     selector: 'app-auto-service-list',
@@ -52,12 +53,17 @@ export class AutoServiceListPage implements OnInit {
         // }).catch(err => {
         //     console.error(err);
         // });
-        this.partnerService.getAll().toPromise().then(resp => {
+        this.autoServiceService.getPartnersByCategoryId(this.categoryId).toPromise().then(resp => {
             console.log(resp);
             this.partners = resp;
         }).catch(err => {
-            console.error(err);
+            console.log(err);
         });
+        // this.partnerService.getAll().toPromise().then(resp => {
+        //     console.log(resp);
+        // }).catch(err => {
+        //     console.error(err);
+        // });
     }
 
     getCategory(id: number) {

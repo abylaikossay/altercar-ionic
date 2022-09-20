@@ -42,6 +42,11 @@ export class StorageLocalService {
             value);
     }
 
+    setPath(value: any): void {
+        this.set(StorageLocalKeyEnum.PATH,
+            value);
+    }
+
 
     setPushToken(value: any): void {
         this.set(StorageLocalKeyEnum.PUSH_TOKEN,
@@ -99,6 +104,10 @@ export class StorageLocalService {
 
     getRole(): any {
         return this.get(StorageLocalKeyEnum.ROLE);
+    }
+
+    getPath(): any {
+        return this.get(StorageLocalKeyEnum.PATH);
     }
 
     getShortCode(): any {

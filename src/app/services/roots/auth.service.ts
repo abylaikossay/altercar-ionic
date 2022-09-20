@@ -1,13 +1,13 @@
-import {Injectable} from '@angular/core';
-import {NavController} from '@ionic/angular';
-import {tap} from 'rxjs/operators';
-import {ToastService} from '../controllers/toast.service';
-import {StorageLocalService} from '../storages/storage-local.service';
-import {LOGIN_URL, StorageSecureKeyEnum} from '../../shares/static';
-import {StorageSecure} from '../../models/abstracts/StorageSecure';
-import {TokenService} from './token.service';
-import {SessionHeader} from '../../models/commons/SessionHeader';
-import {RequestCacheService} from '../caches/request-cache.service';
+import { Injectable } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { tap } from 'rxjs/operators';
+import { ToastService } from '../controllers/toast.service';
+import { StorageLocalService } from '../storages/storage-local.service';
+import { LOGIN_URL, StorageLocalKeyEnum, StorageSecureKeyEnum } from '../../shares/static';
+import { StorageSecure } from '../../models/abstracts/StorageSecure';
+import { TokenService } from './token.service';
+import { SessionHeader } from '../../models/commons/SessionHeader';
+import { RequestCacheService } from '../caches/request-cache.service';
 
 @Injectable({
     providedIn: 'root',
@@ -43,7 +43,7 @@ export class AuthService {
     getSession(): SessionHeader {
         return {
             token: this.tokenService.tokenValue,
-            language_code: this.storageLocalService.getLanguageCode()
+            language_code: this.storageLocalService.getLanguageCode(),
         };
     }
 
@@ -59,6 +59,7 @@ export class AuthService {
     clearAllSession() {
         // todo nabu удалить все персональные данные с сторадж
         this.requestCacheService.clearCache();
+        this.storageLocalService.remove(StorageLocalKeyEnum.PATH);
         this.clearPersonality();
         this.toastService.present('Ваша Сессия истекла, авторизуйтесь заново.');
         this.navCtrl.navigateRoot([LOGIN_URL]);

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {LocationResolver} from './services/resolvers/location/location.resolver';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   {
@@ -54,7 +55,8 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/main/welcome',
+    // redirectTo: '/main/welcome',
+    redirectTo: `${localStorage.getItem('path') ? 'tabs/home-tab' : 'main/welcome'}`,
     pathMatch: 'full'
   },
   {

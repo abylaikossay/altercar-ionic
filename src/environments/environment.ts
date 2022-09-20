@@ -9,6 +9,7 @@ export const environment = {
   language: 'ru',
   name: 'altercar',
   roleName: 'ROLE_USER',
+  rolePath: '/main/welcome',
   // url: 'http://10.3.10.117:8085',
   url: 'http://89.219.13.211:8085',
   // imageUrl: 'http://10.3.10.117:8085/api/file',

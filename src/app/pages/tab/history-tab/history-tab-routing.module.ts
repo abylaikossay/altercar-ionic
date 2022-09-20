@@ -12,6 +12,10 @@ const routes: Routes = [
         path: '',
         loadChildren: () => import('../../inner-tab/history/history/history.module').then(m => m.HistoryPageModule),
       },
+      {
+        path: 'info',
+        loadChildren: () => import('../../inner-tab/history/info/info.module').then(m => m.InfoPageModule),
+      },
     ]
   }
 ];

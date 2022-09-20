@@ -36,6 +36,7 @@ export class LoginService {
     authorize = (perf, username) => {
         console.log(perf);
         this.storageLocalService.setRole(perf.role);
+        this.storageLocalService.setPath('tabs');
         this.authService.setSession(perf?.token);
         this.authService.setPhoneNumber(username);
         this.authService.goByMainPage();

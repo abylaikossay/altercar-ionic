@@ -64,6 +64,7 @@ export enum StorageLocalKeyEnum {
     ONBOARDING_PROCESS_STATUS = 'ONBOARDING_PROCESS_STATUS',
     ONBOARDING_PROCESS_DF = 'ONBOARDING_PROCESS_DF',
     ROLE = 'role',
+    PATH = 'path',
     SHORT_CODE = 'short_code',
     PUSH_TOKEN = 'push_token',
     NIN = 'nin',

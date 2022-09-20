@@ -4,6 +4,7 @@ import {PopOverService} from '../../services/controllers/pop-over.service';
 import {ApplicationResponse} from '../../models/responses/ApplicationResponse';
 import {OrderResponse} from '../../models/responses/OrderResponse';
 import {environment} from '../../../environments/environment';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-history-card',
@@ -14,6 +15,7 @@ export class HistoryCardComponent implements OnInit {
   @Input() order: OrderResponse;
   photoUrl: string = environment.imageUrl + '/tire-photo/';
   constructor(private settingControllerService: SettingControllerService,
+              private navCtrl: NavController,
               ) { }
 
   ngOnInit() {
@@ -26,6 +28,8 @@ export class HistoryCardComponent implements OnInit {
     console.log(value);
     if (value.data === 'Подробнее о записи') {
       console.log('go to info');
+      console.log(this.order);
+      this.navCtrl.navigateForward(['/tabs/history-tab/info/' + this.order.id]);
     }
   }
 }

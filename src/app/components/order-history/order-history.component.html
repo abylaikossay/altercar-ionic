@@ -1,0 +1,10 @@
+<div class="main-div">
+    <div class="service-name">
+        <div>{{order.tirePartner.tire.name}}</div>
+        <br>
+        <div>{{order.tirePartner.price | currency:'KZT':'symbol-narrow'}}</div>
+    </div>
+    <label>
+        <input type="text" disabled [value]="order.amount" class="amount-disabled-input">
+    </label>
+</div>

@@ -13,6 +13,10 @@ const routes: Routes = [
         loadChildren: () => import('../../inner-tab/service-history/service-history/service-history.module')
             .then(m => m.ServiceHistoryPageModule),
       },
+      {
+        path: 'info',
+        loadChildren: () => import('../../inner-tab/service-history/service-info/service-info.module').then(m => m.ServiceInfoPageModule),
+      },
     ]
   }
 ];

@@ -1,93 +1,56 @@
 <ion-content>
     <app-common-header [header]="moviliHeader"></app-common-header>
-    <img class="edit-profile-avatar" src="assets/profile.jpg" alt="">
+    <img *ngIf="!userResponse.avatarUrl" class="edit-profile-avatar" src="assets/profile.jpg" alt="">
+    <img *ngIf="userResponse.avatarUrl" class="edit-profile-avatar" src="{{avatarUrl + userResponse.avatarUrl}}" alt="">
     <div class="page-padding">
         <div class="d-flex ion-align-items-center ion-justify-content-center">
             <div class="user-name">
-                {{ispResponse?.username}}
+                {{userResponse?.name + ' ' + userResponse?.surname}}
             </div>
             <div class="edit">
                 <img (click)="editUser()" [appBackgroundImage]="{id:'/assets/icon/edit.svg',index:0}" src="" alt="">
             </div>
         </div>
         <div class="user-profession">
-<!--            {{ispResponse?.professions[0]?.name}}-->
-        </div>
-        <div class="user-profession experience">
-<!--            Опыт работы: {{ispResponse.experience}} лет-->
+            {{userResponse?.email}}
         </div>
         <div class="custom-margin-top"></div>
         <div class="user-location">
             <img src="assets/icon/point.svg" alt="">
-            {{ispResponse.location}}
+            Алматы
         </div>
         <div class="custom-margin-top"></div>
-<!--        <div class="user-info">-->
-<!--            <div class="icon-with-text">-->
-<!--                <img src="assets/icon/star.svg" alt="">-->
-<!--                <div class="small-text">{{ispResponse.experience}}</div>-->
-<!--            </div>-->
-<!--            <div class="icon-with-text">-->
-<!--                <img src="assets/icon/star.svg" alt="">-->
-<!--                <div class="small-text">Услуги</div>-->
-<!--            </div>-->
-<!--            <div class="icon-with-text">-->
-<!--                <img src="assets/icon/calendar.svg" alt="">-->
-<!--                <div class="small-text">График</div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="custom-margin-top"></div>-->
 <!--        <div class="card-margin-border">-->
 <!--            <label>О себе</label>-->
 <!--            <div class="isp-info">-->
-<!--                {{ispResponse.description}}-->
+<!--                {{userResponse.gender}}-->
 <!--            </div>-->
 <!--            <div class="profile-margin-top"></div>-->
 <!--        </div>-->
-<!--        <div class="profile-margin-top"></div>-->
-<!--        <div class="card-margin-border">-->
-<!--            <label>Потрфолио</label>-->
-<!--            <div class="portfolio-photos">-->
-<!--                <ng-container *ngFor="let portfolioPhoto of ispResponse.portfolioPhotos">-->
-<!--                    <img class="portfolio-photo" src="{{imageUrl + portfolioPhoto}}"-->
-<!--                         alt="{{portfolioPhoto}}">-->
-<!--                </ng-container>-->
 
-<!--            </div>-->
-<!--            <div class="profile-margin-top"></div>-->
-<!--        </div>-->
-<!--        <div class="profile-margin-top"></div>-->
-<!--        <div class="card-margin-border">-->
-<!--            <label>Квалификация</label>-->
-<!--            <div class="flex-grid">-->
-<!--                <label class="small-label" for="firstNameId">Образование</label>-->
-<!--                <input id="firstNameId" class="profile-input" disabled-->
-<!--                       [value]="ispResponse.username"-->
-<!--                       type="text" placeholder="Введите имя">-->
-<!--            </div>-->
-<!--            <div>-->
-<!--                <label class="small-label">Сертификаты</label>-->
-<!--            </div>-->
-<!--            <div class="profile-margin-top"></div>-->
-<!--        </div>-->
-<!--        <div class="profile-margin-top"></div>-->
-<!--        <label>Отзывы</label>-->
-<!--        <div class="review-card" *ngFor="let ispRating of ispResponse.ispRatings">-->
-<!--            <app-review-card [ispRating]="ispRating" class="profile-review"></app-review-card>-->
-<!--            <div class="profile-margin-top"></div>-->
-<!--        </div>-->
+            <label>Информация</label>
+            <div class="profile-margin-top"></div>
+            <div class="flex-grid">
+                <label class="small-label" for="phoneNumberId">Номер телефона</label>
+                <input id="phoneNumberId" class="profile-input" disabled
+                       [value]="'+' + userResponse.username"
+                       type="text" placeholder="Введите имя">
+            </div>
+            <div class="custom-margin-top"></div>
+            <div class="flex-grid">
+                <label class="small-label" for="birthDateId">Дата рождения</label>
+                <input id="birthDateId" class="profile-input" disabled
+                       [value]="userResponse.birthDate | date"
+                       type="text" placeholder="11 Марта 1998Г">
+            </div>
+        <div class="custom-margin-top"></div>
+        <div class="flex-grid">
+            <label class="small-label" for="genderId">Пол</label>
+            <input id="genderId" class="profile-input" disabled
+                   [value]="userResponse.gender === 'MALE' ? 'Мужской' : userResponse.gender === 'FEMALE' ? 'Женский' : 'Не определено'"
+                   type="text" placeholder="Введите имя">
+        </div>
 
     </div>
-
-
 </ion-content>
-<!--<ion-footer>-->
-<!--    <div class="page-padding bottom-fixed-buttons">-->
-<!--        <button class="custom-transparent-button">-->
-<!--            <span>Откликнуться</span>-->
-<!--        </button>-->
-<!--        <button class="custom-transparent-button">-->
-<!--            <span>Скрыть</span>-->
-<!--        </button>-->
-<!--    </div>-->
-<!--</ion-footer>-->
+

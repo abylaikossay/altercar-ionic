@@ -25,6 +25,10 @@ export class OrderControllerService {
     //         .pipe(map(value => value.body as OrderResponse));
     // }
 
+    getOrder(id: number): Observable<any> {
+        return this.http.get<any>(this.fullUrl + 'order/' + id);
+    }
+
     getUserOrders(orderStatus?: string): Observable<any[]> {
         if (orderStatus) {
             return this.http.get<any[]>(this.fullUrl + 'order/all/user?status=' + orderStatus);

@@ -1,0 +1,74 @@
+<ion-content>
+  <app-common-header [header]="moviliHeader"></app-common-header>
+  <div class="page-padding">
+    <div class="user-info-grid">
+      <img *ngIf="!partner?.logoUrl" src="assets/unknown-avatar.jpeg" class="user-photo" alt="">
+      <img *ngIf="partner?.logoUrl" src="{{fullUrl + partner?.logoUrl}}" class="user-photo"
+           alt="">
+      <div class="user-name">{{history.partner?.name}}</div>
+      <div class="chat-img">
+        <img src="assets/icon/chat.svg" alt="">
+      </div>
+      <div class="user-address-info">
+        <img src="assets/icon/point.svg" alt="">
+        <span class="address">{{history.partner?.address}}</span>
+      </div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="services-header">Услуги</div>
+    <div *ngFor="let history of history.setOfWorks">
+      <div class="main-div">
+        <div class="service-name">
+          <div>{{history}}</div>
+        </div>
+        <label>
+          <input type="text" disabled [value]="1" class="amount-disabled-input">
+        </label>
+      </div>
+      <div class="horizontal-line"></div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="appointment-date-info">
+      <div class="day-time">
+        <div class="calendar-day">{{history.appointmentDate | date: 'E'}}</div>
+        {{history.appointmentDate | date:'shortDate' }}
+      </div>
+      <div class="day-time">
+        <img src="assets/icon/time-icon.svg" alt="">
+        {{history.appointmentDate | date:'shortTime'}}
+      </div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="user-contacts">
+      <div class="bold-text">Статус</div>
+      <div class="bold-text">{{history.status === 'SUCCESS' ? 'Успешно'
+              : history.status === 'PROCESS' ? 'В процессе'
+                      : history.status === 'DECLINED' ? 'Отклонен'
+                              : 'Неизвестный'}}
+      </div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="user-contacts">
+      <div class="bold-text">Контакты</div>
+      <div class="bold-text">{{history.partner?.phone}}
+        <img src="assets/icon/right-arrow.svg" alt="">
+      </div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="bold-text">Автомобиль</div>
+    <div class="custom-margin-top"></div>
+    <div class="custom-div-textarea" [contentEditable]="false">{{history?.userCar?.carBrand + ' ' + history?.userCar?.carModel}}
+    </div>
+    <div class="horizontal-line"></div>
+  </div>
+</ion-content>
+<ion-footer>
+  <div class="page-padding bottom-fixed-buttons">
+    <button *ngIf="history.status === 'PROCESS'" class="custom-button-movili call" (click)="decline(history)">
+      <span>Отменить</span>
+    </button>
+    <button class="custom-button-movili" (click)="complain(history)">
+      <span>Пожаловаться</span>
+    </button>
+  </div>
+</ion-footer>

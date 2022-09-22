@@ -1,22 +1,22 @@
-import { Injectable } from '@angular/core';
-import { IonicControllerOptionType } from '../../models/commons/IonicControllerOptionType';
-import { AbstractSettingController } from '../../models/abstracts/AbstractSettingController';
-import { ActionSheetService } from './action-sheet.service';
-import { LoadingService } from './loading.service';
-import { AlertService } from './alert.service';
-import { ModalService } from './modal.service';
-import { PopOverService } from './pop-over.service';
-import { ToastService } from './toast.service';
-import { IonicControllerAbstract } from '../../models/abstracts/IonicControllerAbstract';
-import { NetworkStatusComponent } from '../../components/network-status/network-status.component';
-import { LocationResponse } from '../../models/responses/LocationResponse';
-import { UserLocationResponse } from '../../models/responses/UserLocationResponse';
-import { FilterComponent } from 'src/app/components/filter/filter.component';
-import { CarBrandResponse } from '../../models/responses/CarBrandResponse';
-import { CarModelResponse } from '../../models/responses/CarModelResponse';
+import {Injectable} from '@angular/core';
+import {IonicControllerOptionType} from '../../models/commons/IonicControllerOptionType';
+import {AbstractSettingController} from '../../models/abstracts/AbstractSettingController';
+import {ActionSheetService} from './action-sheet.service';
+import {LoadingService} from './loading.service';
+import {AlertService} from './alert.service';
+import {ModalService} from './modal.service';
+import {PopOverService} from './pop-over.service';
+import {ToastService} from './toast.service';
+import {IonicControllerAbstract} from '../../models/abstracts/IonicControllerAbstract';
+import {NetworkStatusComponent} from '../../components/network-status/network-status.component';
+import {LocationResponse} from '../../models/responses/LocationResponse';
+import {UserLocationResponse} from '../../models/responses/UserLocationResponse';
+import {FilterComponent} from 'src/app/components/filter/filter.component';
+import {CarBrandResponse} from '../../models/responses/CarBrandResponse';
+import {CarModelResponse} from '../../models/responses/CarModelResponse';
 import {UserCarResponse} from '../../models/responses/UserCarResponse';
-import { TireFilterRequest } from '../../models/requests/TireFilterRequest';
-import { TireCatalogResponse } from '../../models/responses/TireCatalogResponse';
+import {TireFilterRequest} from '../../models/requests/TireFilterRequest';
+import {TireCatalogResponse} from '../../models/responses/TireCatalogResponse';
 
 /*
 * Use only with Option, if you want use specific ionic controller use other service
@@ -127,22 +127,34 @@ export class SettingControllerService extends AbstractSettingController {
             return {
                 animated: true,
                 header: 'Запись',
-                buttons: [{
-                    text: 'Подробнее о записи',
-                    handler: data => {
-                        ionicController.dismiss('Подробнее о записи');
+                buttons: [
+                    {
+                        text: 'Подробнее о транзакции',
+                        handler: data => {
+                            ionicController.dismiss('Подробнее о записи');
+                        },
                     },
-                },
                     {
                         text: 'Оменить запись',
                         handler: data => {
                             ionicController.dismiss('Оменить запись');
                         },
                     },
+                ],
+            };
+        });
+    }
+
+    public setAlertOrderFinishedAction(): IonicControllerAbstract {
+        return this.setExtraOption(this.actionSheetService, (ionicController): IonicControllerOptionType => {
+            return {
+                animated: true,
+                header: 'Запись',
+                buttons: [
                     {
-                        text: 'Пожаловаться',
+                        text: 'Подробнее о транзакции',
                         handler: data => {
-                            ionicController.dismiss('Пожаловаться');
+                            ionicController.dismiss('Подробнее о записи');
                         },
                     },
                 ],
@@ -168,6 +180,7 @@ export class SettingControllerService extends AbstractSettingController {
             };
         });
     }
+
     public setAlertUserCar(userCars: UserCarResponse[]): IonicControllerAbstract {
         return this.setExtraOption(this.actionSheetService, (ionicController): IonicControllerOptionType => {
             const buttons = userCars.map((item) => {
@@ -181,7 +194,8 @@ export class SettingControllerService extends AbstractSettingController {
             buttons.push({
                 handler(data): void {
                     ionicController.dismiss('New');
-                }, text: 'Добавить машину'});
+                }, text: 'Добавить машину',
+            });
             console.log(buttons);
             return {
                 animated: true,
@@ -227,23 +241,23 @@ export class SettingControllerService extends AbstractSettingController {
         });
     }
 
-  public setAlertChooseModel(carModels: CarModelResponse[]): IonicControllerAbstract {
-    return this.setExtraOption(this.actionSheetService, (ionicController): IonicControllerOptionType => {
-      const buttons = carModels.map((item) => {
-        return {
-          text: item.name,
-          handler: data => {
-            ionicController.dismiss(item);
-          },
-        };
-      });
-      return {
-        animated: true,
-        header: 'Выберите модель',
-        buttons: [...buttons],
-      };
-    });
-  }
+    public setAlertChooseModel(carModels: CarModelResponse[]): IonicControllerAbstract {
+        return this.setExtraOption(this.actionSheetService, (ionicController): IonicControllerOptionType => {
+            const buttons = carModels.map((item) => {
+                return {
+                    text: item.name,
+                    handler: data => {
+                        ionicController.dismiss(item);
+                    },
+                };
+            });
+            return {
+                animated: true,
+                header: 'Выберите модель',
+                buttons: [...buttons],
+            };
+        });
+    }
 
     public setAlertChooseFilter(filter: TireCatalogResponse[], header: string): IonicControllerAbstract {
         return this.setExtraOption(this.actionSheetService, (ionicController): IonicControllerOptionType => {
@@ -264,16 +278,16 @@ export class SettingControllerService extends AbstractSettingController {
     }
 
 
-
     /*
     * Modal service
     * */
-    public setModalFilterComponent(): IonicControllerAbstract {
+    public setModalFilterComponent(data: TireFilterRequest): IonicControllerAbstract {
         return this.setExtraOption(this.modalService, (ionicController): IonicControllerOptionType => {
 
             return {
                 component: FilterComponent,
-                swipeToClose: true,
+                swipeToClose: false,
+                componentProps: { tireFilter: data},
             };
         });
     }

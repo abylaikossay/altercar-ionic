@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalService } from '../../services/controllers/modal.service';
-import { MoviliHeader } from '../../models/commons/MoviliHeader';
-import { CatalogService } from '../../services/roots/business/catalog.service';
-import { TireCatalogTypeEnum } from '../../models/responses/TireCatalogTypeEnum';
-import { TireCatalogResponse } from '../../models/responses/TireCatalogResponse';
-import { TireFilterRequest } from '../../models/requests/TireFilterRequest';
-import { CarModelResponse } from '../../models/responses/CarModelResponse';
-import { SettingControllerService } from '../../services/controllers/setting-controller.service';
+import {Component, OnInit} from '@angular/core';
+import {ModalService} from '../../services/controllers/modal.service';
+import {MoviliHeader} from '../../models/commons/MoviliHeader';
+import {CatalogService} from '../../services/roots/business/catalog.service';
+import {TireCatalogTypeEnum} from '../../models/responses/TireCatalogTypeEnum';
+import {TireCatalogResponse} from '../../models/responses/TireCatalogResponse';
+import {TireFilterRequest} from '../../models/requests/TireFilterRequest';
+import {CarModelResponse} from '../../models/responses/CarModelResponse';
+import {SettingControllerService} from '../../services/controllers/setting-controller.service';
 
 @Component({
     selector: 'app-filter',
@@ -54,9 +54,6 @@ export class FilterComponent implements OnInit {
         });
     }
 
-    checkCategory(category) {
-        category.checked = category.checked !== true;
-    }
 
     applyFilter() {
         console.log(this.tireFilter);
@@ -65,7 +62,7 @@ export class FilterComponent implements OnInit {
 
     cleanFilter() {
         this.tireFilter = new TireFilterRequest();
-
+        this.modalService.dismiss(this.tireFilter);
     }
 
     goBack() {

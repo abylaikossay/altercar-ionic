@@ -12,8 +12,10 @@ export const environment = {
   rolePath: '/main/welcome',
   // url: 'http://10.3.10.117:8085',
   url: 'http://89.219.13.211:8085',
+  // url: 'http://localhost:8085',
   // imageUrl: 'http://10.3.10.117:8085/api/file',
   imageUrl: 'http://89.219.13.211:8085/api/file',
+  // imageUrl: 'http://localhost:8085/api/file',
 };
 
 /*

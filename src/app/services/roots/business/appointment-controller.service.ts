@@ -11,6 +11,7 @@ import {UserCarResponse} from '../../../models/responses/UserCarResponse';
 import {TireResponse} from '../../../models/responses/TireResponse';
 import {PartnerResponse} from '../../../models/responses/PartnerResponse';
 import {AppointmentRequest} from '../../../models/requests/AppointmentRequest';
+import {AppointmentResponse} from '../../../models/responses/AppointmentResponse';
 
 @Injectable({
     providedIn: 'root',
@@ -47,8 +48,8 @@ export class AppointmentControllerService {
         }
     }
 
-    getById(id: number): Observable<PartnerResponse> {
-        return this.http.get<PartnerResponse>(this.fullUrl + 'partner/' + id);
+    getById(id: number): Observable<AppointmentResponse> {
+        return this.http.get<AppointmentResponse>(this.fullUrl + 'appointment/' + id);
     }
 
 

@@ -6,6 +6,7 @@ import { IspService } from '../../../../services/roots/business/isp.service';
 import { NavController } from '@ionic/angular';
 import { LoginService } from '../../../../services/roots/business/login.service';
 import { AccountService } from '../../../../services/roots/business/account.service';
+import {UserResponse} from '../../../../models/responses/UserResponse';
 
 @Component({
     selector: 'app-profile',
@@ -14,7 +15,7 @@ import { AccountService } from '../../../../services/roots/business/account.serv
 })
 export class ProfilePage implements OnInit {
     moviliHeader: MoviliHeader = MoviliHeader.PROFILE_DETAIL();
-    ispResponse: any;
+    ispResponse: UserResponse = new UserResponse();
     buttons: ProfilePageButtons[] = [
         {goToUrl: 'author-profile', icon: 'about.svg', title: 'Мой профиль'},
         {goToUrl: 'user-cars', icon: 'my-services.svg', title: 'Мой гараж'},

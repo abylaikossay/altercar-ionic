@@ -4,6 +4,7 @@ import {environment} from '../../../environments/environment';
 import {SettingControllerService} from '../../services/controllers/setting-controller.service';
 import { PartnerService } from '../../services/roots/business/partner.service';
 import { PartnerResponse } from '../../models/responses/PartnerResponse';
+import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-appointment-card',
@@ -16,7 +17,8 @@ export class AppointmentCardComponent implements OnInit {
     partner: PartnerResponse = new PartnerResponse();
 
     constructor(private settingControllerService: SettingControllerService,
-                private partnerService: PartnerService
+                private partnerService: PartnerService,
+                private navCtrl: NavController,
     ) {
     }
 
@@ -33,11 +35,20 @@ export class AppointmentCardComponent implements OnInit {
         });
     }
     async goToInfo() {
-        const alertChooseAction = this.settingControllerService.setAlertOrderAction();
-        const value = await alertChooseAction.present();
-        console.log(value);
-        if (value.data === 'Подробнее о записи') {
-            console.log('go to info');
+        if (this.appointment.status === 'PROCESS') {
+            const alertChooseAction = this.settingControllerService.setAlertOrderAction();
+            const value = await alertChooseAction.present();
+            console.log(value);
+            if (value.data === 'Подробнее о записи') {
+                this.navCtrl.navigateForward(['/tabs/service-history-tab/info/' + this.appointment.id]);
+            }
+        } else {
+            const alertChooseAction = this.settingControllerService.setAlertOrderFinishedAction();
+            const value = await alertChooseAction.present();
+            console.log(value);
+            if (value.data === 'Подробнее о записи') {
+                this.navCtrl.navigateForward(['/tabs/service-history-tab/info/' + this.appointment.id]);
+            }
         }
     }
 

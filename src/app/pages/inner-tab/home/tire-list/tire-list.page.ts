@@ -8,6 +8,7 @@ import {TireService} from '../../../../services/roots/business/tire.service';
 import {TireResponse} from '../../../../models/responses/TireResponse';
 import {SettingControllerService} from '../../../../services/controllers/setting-controller.service';
 import {NavController} from '@ionic/angular';
+import {TireFilterRequest} from '../../../../models/requests/TireFilterRequest';
 
 @Component({
     selector: 'app-tire-list',
@@ -20,6 +21,7 @@ export class TireListPage implements OnInit {
     userCar: UserCarResponse = new UserCarResponse();
     tireResponses: TireResponse[] = [];
     moviliHeader: MoviliHeader = MoviliHeader.TITLE_WITH_BACK('Все шины');
+    tireFilter: TireFilterRequest = new TireFilterRequest();
 
     constructor(private route: ActivatedRoute,
                 private userCarService: UserCarService,
@@ -72,10 +74,14 @@ export class TireListPage implements OnInit {
     }
 
     goToFilter() {
-        const modal = this.settingControllerService.setModalFilterComponent();
+        const modal = this.settingControllerService.setModalFilterComponent(this.tireFilter);
         modal.present().then(resp => {
             console.log(resp);
+            if (resp.data) {
+                this.tireFilter = resp.data;
+            }
         });
+
     }
 
     goToTire(tireResponse: TireResponse) {

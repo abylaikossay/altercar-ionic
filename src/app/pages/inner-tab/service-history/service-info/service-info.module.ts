@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InfoPageRoutingModule } from './info-routing.module';
+import { ServiceInfoPageRoutingModule } from './service-info-routing.module';
 
-import { InfoPage } from './info.page';
+import { ServiceInfoPage } from './service-info.page';
 import {CommonHeaderModule} from '../../../../components/header/common-header/common-header.module';
 import {OrderHistoryModule} from '../../../../components/order-history/order-history.module';
 
@@ -15,10 +15,10 @@ import {OrderHistoryModule} from '../../../../components/order-history/order-his
         CommonModule,
         FormsModule,
         IonicModule,
-        InfoPageRoutingModule,
+        ServiceInfoPageRoutingModule,
         CommonHeaderModule,
         OrderHistoryModule,
     ],
-  declarations: [InfoPage]
+  declarations: [ServiceInfoPage]
 })
-export class InfoPageModule {}
+export class ServiceInfoPageModule {}

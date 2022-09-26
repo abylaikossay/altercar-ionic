@@ -25,9 +25,9 @@ export class InfoPage implements OnInit {
         this.$url = this.route.params.subscribe(data => {
             console.log(data);
             if (data.id) {
-                this.orderService.getOrders().toPromise().then(resp => {
+                this.orderService.getOrder(data.id).toPromise().then(resp => {
                     console.log(resp);
-                    this.history = resp[0];
+                    this.history = resp;
                 }).catch(err => {
                     console.error(err);
                 });

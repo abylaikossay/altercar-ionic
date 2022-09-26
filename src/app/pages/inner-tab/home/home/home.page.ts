@@ -153,14 +153,6 @@ export class HomePage implements OnInit, OnDestroy, RefreshListener {
   //     });
   // }
 
-  goToFilter() {
-    const modal = this.settingControllerService.setModalFilterComponent();
-    modal.present().then(resp => {
-      console.log(resp);
-    });
-
-  }
-
   goToApplication(application: ApplicationResponse) {
     this.navCtrl.navigateForward([`appointment-info/${application.appId}`]);
   }

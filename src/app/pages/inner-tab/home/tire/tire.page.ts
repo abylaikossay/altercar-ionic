@@ -23,6 +23,7 @@ export class TirePage implements OnInit {
     tire: TireResponse = new TireResponse();
     moviliHeader: MoviliHeader = MoviliHeader.TITLE_WITH_BACK('Купить шину');
     imgUrl: string = environment.imageUrl + '/tire-photo/';
+    noPhotoUrl: string = 'assets/images/no-tire.png';
     partners: any[] = [];
     partnerSelected: any;
     tireOrderRequest: TireOrderRequest = new TireOrderRequest();

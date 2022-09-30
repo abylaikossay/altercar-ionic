@@ -29,7 +29,7 @@ export class RestErrorHandlerService {
       this.authService.clearAllSession();
       // session expired
     } else if (!!error && error.status === 403) {
-      this.authService.clearAllSession();
+      // this.authService.clearAllSession();
       // session expired
     } else if (!!error && error.status === 404) {
       // not found

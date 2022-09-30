@@ -16,17 +16,20 @@ export class SliderPage implements OnInit {
     };
     slides: any = [
         {
-            title: 'Первый слайд',
-            description: 'Описание слайда',
+            title: 'ПОМЕНЯЙ ШИНЫ К ЗИМЕ',
+            description: 'ОБЕСПЕЧТЕ ВАШУ БЕЗОПАСНОСТЬ',
             text: 'Далее',
+            photo: 'tire-banner.jpg',
         },
         {
-            title: 'Второй слайд',
-            description: 'Описание слайда',
+            title: 'ПОЛНЫЙ КОМПЛЕКС РАБОТ',
+            description: 'ДЛЯ ВАШЕГО АВТОМОБИЛЯ',
             text: 'Начать!',
-        }
+            photo: 'detailing.jpg',
+        },
     ];
-    photoUrl: string = environment.imageUrl + '/welcome_page/';
+    // photoUrl: string = environment.imageUrl + '/welcome_page/';
+    imageUrl: string = 'assets/images/';
 
     constructor(private navCtrl: NavController,
                 private bannerService: BannerService) {

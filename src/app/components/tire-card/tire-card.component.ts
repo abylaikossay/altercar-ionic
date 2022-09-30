@@ -3,15 +3,19 @@ import { TireResponse } from '../../models/responses/TireResponse';
 import { environment } from '../../../environments/environment';
 
 @Component({
-  selector: 'app-tire-card',
-  templateUrl: './tire-card.component.html',
-  styleUrls: ['./tire-card.component.scss'],
+    selector: 'app-tire-card',
+    templateUrl: './tire-card.component.html',
+    styleUrls: ['./tire-card.component.scss'],
 })
 export class TireCardComponent implements OnInit {
-  @Input() product: TireResponse;
-  imgUrl: string = environment.imageUrl + '/tire-photo/'
-  constructor() { }
+    @Input() product: TireResponse;
+    imgUrl: string = environment.imageUrl + '/tire-photo/';
+    noPhotoUrl: string = 'assets/images/no-tire.png';
 
-  ngOnInit() {}
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
 
 }

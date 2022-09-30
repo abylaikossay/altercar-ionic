@@ -2,7 +2,8 @@
     <app-common-header [header]="moviliHeader"></app-common-header>
     <div class="page-padding">
 
-        <img class="tire-photo" src="{{imgUrl + tire.photoUrl}}" alt="">
+        <img *ngIf="tire.photoUrl" class="tire-photo" src="{{imgUrl + tire.photoUrl}}" alt="">
+        <img *ngIf="!tire.photoUrl" class="tire-photo" src="{{noPhotoUrl}}" alt="">
         <div class="tire-header">
             <div class="tire-name">
                 {{tire.name}}, {{tire.width?.filterName}}/{{tire.height?.filterName}} {{tire.diameter?.filterName}}

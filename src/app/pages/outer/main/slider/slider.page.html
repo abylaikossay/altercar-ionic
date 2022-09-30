@@ -1,20 +1,20 @@
 <ion-content>
-    <div class="slider-page-padding">
-        <div class="logo-image">
-            <img class="image-slider" src="assets/icon/white-logo.svg" alt="">
-        </div>
-        <ion-slides class="slider-page" pager="true" [options]="slideOpts" #mySlider>
-            <ion-slide *ngFor="let slide of slides">
-                <div class="banner-img-text">
-                    <img src="{{photoUrl + slide.photo}}" class="banner-card-image" alt="">
-                    <div class="slider-info">
-                        {{slide.title}}
-                        <br>
-                        {{slide.description}}
-                    </div>
-                    <button class="custom-transparent-button" (click)="goNext(slide)">{{slide.text}}</button>
-                </div>
-            </ion-slide>
-        </ion-slides>
-    </div>
+	<div class="slider-page-padding">
+		<div class="logo-image">
+			<img class="image-slider" src="assets/icon/white-logo.svg" alt="">
+		</div>
+		<ion-slides class="slider-page" pager="true" [options]="slideOpts" #mySlider>
+			<ion-slide *ngFor="let slide of slides">
+				<div class="banner-img-text">
+					<img src="{{imageUrl + slide.photo}}" class="banner-card-image" alt="">
+					<div class="slider-info">
+						{{slide.title}}
+						<br>
+						{{slide.description}}
+					</div>
+					<button class="custom-transparent-button" (click)="goNext(slide)">{{slide.text}}</button>
+				</div>
+			</ion-slide>
+		</ion-slides>
+	</div>
 </ion-content>

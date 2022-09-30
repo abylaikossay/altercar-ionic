@@ -61,7 +61,7 @@ export class AuthService {
         this.requestCacheService.clearCache();
         this.storageLocalService.remove(StorageLocalKeyEnum.PATH);
         this.clearPersonality();
-        this.toastService.present('Ваша Сессия истекла, авторизуйтесь заново.');
+        // this.toastService.present('Ваша Сессия истекла, авторизуйтесь заново.');
         this.navCtrl.navigateRoot([LOGIN_URL]);
     }
 

@@ -15,6 +15,7 @@ import {IonicControllerAbstract} from '../../models/abstracts/IonicControllerAbs
 export class HistoryCardComponent implements OnInit {
     @Input() order: OrderResponse;
     photoUrl: string = environment.imageUrl + '/tire-photo/';
+    noPhotoUrl: string = 'assets/images/no-tire.png';
 
     constructor(private settingControllerService: SettingControllerService,
                 private navCtrl: NavController,

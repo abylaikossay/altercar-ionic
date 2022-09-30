@@ -2,7 +2,8 @@
 
     <div class="cart-grid">
         <div class="cart-grid-span-1 full-width">
-            <img src="{{photoUrl + order.tireHistories[0].tirePartner.tire.photoUrl}}" class="img" alt="">
+            <img *ngIf="order.tireHistories[0].tirePartner.tire.photoUrl" src="{{photoUrl + order.tireHistories[0].tirePartner.tire.photoUrl}}" class="img" alt="">
+            <img *ngIf="!order.tireHistories[0].tirePartner.tire.photoUrl" src="{{noPhotoUrl}}" class="img" alt="">
             <!--			<div class="img" [appBackgroundImage]="{id:'assets/movili/rectangle.png',index:1, linear:''}"></div>-->
         </div>
         <div class="inner-cart-grid">

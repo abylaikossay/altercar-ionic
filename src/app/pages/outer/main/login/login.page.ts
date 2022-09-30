@@ -43,6 +43,7 @@ export class LoginPage implements OnInit {
             this.loginService.authorize(resp, sessionRequestPassword.username);
         }).catch(err => {
             console.log(err);
+            this.toastService.present('Не верный логин или пароль!');
         });
         // const [error, response] = await to(this.loginService.sendPassword(sessionRequestPassword));
         // if (error) {

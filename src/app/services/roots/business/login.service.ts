@@ -139,6 +139,7 @@ export class LoginService {
 
     async logout() {
         this.authService.clearAllSession();
+        this.toastService.present('Ваша Сессия истекла, авторизуйтесь заново.');
         // this.navCtrl.navigateRoot(['/main/login']);
     }
 

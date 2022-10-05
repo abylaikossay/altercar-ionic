@@ -11,11 +11,11 @@ const routes: Routes = [
         path: 'login',
         loadChildren: () => import('./pages/outer/main/login/login.module').then( m => m.LoginPageModule)
       },
-      {
-        path: '',
-        redirectTo: '/main/welcome',
-        pathMatch: 'full'
-      },
+      // {
+      //   path: '',
+      //   redirectTo: '/main/welcome',
+      //   pathMatch: 'full'
+      // },
       {
         path: 'registration',
         loadChildren: () => import('./pages/outer/main/registration/registration.module').then( m => m.RegistrationPageModule)
@@ -126,7 +126,8 @@ const routes: Routes = [
   {
     path: 'user-cars',
     loadChildren: () => import('./pages/inner-tab/profile/user-cars/user-cars.module').then( m => m.UserCarsPageModule)
-  },  {
+  },
+  {
     path: 'service-info',
     loadChildren: () => import('./pages/inner-tab/service-history/service-info/service-info.module').then( m => m.ServiceInfoPageModule)
   },

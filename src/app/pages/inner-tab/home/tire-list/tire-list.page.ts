@@ -1,14 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
-import {UserCarService} from '../../../../services/roots/business/user-car.service';
-import {MoviliHeader} from '../../../../models/commons/MoviliHeader';
-import {UserCarResponse} from '../../../../models/responses/UserCarResponse';
-import {TireService} from '../../../../services/roots/business/tire.service';
-import {TireResponse} from '../../../../models/responses/TireResponse';
-import {SettingControllerService} from '../../../../services/controllers/setting-controller.service';
-import {NavController} from '@ionic/angular';
-import {TireFilterRequest} from '../../../../models/requests/TireFilterRequest';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { UserCarService } from '../../../../services/roots/business/user-car.service';
+import { MoviliHeader } from '../../../../models/commons/MoviliHeader';
+import { UserCarResponse } from '../../../../models/responses/UserCarResponse';
+import { TireService } from '../../../../services/roots/business/tire.service';
+import { TireResponse } from '../../../../models/responses/TireResponse';
+import { SettingControllerService } from '../../../../services/controllers/setting-controller.service';
+import { ModalController, NavController } from '@ionic/angular';
+import { TireFilterRequest } from '../../../../models/requests/TireFilterRequest';
+import { FilterComponent } from '../../../../components/filter/filter.component';
 
 @Component({
     selector: 'app-tire-list',
@@ -26,7 +27,8 @@ export class TireListPage implements OnInit {
     constructor(private route: ActivatedRoute,
                 private userCarService: UserCarService,
                 private tireService: TireService,
-                private settingControllerService: SettingControllerService,
+                private modalCtrl: ModalController,
+                // private settingControllerService: SettingControllerService,
                 private navCtrl: NavController,
     ) {
     }
@@ -73,15 +75,18 @@ export class TireListPage implements OnInit {
         });
     }
 
-    goToFilter() {
-        const modal = this.settingControllerService.setModalFilterComponent(this.tireFilter);
-        modal.present().then(resp => {
-            console.log(resp);
-            if (resp.data) {
-                this.tireFilter = resp.data;
-            }
+    async goToFilter() {
+        const modal = await this.modalCtrl.create({
+            component: FilterComponent,
+            componentProps: { tireFilter: this.tireFilter},
         });
+        modal.present();
 
+        const {data, role} = await modal.onWillDismiss();
+        if (data) {
+            this.tireFilter = data;
+            console.log(this.tireFilter);
+        }
     }
 
     goToTire(tireResponse: TireResponse) {

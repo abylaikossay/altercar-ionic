@@ -281,16 +281,16 @@ export class SettingControllerService extends AbstractSettingController {
     /*
     * Modal service
     * */
-    public setModalFilterComponent(data?: TireFilterRequest): IonicControllerAbstract {
-        return this.setExtraOption(this.modalService, (ionicController): IonicControllerOptionType => {
-
-            return {
-                component: FilterComponent,
-                swipeToClose: false,
-                componentProps: { tireFilter: data},
-            };
-        });
-    }
+    // public setModalFilterComponent(data?: TireFilterRequest): IonicControllerAbstract {
+    //     return this.setExtraOption(this.modalService, (ionicController): IonicControllerOptionType => {
+    //
+    //         return {
+    //             component: FilterComponent,
+    //             swipeToClose: false,
+    //             componentProps: { tireFilter: data},
+    //         };
+    //     });
+    // }
 
 
 }

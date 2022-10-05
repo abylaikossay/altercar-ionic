@@ -10,6 +10,7 @@ import {FirebaseService} from './firebase.service';
 import {SettingControllerService} from './controllers/setting-controller.service';
 import {StorageSecure} from '../models/abstracts/StorageSecure';
 import {VersionService} from './roots/version.service';
+import { Platform } from '@ionic/angular';
 
 @Injectable()
 export class AppService {

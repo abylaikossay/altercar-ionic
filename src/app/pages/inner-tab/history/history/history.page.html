@@ -13,9 +13,14 @@
       </div>
       <div class="custom-margin-top"></div>
       <div class="history-list">
-        <div class="history-card" *ngFor="let history of history">
+        <div class="history-card" *ngFor="let history of histories">
           <app-history-card [order]="history"></app-history-card>
         </div>
+        <div class="history-card" *ngIf="selectedCategory.id === 'PURCHASE_ORDER'">
+          <div *ngFor="let purchase of purchases">
+            TEXT TEEXT PURCHASE ORDERS
+          </div>
+          </div>
       </div>
     </div>
   </div>

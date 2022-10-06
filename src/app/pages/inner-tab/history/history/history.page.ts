@@ -4,6 +4,7 @@ import { OrderService } from '../../../../services/roots/business/order.service'
 import { OrderResponse } from '../../../../models/responses/OrderResponse';
 import { RefreshListener } from '../../../../models/commons/RefreshListener';
 import { ResolveOnListenerService } from '../../../../services/roots/resolve-on-listener.service';
+import { PurchaseOrderService } from '../../../../services/roots/business/purchase-order.service';
 
 @Component({
     selector: 'app-history',
@@ -28,11 +29,18 @@ export class HistoryPage implements OnInit, RefreshListener, OnDestroy {
             name: 'Успешные',
             selected: false,
         },
+        {
+            id: 'PURCHASE_ORDER',
+            name: 'Сервисная книжка',
+            selected: false,
+        },
     ];
     selectedCategory: any = {id: 'PROCESS', name: 'В процессе', selected: true};
-    history: OrderResponse[] = [];
+    histories: OrderResponse[] = [];
+    purchases: any[] = [];
 
     constructor(private orderService: OrderService,
+                private purchaseOrderService: PurchaseOrderService,
                 private resolveOnListener: ResolveOnListenerService) {
     }
 
@@ -58,12 +66,22 @@ export class HistoryPage implements OnInit, RefreshListener, OnDestroy {
     }
 
     getAllOrders() {
-        this.orderService.getOrders(this.selectedCategory.id).toPromise().then(resp => {
-            console.log(resp);
-            this.history = resp;
-        }).catch(err => {
-            console.error(err);
-        });
+        if (this.selectedCategory.id !== 'PURCHASE_ORDER') {
+            this.orderService.getOrders(this.selectedCategory.id).toPromise().then(resp => {
+                console.log(resp);
+                this.histories = resp;
+            }).catch(err => {
+                console.error(err);
+            });
+        } else {
+            this.histories = [];
+            this.purchaseOrderService.getOrders().toPromise().then(resp => {
+                console.log(resp);
+                this.purchases = [];
+            }).catch(err => {
+                console.error(err);
+            });
+        }
     }
 
     changeProducts(category: any) {

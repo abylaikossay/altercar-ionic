@@ -22,7 +22,7 @@ export class RegistrationPage implements OnInit {
 
     userTemplate: UserTemplateRequest = {
         birthDate: new Date(),
-        cityId: 0,
+        cityId: 1,
         deviceToken: 'testDeviceToken',
         email: '',
         gender: '',

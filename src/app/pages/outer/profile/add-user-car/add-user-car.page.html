@@ -26,6 +26,12 @@
            type="number" placeholder="Введите Объем">
   
     <div class="custom-margin-top"></div>
+    <label for="carNumberId">Госномер машины</label>
+    <input id="carNumberId" class="custom-input ion-text-uppercase"
+           [(ngModel)]="userCar.carNumber"
+           type="text" placeholder="Введите госномер">
+  
+    <div class="custom-margin-top"></div>
     <label for="vinId">VIN код</label>
     <input id="vinId" class="custom-input"
            [(ngModel)]="userCar.vinCode"

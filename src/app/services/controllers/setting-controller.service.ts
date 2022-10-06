@@ -185,7 +185,7 @@ export class SettingControllerService extends AbstractSettingController {
         return this.setExtraOption(this.actionSheetService, (ionicController): IonicControllerOptionType => {
             const buttons = userCars.map((item) => {
                 return {
-                    text: item.carBrand.name + ' ' + item.carModel.name,
+                    text: item.carBrand.name + ' ' + item.carModel.name + ' / ' + item.carNumber,
                     handler: data => {
                         ionicController.dismiss(item);
                     },

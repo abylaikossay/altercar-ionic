@@ -1,11 +1,10 @@
-import { CarBrandResponse } from './CarBrandResponse';
-import { CarModelResponse } from './CarModelResponse';
+import { CityResponse } from './CityResponse';
 
 export class UserResponse {
   id: number;
   avatarUrl: string;
   birthDate: Date;
-  cityId: number;
+  city: CityResponse;
   cityName: string;
   createdAt: string;
   email: string;

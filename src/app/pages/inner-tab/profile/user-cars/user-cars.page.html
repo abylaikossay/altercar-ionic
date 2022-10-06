@@ -5,7 +5,7 @@
 	<div class="user-card" *ngFor="let userCar of userCars" (click)="goToCar(userCar.id)">
 		<img src="{{logoUrl + userCar.carBrand.logoUrl}}" alt="" class="car-brand-logo">
 		<h5 class="car-name">{{userCar.carBrand.name}} {{userCar.carModel.name}}</h5>
-		<p class="car-year">{{userCar.carYear}} г.</p>
+		<p class="car-year">{{userCar.carYear}} г. / {{userCar.carNumber}}</p>
 		<img class="right-arrow" src="assets/icon/right-arrow.svg" alt="">
 	</div>
 	<div class="custom-margin-top"></div>

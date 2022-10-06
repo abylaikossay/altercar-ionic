@@ -1,9 +1,9 @@
 <div class="main-div">
     <div class="service-name">
-        {{service?.carBrand?.name + ' ' + service?.carModel?.name}}
+        {{service?.carBrand?.name + ' ' + service?.carModel?.name + ' / ' + service?.carYear + 'г'}}
     </div>
     <label>
-        <input type="text" disabled [value]='service.carYear + " год"' class="amount-disabled-input">
+        <input type="text" disabled [value]='service.carNumber' class="amount-disabled-input">
     </label>
     <button class="custom-button-movili delete-button" (click)="changeCar()">x</button>
 </div>

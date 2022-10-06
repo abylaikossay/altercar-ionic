@@ -99,6 +99,7 @@ export class AddUserCarPage implements OnInit {
             carBrandId: this.userCar.carBrand.id,
             carModelId: this.userCar.carModel.id,
             carYear: this.userCar.carYear,
+            carNumber: this.userCar.carNumber,
             color: this.userCar.color,
             engineVolume: this.userCar.engineVolume,
             vinCode: this.userCar.vinCode,

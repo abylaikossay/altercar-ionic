@@ -41,7 +41,7 @@ export class EditProfilePage implements OnInit {
             } else {
                 this.userResponse.genderName = 'Не определенно';
             }
-            this.userResponse.cityName = 'Алматы';
+            this.userResponse.cityName = this.userResponse.city.name
             console.log(this.userResponse);
         }).catch(error => {
             console.log(error);
@@ -59,8 +59,10 @@ export class EditProfilePage implements OnInit {
         this.userRequest.surname = this.userResponse.surname;
         this.userRequest.gender = this.userResponse.gender;
         this.userRequest.email = this.userResponse.email;
-        this.userRequest.cityId = this.userResponse.cityId;
+        this.userRequest.cityId = this.userResponse.city.id;
         this.userRequest.language = this.userResponse.language;
+        console.log(this.userRequest);
+        console.log(this.userResponse);
         this.accountService.updateProfile(this.userRequest).toPromise().then(resp => {
             console.log(resp);
             this.toastService.present('Профиль успешно обновлен');
@@ -100,6 +102,7 @@ export class EditProfilePage implements OnInit {
         console.log(value);
         if (value.data) {
             this.userResponse.cityName = value.data.location;
+            this.userResponse.city.id = value.data.cityId;
         }
 
     }

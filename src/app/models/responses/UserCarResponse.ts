@@ -8,6 +8,7 @@ export class UserCarResponse {
   carBrandId: number;
   carModelId: number;
   carYear: number;
+  carNumber: string;
   engineVolume: number;
   vinCode: string;
   color: string;

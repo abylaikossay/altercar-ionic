@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HistoryTabPage } from './history-tab.page';
-
+//TODO create page for purchase
 const routes: Routes = [
   {
     path: '',
@@ -14,6 +14,10 @@ const routes: Routes = [
       },
       {
         path: 'info',
+        loadChildren: () => import('../../inner-tab/history/info/info.module').then(m => m.InfoPageModule),
+      },
+      {
+        path: 'purchase',
         loadChildren: () => import('../../inner-tab/history/info/info.module').then(m => m.InfoPageModule),
       },
     ]

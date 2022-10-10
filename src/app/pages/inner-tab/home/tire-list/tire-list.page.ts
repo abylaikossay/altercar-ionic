@@ -59,7 +59,7 @@ export class TireListPage implements OnInit {
     getAllTires() {
         this.tireService.getAllTires().toPromise().then(resp => {
             console.log(resp);
-            this.tireResponses = resp;
+            this.tireResponses = resp.content;
         }).catch(err => {
             console.log(err);
         });

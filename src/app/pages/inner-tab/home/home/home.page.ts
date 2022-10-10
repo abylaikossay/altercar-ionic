@@ -85,7 +85,7 @@ export class HomePage implements OnInit, OnDestroy, RefreshListener {
   getAllTires() {
     this.tireService.getAllTires().toPromise().then(resp => {
       console.log(resp);
-      this.products = resp;
+      this.products = resp.content;
       console.log(this.products);
     }).catch(err => {
       console.log(err);

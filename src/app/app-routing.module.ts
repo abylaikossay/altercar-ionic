@@ -55,7 +55,6 @@ const routes: Routes = [
   },
   {
     path: '',
-    // redirectTo: '/main/welcome',
     redirectTo: `${localStorage.getItem('path') ? 'tabs/home-tab' : 'main/welcome'}`,
     pathMatch: 'full'
   },

@@ -27,7 +27,7 @@ export class TireControllerService {
     }
 
     getAllTires(): Observable<PaginationReponse<TireResponse>> {
-        return this.http.get<PaginationReponse<TireResponse>>(this.fullUrl + 'tire/all?search=diameter.id:21,');
+        return this.http.get<PaginationReponse<TireResponse>>(this.fullUrl + 'tire/all');
     }
 
     getAllTiresByUserCar(userCarId: number): Observable<TireResponse[]> {

@@ -54,11 +54,21 @@
         <div class="custom-margin-top"></div>
         <div class="bold-text">Список работ</div>
         <div class="custom-margin-top"></div>
-        <div class="set-works" *ngFor="let work of works">
-            <input class="custom-input"
-                   [(ngModel)]="work.text"
-                   type="text" placeholder="Введите работу">
-            <button (click)="addWork()" class="custom-button-movili next-button">+</button>
+        <div *ngIf="jobs.length > 0">
+            <div class="set-works" *ngFor="let work of works">
+                <input class="custom-input"
+                       [(ngModel)]="work.text"
+                       type="text" placeholder="Введите работу" (click)="getJobsList()">
+                <button (click)="addNewJob()" class="custom-button-movili next-button">+</button>
+            </div>
+        </div>
+        <div *ngIf="jobs.length === 0">
+            <div class="set-works" *ngFor="let work of works">
+                <input class="custom-input"
+                       [(ngModel)]="work.text"
+                       type="text" placeholder="Введите работу">
+                <button (click)="addWork()" class="custom-button-movili next-button">+</button>
+            </div>
         </div>
         <div class="custom-margin-top"></div>
         <div class="bold-text">Описание</div>

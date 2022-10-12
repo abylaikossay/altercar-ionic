@@ -205,6 +205,29 @@ export class SettingControllerService extends AbstractSettingController {
         });
     }
 
+    public setAlertJobs(jobs: any[]): IonicControllerAbstract {
+        return this.setExtraOption(this.actionSheetService, (ionicController): IonicControllerOptionType => {
+            const buttons = jobs.map((item) => {
+                return {
+                    text: item.jobName + ' / ' + item.duration + ' минут',
+                    handler: data => {
+                        ionicController.dismiss(item);
+                    },
+                };
+            });
+            buttons.push({
+                handler(data): void {
+                    ionicController.dismiss('New');
+                }, text: 'Ввести вручную',
+            });
+            return {
+                animated: true,
+                header: 'Выберите работу:',
+                buttons: [...buttons],
+            };
+        });
+    }
+
     public setAlertSelectCity(cities: LocationResponse[]): IonicControllerAbstract {
         return this.setExtraOption(this.actionSheetService, (ionicController): IonicControllerOptionType => {
             const buttons = cities.map((item) => {

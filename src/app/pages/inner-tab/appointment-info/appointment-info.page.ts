@@ -12,6 +12,7 @@ import {AppointmentRequest} from '../../../models/requests/AppointmentRequest';
 import {UserCarResponse} from '../../../models/responses/UserCarResponse';
 import {UserCarService} from '../../../services/roots/business/user-car.service';
 import {SettingControllerService} from '../../../services/controllers/setting-controller.service';
+import {PartnerJobService} from '../../../services/roots/business/partner-job.service';
 
 @Component({
     selector: 'app-appointment-info',
@@ -29,6 +30,7 @@ export class AppointmentInfoPage implements OnInit {
                 private appointmentService: AppointmentService,
                 private userCarService: UserCarService,
                 private settingControllerService: SettingControllerService,
+                private partnerJobService: PartnerJobService,
                 private navCtrl: NavController) {
     }
 
@@ -38,6 +40,7 @@ export class AppointmentInfoPage implements OnInit {
     userCarResponse: UserCarResponse;
     partnerId: number;
     partner: PartnerResponse = new PartnerResponse();
+    jobs: any[] = [];
     works: any[] = [{text: ''}];
 
     ngOnInit() {
@@ -48,6 +51,7 @@ export class AppointmentInfoPage implements OnInit {
                 this.partnerService.getById(data.id).toPromise().then(resp => {
                     console.log(resp);
                     this.partner = resp;
+                    this.getJobs();
                     // this.services[0] = {
                     //     productName: resp.productName,
                     //     ispProductId: resp.ispProductId,
@@ -66,6 +70,15 @@ export class AppointmentInfoPage implements OnInit {
 
         });
         this.$url.unsubscribe();
+    }
+
+    getJobs() {
+        this.partnerJobService.getByPartner(this.partnerId).toPromise().then(resp => {
+            console.log(resp);
+            this.jobs = resp;
+        }).catch(err => {
+            console.error(err);
+        });
     }
 
     getUserCar() {
@@ -115,6 +128,11 @@ export class AppointmentInfoPage implements OnInit {
         this.works.push({text: ''});
     }
 
+    addNewJob() {
+        this.getJobsList();
+
+    }
+
     async selectCar() {
         this.userCarService.getUserCars().toPromise().then(async resp => {
             const alertChooseCar = this.settingControllerService.setAlertUserCar(resp);
@@ -137,5 +155,23 @@ export class AppointmentInfoPage implements OnInit {
         console.log(event);
         this.userCarResponse = null;
 
+    }
+
+    async getJobsList() {
+            const alertСhooseJob = this.settingControllerService.setAlertJobs(this.jobs);
+            const value = await alertСhooseJob.present();
+            if (value.data) {
+                if (value.data !== 'New') {
+                    console.log(value.data);
+                    if (this.works.length === 1) {
+                        // this.works = [];
+                    }
+                    this.works.push({text: value.data.jobName});
+                    // this.userCarResponse = value.data;
+                    // this.userCarId = this.userCarResponse.id;
+                } else {
+                    // this.navCtrl.navigateForward(['/add-user-car']);
+                }
+            }
     }
 }

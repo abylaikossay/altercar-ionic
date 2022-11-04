@@ -90,9 +90,9 @@ export class UserCarPage implements OnInit {
                 break;
             case 'CAR_WASH':
                 if (this.userCarId) {
-                    this.navCtrl.navigateForward('/appointment-info/4/user-car/' + this.userCarId);
+                    this.navCtrl.navigateForward('/appointment-info/4/user-car/' + this.userCarId + '/6');
                 } else {
-                    this.navCtrl.navigateForward('/appointment-info/4');
+                    this.navCtrl.navigateForward('/appointment-info/4/6');
                 }
                 break;
             case 'AUTOPARTS':

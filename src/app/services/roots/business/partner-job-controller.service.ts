@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CarBrandResponse } from '../../../models/responses/CarBrandResponse';
 import { CarModelResponse } from '../../../models/responses/CarModelResponse';
+import { PartnerCategoryJobResponse } from '../../../models/responses/PartnerCategoryJobResponse';
 
 @Injectable({
     providedIn: 'root',
@@ -25,8 +26,8 @@ export class PartnerJobControllerService {
         return this.http.get<any[]>(this.fullUrl + 'partner-category-job/partner?categoryId=' + categoryId + '&partnerId=' + partnerId);
     }
 
-    getByPartner(id: number): Observable<any[]> {
-        return this.http.get<any[]>(this.fullUrl + 'partner-category-job/all/' + id);
+    getByPartner(id: number): Observable<PartnerCategoryJobResponse[]> {
+        return this.http.get<PartnerCategoryJobResponse[]>(this.fullUrl + 'partner-category-job/all/' + id);
     }
 
 

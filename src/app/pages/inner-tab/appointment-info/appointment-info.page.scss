@@ -4,6 +4,9 @@
     grid-template-columns: 2fr 5fr 1fr;
     column-gap: 4vw;
   }
+  .custom-input {
+    color: var(--custom-text-color-tertiary);
+  }
 
   .user-photo {
     grid-row: span 2;
@@ -119,15 +122,19 @@
   }
 
   .set-works {
-    display: grid;
-    grid-template-columns: 5fr 1fr;
-    grid-gap: 2vw;
+    display: flex;
+    justify-content: space-between;
+    //grid-template-columns: 5fr 1fr;
+    //grid-gap: 2vw;
   }
 
   .next-button {
     height: 10vw;
-    width: 10vw;
+    max-width: 10vw;
     align-self: center;
+  }
+  .delete {
+    background: var(--custom-background-color-danger);
   }
   button.call {
     background: var(--custom-backgrond-color-white) !important;

@@ -4,6 +4,9 @@
     grid-template-columns: 2fr 5fr 1fr;
     column-gap: 4vw;
   }
+  .description {
+    margin-right: 2vw;
+  }
 
   .user-photo {
     grid-row: span 2;

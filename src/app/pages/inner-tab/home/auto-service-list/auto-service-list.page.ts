@@ -77,9 +77,9 @@ export class AutoServiceListPage implements OnInit {
 
     goToPartner(partner: any) {
         if (this.userCarId) {
-            this.navCtrl.navigateForward([`appointment-info/${partner.id}/user-car/${this.userCarId}`]);
+            this.navCtrl.navigateForward([`appointment-info/${partner.id}/user-car/${this.userCarId}/${this.categoryId}`]);
         } else {
-            this.navCtrl.navigateForward([`appointment-info/${partner.id}`]);
+            this.navCtrl.navigateForward([`appointment-info/${partner.id}/${this.categoryId}`]);
         }
     }
 }

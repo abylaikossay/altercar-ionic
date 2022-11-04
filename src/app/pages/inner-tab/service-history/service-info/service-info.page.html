@@ -30,12 +30,24 @@
     <div class="custom-margin-top"></div>
     <div class="appointment-date-info">
       <div class="day-time">
+        <div class="description">Дата записи:</div>
         <div class="calendar-day">{{history.appointmentDate | date: 'E'}}</div>
         {{history.appointmentDate | date:'shortDate' }}
       </div>
       <div class="day-time">
+        <div class="description">Время записи: </div>
         <img src="assets/icon/time-icon.svg" alt="">
         {{history.appointmentDate | date:'shortTime'}}
+      </div>
+      <div class="day-time" *ngIf="history.startFrom">
+        <div class="description">Начало: </div>
+        <img src="assets/icon/time-icon.svg" alt="">
+        {{history.startFrom | date:'shortTime'}}
+      </div>
+      <div class="day-time" *ngIf="history.finishTill">
+        <div class="description">Конец: </div>
+        <img src="assets/icon/time-icon.svg" alt="">
+        {{history.finishTill | date:'shortTime'}}
       </div>
     </div>
     <div class="custom-margin-top"></div>

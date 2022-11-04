@@ -70,7 +70,7 @@ export class ServicePage implements OnInit {
                 this.navCtrl.navigateForward('/tabs/service-tab/service-list');
                 break;
             case 'CAR_WASH':
-                this.navCtrl.navigateForward('/appointment-info/4');
+                this.navCtrl.navigateForward('/appointment-info/4/6');
                 break;
             case 'AUTOPARTS':
                 console.log('test AUTOPARTS');

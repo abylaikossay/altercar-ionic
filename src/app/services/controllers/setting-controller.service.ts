@@ -1,22 +1,22 @@
-import {Injectable} from '@angular/core';
-import {IonicControllerOptionType} from '../../models/commons/IonicControllerOptionType';
-import {AbstractSettingController} from '../../models/abstracts/AbstractSettingController';
-import {ActionSheetService} from './action-sheet.service';
-import {LoadingService} from './loading.service';
-import {AlertService} from './alert.service';
-import {ModalService} from './modal.service';
-import {PopOverService} from './pop-over.service';
-import {ToastService} from './toast.service';
-import {IonicControllerAbstract} from '../../models/abstracts/IonicControllerAbstract';
-import {NetworkStatusComponent} from '../../components/network-status/network-status.component';
-import {LocationResponse} from '../../models/responses/LocationResponse';
-import {UserLocationResponse} from '../../models/responses/UserLocationResponse';
-import {FilterComponent} from 'src/app/components/filter/filter.component';
-import {CarBrandResponse} from '../../models/responses/CarBrandResponse';
-import {CarModelResponse} from '../../models/responses/CarModelResponse';
-import {UserCarResponse} from '../../models/responses/UserCarResponse';
-import {TireFilterRequest} from '../../models/requests/TireFilterRequest';
-import {TireCatalogResponse} from '../../models/responses/TireCatalogResponse';
+import { Injectable } from '@angular/core';
+import { IonicControllerOptionType } from '../../models/commons/IonicControllerOptionType';
+import { AbstractSettingController } from '../../models/abstracts/AbstractSettingController';
+import { ActionSheetService } from './action-sheet.service';
+import { LoadingService } from './loading.service';
+import { AlertService } from './alert.service';
+import { ModalService } from './modal.service';
+import { PopOverService } from './pop-over.service';
+import { ToastService } from './toast.service';
+import { IonicControllerAbstract } from '../../models/abstracts/IonicControllerAbstract';
+import { NetworkStatusComponent } from '../../components/network-status/network-status.component';
+import { LocationResponse } from '../../models/responses/LocationResponse';
+import { UserLocationResponse } from '../../models/responses/UserLocationResponse';
+import { FilterComponent } from 'src/app/components/filter/filter.component';
+import { CarBrandResponse } from '../../models/responses/CarBrandResponse';
+import { CarModelResponse } from '../../models/responses/CarModelResponse';
+import { UserCarResponse } from '../../models/responses/UserCarResponse';
+import { TireFilterRequest } from '../../models/requests/TireFilterRequest';
+import { TireCatalogResponse } from '../../models/responses/TireCatalogResponse';
 
 /*
 * Use only with Option, if you want use specific ionic controller use other service
@@ -215,14 +215,13 @@ export class SettingControllerService extends AbstractSettingController {
                     },
                 };
             });
-            buttons.push({
-                handler(data): void {
-                    ionicController.dismiss('New');
-                }, text: 'Ввести вручную',
-            });
+            let header = 'Выберите работу:';
+            if (jobs.length === 0) {
+                header = 'Партнер еще не добавил работы!';
+            }
             return {
                 animated: true,
-                header: 'Выберите работу:',
+                header,
                 buttons: [...buttons],
             };
         });

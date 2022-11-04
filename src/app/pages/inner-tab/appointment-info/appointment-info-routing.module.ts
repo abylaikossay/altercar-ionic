@@ -9,11 +9,11 @@ const routes: Routes = [
         component: AppointmentInfoPage,
     },
     {
-        path: ':id',
+        path: ':id/:categoryId',
         component: AppointmentInfoPage,
     },
     {
-        path: ':id/user-car/:carId',
+        path: ':id/user-car/:carId/:categoryId',
         component: AppointmentInfoPage,
     },
 ];

@@ -4,5 +4,5 @@ export class AppointmentRequest {
   appointmentDate: Date;
   partnerId: number;
   userCarId: number;
-  setOfWorks: string[];
+  partnerCategoryJobId: number[];
 }

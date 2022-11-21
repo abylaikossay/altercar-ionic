@@ -22,14 +22,22 @@ export class PurchaseCardComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.getPartner();
     }
-
+    getPartner() {
+        this.partnerService.getById(this.purchase.partner).toPromise().then(resp => {
+            this.partner = resp;
+            console.log(resp);
+        }).catch(err => {
+            console.error(err);
+        });
+    }
     async goToInfo() {
         const alertChooseAction = this.settingControllerService.setAlertOrderFinishedAction();
         const value = await alertChooseAction.present();
         console.log(value);
         if (value.data === 'Подробнее о записи') {
-            this.navCtrl.navigateForward(['/tabs/history-tab/info/' + this.purchase.id]);
+            this.navCtrl.navigateForward(['/tabs/history-tab/purchase/' + this.purchase.id]);
         }
     }
 }

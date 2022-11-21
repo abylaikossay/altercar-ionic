@@ -1,0 +1,10 @@
+<div class="main-div">
+  <div class="service-name">
+    <div>{{job.name}}</div>
+    <br>
+    <div>{{job.price | currency:'KZT':'symbol-narrow'}}</div>
+  </div>
+  <label>
+    <input type="text" disabled [value]="job.amount" class="amount-disabled-input">
+  </label>
+</div>

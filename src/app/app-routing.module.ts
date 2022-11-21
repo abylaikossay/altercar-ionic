@@ -131,6 +131,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/inner-tab/service-history/service-info/service-info.module').then( m => m.ServiceInfoPageModule)
   },
 
+
+
   // {
   //   path: 'auto-service-list',
   //   loadChildren: () => import('./pages/inner-tab/home/auto-service-list/auto-service-list.module').then( m => m.AutoServiceListPageModule)

@@ -1,0 +1,74 @@
+<ion-content>
+  <app-common-header [header]="moviliHeader"></app-common-header>
+  <div class="page-padding">
+    <div class="user-info-grid">
+      <img *ngIf="!partner?.logoUrl" src="assets/unknown-avatar.jpeg" class="user-photo" alt="">
+      <img *ngIf="partner?.logoUrl" src="{{fullUrl + partner?.logoUrl}}" class="user-photo"
+           alt="">
+      <div class="user-name">{{partner?.name}}</div>
+      <div class="chat-img">
+        <img src="assets/icon/chat.svg" alt="">
+      </div>
+      <div class="user-address-info">
+        <img src="assets/icon/point.svg" alt="">
+        <span class="address">{{partner?.address}}</span>
+      </div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="services-header">Работы</div>
+    <div *ngFor="let job of purchase.jobSet">
+      <div class="custom-margin-top"></div>
+      <app-purchase-jobs class="service-li" [job]="job"></app-purchase-jobs>
+      <div class="horizontal-line"></div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="appointment-date-info">
+      <div class="day-time">
+        <div class="calendar-day">{{purchase.checkInTime | date: 'E'}}</div>
+        <!--                      <div *ngIf="history.updatedAt" class="calendar-day">{{history.updatedAt | date: 'EEEE' === '' ? 'Пн'-->
+        <!--                          : history.updatedAt | date: 'EEEE' === 2 ? 'Вт'-->
+        <!--                              : history.updatedAt | date: 'EEEE' === 3 ? 'Ср'-->
+        <!--                                  : history.updatedAt | date: 'EEEE' === 4 ? 'Чт'-->
+        <!--                                      : history.updatedAt | date: 'EEEE' === 5 ? 'Пт'-->
+        <!--                                          : history.updatedAt | date: 'EEEE' === 6 ? 'Cб'-->
+        <!--                                              : history.updatedAt | date: 'EEEE' === 7 ? 'Вс'-->
+        <!--                                                  : ''}}</div>-->
+        {{purchase.checkInTime | date:'shortDate' }}
+      </div>
+      <div class="day-time">
+        <img src="assets/icon/time-icon.svg" alt="">
+        {{purchase.checkInTime | date:'shortTime'}}
+      </div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="user-contacts">
+      <div class="bold-text">Статус</div>
+      <div class="bold-text">Успешно
+      </div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="user-contacts">
+      <div class="bold-text">Контакты</div>
+      <div class="bold-text">{{partner.phone}}
+        <img src="assets/icon/right-arrow.svg" alt="">
+      </div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="bold-text">Автомобиль</div>
+    <div class="custom-margin-top"></div>
+    <div class="custom-div-textarea" [contentEditable]="false">{{purchase?.carBrand?.name + ' ' + purchase?.carModel?.name + ' / ' + purchase?.carStateNumber }}
+      <br> Пробег: {{purchase.mileage + ' ' + purchase.mileageMeasure}}
+    </div>
+    <div class="horizontal-line"></div>
+  </div>
+</ion-content>
+<!--<ion-footer>-->
+<!--  <div class="page-padding bottom-fixed-buttons">-->
+<!--    <button *ngIf="history.status === 'PROCESS'" class="custom-button-movili call" (click)="decline(history)">-->
+<!--      <span>Отменить</span>-->
+<!--    </button>-->
+<!--    <button class="custom-button-movili" (click)="complain(history)">-->
+<!--      <span>Пожаловаться</span>-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</ion-footer>-->

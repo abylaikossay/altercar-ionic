@@ -152,7 +152,7 @@ export class SettingControllerService extends AbstractSettingController {
                 header: 'Запись',
                 buttons: [
                     {
-                        text: 'Подробнее о транзакции',
+                        text: 'Подробнее о записи',
                         handler: data => {
                             ionicController.dismiss('Подробнее о записи');
                         },

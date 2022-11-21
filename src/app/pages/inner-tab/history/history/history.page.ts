@@ -5,6 +5,7 @@ import { OrderResponse } from '../../../../models/responses/OrderResponse';
 import { RefreshListener } from '../../../../models/commons/RefreshListener';
 import { ResolveOnListenerService } from '../../../../services/roots/resolve-on-listener.service';
 import { PurchaseOrderService } from '../../../../services/roots/business/purchase-order.service';
+import { PurchaseOrderResponse } from '../../../../models/responses/PurchaseOrderResponse';
 
 @Component({
     selector: 'app-history',
@@ -37,7 +38,7 @@ export class HistoryPage implements OnInit, RefreshListener, OnDestroy {
     ];
     selectedCategory: any = {id: 'PROCESS', name: 'В процессе', selected: true};
     histories: OrderResponse[] = [];
-    purchases: any[] = [];
+    purchases: PurchaseOrderResponse[] = [];
 
     constructor(private orderService: OrderService,
                 private purchaseOrderService: PurchaseOrderService,
@@ -77,7 +78,7 @@ export class HistoryPage implements OnInit, RefreshListener, OnDestroy {
             this.histories = [];
             this.purchaseOrderService.getOrders().toPromise().then(resp => {
                 console.log(resp);
-                this.purchases = [];
+                this.purchases = resp;
             }).catch(err => {
                 console.error(err);
             });

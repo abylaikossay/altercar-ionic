@@ -6,11 +6,14 @@
       <img *ngIf="partner?.logoUrl" src="{{photoUrl + partner?.logoUrl}}" class="img" alt="">
     </div>
     <div class="inner-cart-grid">
-      <div class="cart-grid-span-2 title wrap-text">{{purchase.partner.name}}
+      <div class="cart-grid-span-2 title wrap-text">{{partner.name}}
         <br>
         <span class="service-name">Запись №{{purchase.id}}</span></div>
       <div class="cart-grid-span-2 cart-flex">
-        <div class="price">Машина: {{purchase.userCar.carBrand + ' ' + purchase.userCar.carModel}}</div>
+        <div class="price">Общая сумма: {{purchase.totalSumJob | currency:'KZT':'symbol-narrow'}}</div>
+      </div>
+      <div class="cart-grid-span-2 cart-flex">
+        <div class="price">Машина: {{purchase.carBrand.name + ' ' + purchase.carModel.name + ' / ' + purchase.carStateNumber}}</div>
       </div>
       <!--      <div class="cart-grid-span-2 cart-flex">-->
       <!--        <div class="price">Дата: {{appointment.appointmentDate}}</div>-->

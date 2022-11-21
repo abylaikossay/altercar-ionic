@@ -18,7 +18,7 @@
         </div>
         <div class="history-card" *ngIf="selectedCategory.id === 'PURCHASE_ORDER'">
           <div *ngFor="let purchase of purchases">
-            <app-history-card [order]="purchase"></app-history-card>
+            <app-purchase-card [purchase]="purchase"></app-purchase-card>
           </div>
           </div>
       </div>

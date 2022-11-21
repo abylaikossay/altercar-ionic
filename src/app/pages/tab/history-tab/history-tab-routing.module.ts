@@ -18,7 +18,7 @@ const routes: Routes = [
       },
       {
         path: 'purchase',
-        loadChildren: () => import('../../inner-tab/history/info/info.module').then(m => m.InfoPageModule),
+        loadChildren: () => import('../../inner-tab/history/purchase-info/purchase-info.module').then(m => m.PurchaseInfoPageModule),
       },
     ]
   }

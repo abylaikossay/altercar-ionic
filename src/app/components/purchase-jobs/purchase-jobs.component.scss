@@ -1,0 +1,28 @@
+:host {
+  display: block;
+  .main-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+
+    & label {
+      padding: 0;
+    }
+  }
+  .service-name {
+    font-style: var(--custom-font-style-normal);
+    font-weight: var(--custom-font-weight-semibold);
+    font-size: var(--custom-font-size-8);
+    line-height: var(--custom-line-height); //todo fake 18px;
+    color: var(--custom-text-color-movili-dark);
+  }
+  .amount-disabled-input {
+    border: 1px solid var(--custom-backgrond-color-light-gray);
+    box-sizing: border-box;
+    border-radius: 9px;
+    background-color: var(--custom-backgrond-color-white);
+    width: 34px;
+    padding: 11px;
+  }
+}

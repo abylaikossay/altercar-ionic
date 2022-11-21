@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserCarResponse } from '../../../models/responses/UserCarResponse';
 import { TireOrderRequest } from '../../../models/requests/TireOrderRequest';
+import { PurchaseOrderResponse } from '../../../models/responses/PurchaseOrderResponse';
 
 @Injectable({
     providedIn: 'root',
@@ -25,12 +26,12 @@ export class PurchaseOrderControllerService {
     //         .pipe(map(value => value.body as OrderResponse));
     // }
 
-    getOrder(id: number): Observable<any> {
-        return this.http.get<any>(this.fullUrl + 'order/' + id);
+    getOrder(id: number): Observable<PurchaseOrderResponse> {
+        return this.http.get<PurchaseOrderResponse>(this.fullUrl + 'purchase/order/' + id);
     }
 
-    getUserOrders(): Observable<any[]> {
-        return this.http.get<any[]>(this.fullUrl + 'purchase/order');
+    getUserOrders(): Observable<PurchaseOrderResponse[]> {
+        return this.http.get<PurchaseOrderResponse[]>(this.fullUrl + 'purchase/order');
     }
 
     createOrder(tireOrderRequest: TireOrderRequest): Observable<any> {

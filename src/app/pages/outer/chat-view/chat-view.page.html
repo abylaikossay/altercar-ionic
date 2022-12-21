@@ -25,4 +25,11 @@
             <img src="assets/icon/new-chat.svg" alt="">
         </div>
     </div>
+    <input class="form-control" type="text" placeholder="message" [(ngModel)]="input">
+    <button class="btn btn-success" (click)="sendMessage()">Send</button>
+    <div class="content">
+        <div *ngFor="let msg of messageService.msg">
+            {{msg}}
+        </div>
+    </div>
 </ion-content>

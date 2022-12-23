@@ -99,7 +99,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/outer/profile/author-profile/author-profile.module').then( m => m.AuthorProfilePageModule)
   },
   {
-    path: 'chat-view',
+    path: 'chat-view/:id',
     loadChildren: () => import('./pages/outer/chat-view/chat-view.module').then( m => m.ChatViewPageModule)
   },
   // {

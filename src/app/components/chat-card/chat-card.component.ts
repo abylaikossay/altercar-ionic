@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ChatResponse } from '../../models/responses/ChatResponse';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-chat-card',
@@ -6,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat-card.component.scss'],
 })
 export class ChatCardComponent implements OnInit {
+  @Input() chat: ChatResponse;
+  fullUrl: string = environment.imageUrl + '/partner-logo/';
 
-  constructor() { }
+  constructor() {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

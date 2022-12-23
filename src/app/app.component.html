@@ -1,10 +1,6 @@
 <ion-app>
   <ion-content>
-    <ion-refresher pullFactor="1" pullMin="60" pullMax="150" #ionRefresher (ionRefresh)="refreshPage($event)"
-                   slot="fixed">
-      <ion-refresher-content [pullingIcon]="null" [refreshingSpinner]="'crescent'">
-      </ion-refresher-content>
-    </ion-refresher>
+
     <ion-router-outlet></ion-router-outlet>
   </ion-content>
 </ion-app>

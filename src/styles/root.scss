@@ -3,6 +3,15 @@
 .d-flex {
   display: flex;
 }
+.justify-content-start {
+  -ms-flex-pack: start !important;
+  justify-content: flex-start !important;
+}
+.justify-content-end {
+  -ms-flex-pack: end !important;
+  justify-content: flex-end !important;
+}
+
 
 .ion-content-flex-center {
   display: flex;

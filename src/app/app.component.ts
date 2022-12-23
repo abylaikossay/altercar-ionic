@@ -28,6 +28,7 @@ export class AppComponent {
         this.resolveOnListener.call();
         if (!this.exceptMethod(getRouterUrl(this.route))) {
             this.resolveControlService.forceRunCurrentGuards(this.ionRefresh);
+
         } else {
             event.target.complete();
         }
@@ -39,6 +40,7 @@ export class AppComponent {
         * */
         const methods: string[] = [
             '/tabs/profile-tab',
+            '/chat-view/1'
         ];
         return methods.some((item: string) => {
             return url.includes(item);

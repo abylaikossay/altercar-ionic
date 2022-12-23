@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MoviliHeader } from '../../../../models/commons/MoviliHeader';
 import { OrderService } from '../../../../services/roots/business/order.service';
 import { OrderResponse } from '../../../../models/responses/OrderResponse';
@@ -6,6 +6,8 @@ import { RefreshListener } from '../../../../models/commons/RefreshListener';
 import { ResolveOnListenerService } from '../../../../services/roots/resolve-on-listener.service';
 import { PurchaseOrderService } from '../../../../services/roots/business/purchase-order.service';
 import { PurchaseOrderResponse } from '../../../../models/responses/PurchaseOrderResponse';
+import { ResolveControlService } from '../../../../services/roots/resolve-control.service';
+import { IonRefresher } from '@ionic/angular';
 
 @Component({
     selector: 'app-history',
@@ -39,15 +41,22 @@ export class HistoryPage implements OnInit, RefreshListener, OnDestroy {
     selectedCategory: any = {id: 'PROCESS', name: 'В процессе', selected: true};
     histories: OrderResponse[] = [];
     purchases: PurchaseOrderResponse[] = [];
+    @ViewChild('ionRefresher') ionRefresh: IonRefresher;
 
     constructor(private orderService: OrderService,
                 private purchaseOrderService: PurchaseOrderService,
+                private resolveControlService: ResolveControlService,
                 private resolveOnListener: ResolveOnListenerService) {
     }
 
     ngOnInit() {
         //todo add ResolveOnListenerService
         this.getAllOrders();
+    }
+
+    refreshPage(event) {
+        this.resolveOnListener.call();
+        this.resolveControlService.forceRunCurrentGuards(this.ionRefresh);
     }
 
     ngOnDestroy(): void {

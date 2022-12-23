@@ -15,7 +15,7 @@ import { UserLocationResponse } from '../../../models/responses/UserLocationResp
 export class CommonHeaderComponent implements OnInit {
 
     moviliHeader: MoviliHeader = {};
-    @Input() route: string = undefined;ф
+    @Input() route: string = undefined;
 
     @Input() isWhite: boolean = false;
 

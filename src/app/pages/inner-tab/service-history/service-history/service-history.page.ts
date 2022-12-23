@@ -1,9 +1,11 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {MoviliHeader} from '../../../../models/commons/MoviliHeader';
-import {OrderService} from '../../../../services/roots/business/order.service';
-import {AppointmentService} from '../../../../services/roots/business/appointment.service';
-import {RefreshListener} from '../../../../models/commons/RefreshListener';
-import {ResolveOnListenerService} from '../../../../services/roots/resolve-on-listener.service';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MoviliHeader } from '../../../../models/commons/MoviliHeader';
+import { OrderService } from '../../../../services/roots/business/order.service';
+import { AppointmentService } from '../../../../services/roots/business/appointment.service';
+import { RefreshListener } from '../../../../models/commons/RefreshListener';
+import { ResolveOnListenerService } from '../../../../services/roots/resolve-on-listener.service';
+import { ResolveControlService } from '../../../../services/roots/resolve-control.service';
+import { IonRefresher } from '@ionic/angular';
 
 @Component({
     selector: 'app-service-history',
@@ -31,26 +33,31 @@ export class ServiceHistoryPage implements OnInit, RefreshListener, OnDestroy {
     ];
     selectedCategory: any = {id: 'PROCESS', name: 'В процессе', selected: true};
     history: any[] = [];
+    @ViewChild('ionRefresher') ionRefresh: IonRefresher;
 
     constructor(private appointmentService: AppointmentService,
-                private resolveOnListener: ResolveOnListenerService
+                private resolveControlService: ResolveControlService,
+                private resolveOnListener: ResolveOnListenerService,
     ) {
     }
-
+    refreshPage(event) {
+        this.resolveOnListener.call();
+        this.resolveControlService.forceRunCurrentGuards(this.ionRefresh);
+    }
     ngOnInit() {
         this.getAllOrders();
     }
 
     ngOnDestroy(): void {
-        this.resolveOnListener.delete('service-history');
+        this.resolveOnListener.delete('appointment');
     }
 
     ionViewWillEnter() {
-        this.resolveOnListener.add('service-history', this.call.bind(this));
+        this.resolveOnListener.add('appointment', this.call.bind(this));
     }
 
     ionViewDidLeave() {
-        this.resolveOnListener.delete('service-history');
+        this.resolveOnListener.delete('appointment');
     }
 
     call() {

@@ -1,4 +1,9 @@
 <ion-content>
+	<ion-refresher pullFactor="1" pullMin="60" pullMax="150" #ionRefresher (ionRefresh)="refreshPage($event)"
+	               slot="fixed">
+		<ion-refresher-content [pullingIcon]="null" [refreshingSpinner]="'crescent'">
+		</ion-refresher-content>
+	</ion-refresher>
 	<app-common-header [header]="moviliHeader"></app-common-header>
 	<div class="page-padding">
 	<div class="custom-margin-top"></div>

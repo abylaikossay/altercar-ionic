@@ -14,8 +14,8 @@ export const environment = {
   // url: 'http://89.219.13.211:8085',
   url: 'http://10.4.10.197:8085',
   // imageUrl: 'http://10.3.10.g 117:8085/api/file',
-  imageUrl: 'http://89.219.13.211:8085/api/file',
-  // imageUrl: 'http://localhost:8085/api/file',
+  // imageUrl: 'http://89.219.13.211:8085/api/file',
+  imageUrl: 'http://10.4.10.197:8085/api/file',
 };
 
 /*

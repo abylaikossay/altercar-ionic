@@ -36,7 +36,7 @@ export class PartnerControllerService {
     }
 
     getById(id: number): Observable<PartnerResponse> {
-        return this.http.get<PartnerResponse>(this.fullUrl + 'partner/' + id);
+        return this.http.get<PartnerResponse>(this.fullUrl + 'partner/user/' + id);
     }
 
 

@@ -24,4 +24,8 @@ export class ChatService {
         return this.chatControllerService.getChatById(chatId);
     }
 
+    goToChat(createChatRequest) {
+        return this.chatControllerService.goToChat(createChatRequest);
+    }
+
 }

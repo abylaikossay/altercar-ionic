@@ -10,6 +10,8 @@ export class PartnerResponse {
   logoUrl: string;
   qrPath: string;
   pushText: string;
+  isFavorite: boolean;
+  isVisited: boolean;
 
 
 }

@@ -120,8 +120,7 @@ export class ChatViewPage implements OnInit {
     }
 
     goBack() {
-        this.navCtrl.navigateBack('/chat');
-
+        this.navCtrl.back({animated: true});
     }
 
 

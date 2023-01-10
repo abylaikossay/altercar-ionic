@@ -17,6 +17,10 @@ export class AutoServiceService {
         return this.autoServiceControllerService.getPartnersByCategoryId(id);
     }
 
+    getFavoritePartners() {
+        return this.autoServiceControllerService.getFavoritePartners();
+    }
+
     getCategoryById(id: number) {
         return this.autoServiceControllerService.getCategoryById(id);
     }

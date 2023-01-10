@@ -6,11 +6,15 @@
 			<img *ngIf="partner.logoUrl" src="{{fullUrl + partner.logoUrl}}" class="user-photo" alt="">
 			<div class="user-name">{{partner.name}}</div>
 			<div class="chat-img">
-				<img src="assets/icon/chat.svg" alt="">
+				<img *ngIf="partner.isFavorite" src="assets/icon/star.svg" alt="" (click)="removeFromFavorite()">
+				<img *ngIf="!partner.isFavorite" src="assets/icon/empty-star.svg" (click)="addToFavorite()" alt="">
 			</div>
 			<div class="user-address-info">
 				<img src="assets/icon/point.svg" alt="">
 				<span class="address">{{partner.address}}</span>
+			</div>
+			<div class="chat-img">
+				<img src="assets/icon/chat.svg" alt="" (click)="goToChat()">
 			</div>
 		</div>
 		<div class="custom-margin-top"></div>

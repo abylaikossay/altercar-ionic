@@ -56,4 +56,11 @@ export class ServiceListPage implements OnInit {
             this.navCtrl.navigateForward([`tabs/service-tab/auto-service-list/${category.id}`]);
         }
     }
+
+    goToFavorite() {
+        if (this.userCarId) {
+            this.navCtrl.navigateForward([`tabs/home-tab/auto-service-list/0/car/${this.userCarId}`]);
+        } else {
+            this.navCtrl.navigateForward([`tabs/service-tab/auto-service-list/0`]);
+        }    }
 }

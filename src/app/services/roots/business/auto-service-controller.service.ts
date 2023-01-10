@@ -27,7 +27,11 @@ export class AutoServiceControllerService {
     }
 
     getPartnersByCategoryId(id: number): Observable<any> {
-        return this.http.get<any>(this.fullUrl + 'category/partners/' + id);
+        return this.http.get<any>(this.fullUrl + 'category/user/partners/' + id);
+    }
+
+    getFavoritePartners(): Observable<any> {
+        return this.http.get<any>(this.fullUrl + 'partner-favorite');
     }
 
     getCategoryById(id: number): Observable<any> {

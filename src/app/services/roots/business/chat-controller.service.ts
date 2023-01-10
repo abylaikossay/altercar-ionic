@@ -71,6 +71,10 @@ export class ChatControllerService {
         return this.http.get<ChatResponse>(this.fullUrl + `chat/${id}`);
     }
 
+    public goToChat(createChatRequest): Observable<any> {
+        return this.http.post<any>(this.fullUrl + 'chat/create/user', createChatRequest);
+    }
+
 
     createOrder(tireOrderRequest: TireOrderRequest): Observable<any> {
         return this.http.post(this.fullUrl + 'order/tire', tireOrderRequest);

@@ -14,6 +14,8 @@ import { UserCarService } from '../../../services/roots/business/user-car.servic
 import { SettingControllerService } from '../../../services/controllers/setting-controller.service';
 import { PartnerJobService } from '../../../services/roots/business/partner-job.service';
 import { PartnerCategoryJobResponse } from '../../../models/responses/PartnerCategoryJobResponse';
+import { PartnerFavoriteService } from '../../../services/roots/business/partner-favorite.service';
+import { ChatService } from '../../../services/roots/business/chat.service';
 
 @Component({
     selector: 'app-appointment-info',
@@ -25,6 +27,7 @@ export class AppointmentInfoPage implements OnInit {
     $url: Subscription;
     appointmentRequest: AppointmentRequest = new AppointmentRequest();
     min: any;
+
     constructor(private route: ActivatedRoute,
                 private partnerService: PartnerService,
                 private toastService: ToastService,
@@ -32,6 +35,8 @@ export class AppointmentInfoPage implements OnInit {
                 private userCarService: UserCarService,
                 private settingControllerService: SettingControllerService,
                 private partnerJobService: PartnerJobService,
+                private partnerFavoriteService: PartnerFavoriteService,
+                private chatService: ChatService,
                 private navCtrl: NavController) {
         this.min = new Date().toISOString();
     }
@@ -81,12 +86,22 @@ export class AppointmentInfoPage implements OnInit {
     }
 
     getJobs() {
-        this.partnerJobService.getByPartnerAndCategory(this.partnerId, this.categoryId).toPromise().then(resp => {
-            console.log(resp);
-            this.jobs = resp;
-        }).catch(err => {
-            console.error(err);
-        });
+        // tslint:disable-next-line:triple-equals
+        if (this.categoryId == 0) {
+            this.partnerJobService.getByPartner(this.partnerId).toPromise().then(resp => {
+                console.log(resp);
+                this.jobs = resp;
+            }).catch(err => {
+                console.log(err);
+            });
+        } else {
+            this.partnerJobService.getByPartnerAndCategory(this.partnerId, this.categoryId).toPromise().then(resp => {
+                console.log(resp);
+                this.jobs = resp;
+            }).catch(err => {
+                console.error(err);
+            });
+        }
     }
 
     getUserCar() {
@@ -198,5 +213,33 @@ export class AppointmentInfoPage implements OnInit {
             this.selectedJobs.splice(index, 1);
         }
         console.log(index);
+    }
+
+    addToFavorite() {
+        this.partnerFavoriteService.addToFavorite(this.partnerId).toPromise().then(resp => {
+            console.log(resp);
+            this.partner.isFavorite = true;
+        });
+        console.log('addd');
+    }
+
+    removeFromFavorite() {
+        this.partnerFavoriteService.removeFromFavorite(this.partnerId).toPromise().then(resp => {
+            console.log(resp);
+            this.partner.isFavorite = false;
+
+        });
+        console.log('remove');
+    }
+
+    goToChat() {
+        const createChatRequest = {partnerId: this.partnerId};
+        this.chatService.goToChat(createChatRequest).toPromise().then(resp => {
+            console.log(resp);
+            this.navCtrl.navigateForward(['/chat-view/' + resp.id]);
+        }).catch(err => {
+            console.log(err);
+        });
+        console.log('go to chat');
     }
 }

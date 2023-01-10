@@ -10,7 +10,7 @@ export class AppointmentResponse {
   finishTill: any;
   partner: PartnerResponse;
   partnerDescription: any;
-  setOfWorks: string[];
+  setOfWorks: any[];
   startFrom: any;
   status: string;
   userCar: UserCarResponse;

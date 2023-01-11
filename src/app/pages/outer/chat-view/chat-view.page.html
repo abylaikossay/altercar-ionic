@@ -79,10 +79,12 @@
 	
 	</div>
 </ion-content>
-<ion-footer class="page-padding d-flex">
-	<input (keyup)="noSpace($event)" (keydown)="noSpace($event)" [(ngModel)]="text" type="text"
-	       class="custom-input chat-input">
-	<button type="submit" class="custom-button-movili next-button" [disabled]="!text || text == ' '" (click)="sendMail()">
+<ion-footer class="page-padding">
+	<form class="d-flex" [formGroup]="sendForm">
+	<input (keyup)="noSpace($event)" (keydown)="noSpace($event)" formControlName="content"
+	       class="custom-input chat-input" autofocus>
+	<button type="submit" class="custom-button-movili next-button" [disabled]="!sendForm.valid" (click)="sendMail()">
 		<ion-icon name="chevron-forward-outline"></ion-icon>
 	</button>
+	</form>
 </ion-footer>

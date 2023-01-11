@@ -11,6 +11,7 @@ import { MessageResponse } from '../../../models/responses/MessageResponse';
 import { AccountService } from '../../../services/roots/business/account.service';
 import { MoviliHeader } from '../../../models/commons/MoviliHeader';
 import { IonContent } from '@ionic/angular/directives/proxies';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 declare var SockJS;
 declare var Stomp;
@@ -28,15 +29,16 @@ export class ChatViewPage implements OnInit {
     mainChat: ChatResponse = new ChatResponse();
     fullUrl: string = environment.imageUrl + '/partner-logo/';
     fileUrl: string = environment.imageUrl + '/chat-file/';
-    text: any;
     userId: any;
     moviliHeader: MoviliHeader = MoviliHeader.HOME('Алматы');
+    sendForm: FormGroup;
     @ViewChild('scrollElement') content: IonContent;
 
     constructor(private navCtrl: NavController,
                 private messageService: MessageService,
                 private route: ActivatedRoute,
                 private chatService: ChatService,
+                private builder: FormBuilder,
                 private toastService: ToastService,
                 private accountService: AccountService,
     ) {
@@ -44,12 +46,19 @@ export class ChatViewPage implements OnInit {
     }
 
     ngOnInit() {
-        this.fetchAll();
+        this.sendFormReady();
         this.getMyProfile();
+        this.fetchAll();
         // setTimeout(() => {
         //     this.click();
         // }, 300);
 
+    }
+
+    sendFormReady() {
+        this.sendForm = this.builder.group({
+            content: ['', Validators.required],
+        });
     }
 
     getMyProfile() {
@@ -114,7 +123,7 @@ export class ChatViewPage implements OnInit {
     noSpace(event) {
         if (event.target.value === ' ') {
             event.target.value = '';
-            this.text = '';
+            this.sendForm.reset();
             // this.sendForm.reset();
         }
     }
@@ -130,14 +139,15 @@ export class ChatViewPage implements OnInit {
     }
 
     sendMail() {
-        if (this.text) {
+        const chatForm: any = this.sendForm.getRawValue();
+        if (chatForm.content) {
             this.messageService.sendMessage(JSON.stringify({
-                'content': this.text,
+                'content': chatForm.content,
                 'userId': this.userId,
                 'id': this.chatId,
             }));
-            this.text = '';
         }
+        this.sendForm.reset();
         setTimeout(() => {
             this.updateScroll();
         }, 200);

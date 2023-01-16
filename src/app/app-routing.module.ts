@@ -129,7 +129,15 @@ const routes: Routes = [
   {
     path: 'service-info',
     loadChildren: () => import('./pages/inner-tab/service-history/service-info/service-info.module').then( m => m.ServiceInfoPageModule)
+  },  {
+    path: 'request-category',
+    loadChildren: () => import('./pages/inner-tab/home/request-category/request-category.module').then( m => m.RequestCategoryPageModule)
   },
+  {
+    path: 'create-request',
+    loadChildren: () => import('./pages/inner-tab/home/create-request/create-request.module').then( m => m.CreateRequestPageModule)
+  },
+
 
 
 

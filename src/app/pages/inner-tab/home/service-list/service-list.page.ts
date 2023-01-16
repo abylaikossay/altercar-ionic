@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {UserCarResponse} from '../../../../models/responses/UserCarResponse';
-import {ActivatedRoute} from '@angular/router';
-import {MoviliHeader} from '../../../../models/commons/MoviliHeader';
-import {AutoServiceService} from '../../../../services/roots/business/auto-service.service';
-import {environment} from '../../../../../environments/environment';
-import {NavController} from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { UserCarResponse } from '../../../../models/responses/UserCarResponse';
+import { ActivatedRoute } from '@angular/router';
+import { MoviliHeader } from '../../../../models/commons/MoviliHeader';
+import { AutoServiceService } from '../../../../services/roots/business/auto-service.service';
+import { environment } from '../../../../../environments/environment';
+import { NavController } from '@ionic/angular';
 
 @Component({
     selector: 'app-service-list',
@@ -62,5 +62,6 @@ export class ServiceListPage implements OnInit {
             this.navCtrl.navigateForward([`tabs/home-tab/auto-service-list/0/car/${this.userCarId}`]);
         } else {
             this.navCtrl.navigateForward([`tabs/service-tab/auto-service-list/0`]);
-        }    }
+        }
+    }
 }

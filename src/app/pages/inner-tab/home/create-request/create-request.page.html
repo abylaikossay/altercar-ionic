@@ -1,0 +1,45 @@
+<ion-content>
+	<app-common-header [header]="moviliHeader"></app-common-header>
+	<div class="page-padding">
+		<div class="section-title">
+			<h6>Новый запрос</h6>
+		</div>
+		<form [formGroup]="sendForm">
+			<div class="custom-margin-top"></div>
+			<label class="bold-label">Машина</label>
+			<app-used-service *ngIf="userCarResponse" class="service-li" (carRemoved)="carRemoved($event)"
+			                  [service]="userCarResponse"></app-used-service>
+			<button *ngIf="!userCarResponse" class="custom-transparent-button white-btn" (click)="selectCar()">Выберите машину
+			</button>
+			<div class="custom-margin-top"></div>
+			
+			<label class="bold-label" for="descriptionId">Подробно опишите проблему</label>
+			<textarea class="custom-div-textarea" formControlName="description"
+			          placeholder="Пример: Нужно поменять масло в коробке на машину Toyota Camry 2016 года, объем 2.5. Масло есть."
+			          id="descriptionId">
+		</textarea>
+			<div class="custom-margin-top"></div>
+			<label class="bold-label">Добавьте фото</label>
+			<div class="photo-list">
+				<button class="custom-button-movili add-button" (click)="fileInput.click()">
+					<ion-icon name="add"></ion-icon>
+				</button>
+				<input accept="image/*,video/*"
+				       style="display: none;" multiple
+				       type="file" (change)="photoLoad($event)"
+               #fileInput>
+				<div class="img-container" *ngFor="let url of urlImage; let i = index">
+					<img [src]="url" class="img-icon" alt="Прикрепленная картинка">
+					<button class="remove-img-btn" (click)="removeImage(i)">
+						<ion-icon name="close"></ion-icon>
+					</button>
+				</div>
+			</div>
+			<div class="custom-margin-top"></div>
+			<label for="priceId" class="bold-label">Сколько готовы заплатить</label>
+			<input [value]="sendForm.get('price').value" formControlName="price" id="priceId" type="number" class="custom-input">
+			<div class="custom-margin-top"></div>
+			<button [disabled]="!sendForm.valid || !userCarResponse" class="custom-button-movili" (click)="submit()">Осавить заявку</button>
+		</form>
+	</div>
+</ion-content>

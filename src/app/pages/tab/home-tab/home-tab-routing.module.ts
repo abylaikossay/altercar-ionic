@@ -26,6 +26,11 @@ const routes: Routes = [
                 loadChildren: () => import('../../inner-tab/home/service-list/service-list.module').then(m => m.ServiceListPageModule),
             },
             {
+                path: 'request-category',
+                loadChildren: () => import('../../inner-tab/home/request-category/request-category.module')
+                    .then(m => m.RequestCategoryPageModule),
+            },
+            {
                 path: 'auto-service-list',
                 loadChildren: () => import('../../inner-tab/home/auto-service-list/auto-service-list.module').then(m => m.AutoServiceListPageModule),
             },

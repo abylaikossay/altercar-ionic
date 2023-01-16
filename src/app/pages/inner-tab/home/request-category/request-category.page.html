@@ -1,22 +1,21 @@
 <ion-content>
   <app-common-header [header]="moviliHeader"></app-common-header>
   <div class="page-padding">
-    <div class="custom-margin-top"></div>
     <div class="section-title">
-      <h5>Выберите категорию</h5>
+      <h6>Выберите категорию</h6>
     </div>
     <div class="custom-margin-top"></div>
     <div class="category-item custom-margin-bottom" *ngFor="let category of categories" (click)="goToServices(category)">
       <img src="{{photoUrl + category.logoUrl}}" alt="{{category.logoUrl}}" class="category-logo">
       <div class="category-name">{{category.name}}</div>
       <img class="right-arrow" src="assets/icon/right-arrow.svg" alt="">
-
+    
     </div>
     <div class="category-item custom-margin-bottom" (click)="goToFavorite()">
       <img src="{{photoUrl + 'category-logo_1673347110625.png'}}" class="category-logo">
       <div class="category-name">Избранные сервисы</div>
       <img class="right-arrow" src="assets/icon/right-arrow.svg" alt="">
-  
+    
     </div>
   </div>
 </ion-content>

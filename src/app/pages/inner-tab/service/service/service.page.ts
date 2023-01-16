@@ -31,6 +31,11 @@ export class ServicePage implements OnInit {
             imageName: 'autoparts.png',
         },
         {
+            id: 'REQUEST',
+            name: 'Создать Запрос',
+            imageName: 'request.png',
+        },
+        {
             id: 'SERVICES',
             name: 'Автосервисы',
             imageName: 'service.jpg',
@@ -77,6 +82,9 @@ export class ServicePage implements OnInit {
                 break;
             case 'HELP':
                 console.log('test HELP');
+                break;
+            case 'REQUEST':
+                this.navCtrl.navigateForward('/tabs/service-tab/request-category');
                 break;
         }
     }

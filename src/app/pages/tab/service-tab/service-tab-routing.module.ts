@@ -1,7 +1,7 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import {ServiceTabPage} from './service-tab.page';
+import { ServiceTabPage } from './service-tab.page';
 
 const routes: Routes = [
     {
@@ -9,8 +9,8 @@ const routes: Routes = [
         component: ServiceTabPage,
         children: [
             {
-              path: '',
-              loadChildren: () => import('../../inner-tab/service/service/service.module').then(m => m.ServicePageModule),
+                path: '',
+                loadChildren: () => import('../../inner-tab/service/service/service.module').then(m => m.ServicePageModule),
             },
             {
                 path: 'user-car',
@@ -19,6 +19,11 @@ const routes: Routes = [
             {
                 path: 'service-list',
                 loadChildren: () => import('../../inner-tab/home/service-list/service-list.module').then(m => m.ServiceListPageModule),
+            },
+            {
+                path: 'request-category',
+                loadChildren: () => import('../../inner-tab/home/request-category/request-category.module')
+                    .then(m => m.RequestCategoryPageModule),
             },
             {
                 path: 'tire-list',
@@ -30,7 +35,13 @@ const routes: Routes = [
             },
             {
                 path: 'auto-service-list',
-                loadChildren: () => import('../../inner-tab/home/auto-service-list/auto-service-list.module').then(m => m.AutoServiceListPageModule),
+                loadChildren: () => import('../../inner-tab/home/auto-service-list/auto-service-list.module')
+                    .then(m => m.AutoServiceListPageModule),
+            },
+            {
+                path: 'create-request',
+                loadChildren: () => import('../../inner-tab/home/create-request/create-request.module')
+                    .then(m => m.CreateRequestPageModule),
             },
         ],
     },

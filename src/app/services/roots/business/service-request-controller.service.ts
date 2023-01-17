@@ -8,6 +8,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CarBrandResponse } from '../../../models/responses/CarBrandResponse';
 import { CarModelResponse } from '../../../models/responses/CarModelResponse';
+import { PurchaseOrderResponse } from '../../../models/responses/PurchaseOrderResponse';
+import { AppointmentResponse } from '../../../models/responses/AppointmentResponse';
+import { ServiceRequestResponse } from '../../../models/responses/ServiceRequestResponse';
 
 @Injectable({
     providedIn: 'root',
@@ -30,7 +33,19 @@ export class ServiceRequestControllerService {
         return this.http.post<any>(this.fullUrl + 'service-request/create', serviceRequestFrom);
     }
 
+    getAll(): Observable<any[]> {
+        return this.http.get<any[]>(this.fullUrl + 'service-request/all/user');
+    }
+
+    getById(id: number): Observable<ServiceRequestResponse> {
+        return this.http.get<ServiceRequestResponse>(this.fullUrl + 'service-request/' + id);
+    }
+
     uploadPhoto(photo: any): Observable<any> {
         return this.http.post<any>(this.fullUrl + 'service-request/upload-photo', photo);
+    }
+
+    uploadPhotos(photos: any): Observable<any> {
+        return this.http.post<any>(this.fullUrl + 'service-request/upload-photos', photos);
     }
 }

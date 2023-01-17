@@ -12,6 +12,7 @@ import { NavController } from '@ionic/angular';
 import { ServiceRequestService } from '../../../../services/roots/business/service-request.service';
 import { element } from 'protractor';
 import { map, switchMap } from 'rxjs/operators';
+import { ToastService } from '../../../../services/controllers/toast.service';
 
 @Component({
     selector: 'app-create-request',
@@ -36,6 +37,7 @@ export class CreateRequestPage implements OnInit {
                 private userCarService: UserCarService,
                 private navCtrl: NavController,
                 private serviceRequestService: ServiceRequestService,
+                private toastService: ToastService,
     ) {
     }
 
@@ -99,7 +101,6 @@ export class CreateRequestPage implements OnInit {
     }
 
     removeImage(i: number) {
-        console.log(this.urlImage);
         this.urlImage.splice(i, 1);
         this.attachedFiles.splice(i, 1);
     }
@@ -125,6 +126,27 @@ export class CreateRequestPage implements OnInit {
     }
 
     async submit() {
+        const requestFormData = new FormData();
+        const requestForm = this.sendForm.getRawValue();
+        // @ts-ignore
+        requestFormData.append('categoryId', this.categoryId);
+        // @ts-ignore
+        requestFormData.append('requestDate', new Date());
+        // @ts-ignore
+        requestFormData.append('userCarId', this.userCarResponse.id);
+        requestFormData.append('description', requestForm.description);
+        requestFormData.append('price', requestForm.price);
+        this.attachedFiles.forEach(photo => {
+            requestFormData.append('photo', photo);
+        });
+        this.serviceRequestService.create(requestFormData).toPromise().then(resp => {
+            console.log(resp);
+            this.toastService.present('Заказ успешно создан!');
+            this.navCtrl.navigateRoot(['/tabs/service-tab/request-category']);
+        }).catch(err => {
+            this.toastService.present('Произошла ошибка с созданием заявки!');
+            console.log(err);
+        });
         // this.attachedFiles.forEach(photo => {
         //     const photoFormData = new FormData();
         //     photoFormData.append('photo', photo);
@@ -136,31 +158,30 @@ export class CreateRequestPage implements OnInit {
         //         console.log(err);
         //     });
         // });
-        const reuqestLists = this.attachedFiles.map(value => {
-            const photoFormData = new FormData();
-            photoFormData.append('photo', value);
-            return this.serviceRequestService.uploadPhoto(photoFormData).pipe(map(el => el.photoUrl));
-        });
-        forkJoin([...reuqestLists])
-            .pipe(
-                switchMap((values) => {
-                    return this.sendRequest(values);
-                }),
-            )
-            .subscribe();
-    }
 
-    async sendRequest(fileNames) {
-        console.log(fileNames);
-        const requestForm = this.sendForm.getRawValue();
-        requestForm.categoryId = this.categoryId;
-        requestForm.requestDate = new Date();
-        requestForm.userCarId = this.userCarResponse.id;
-        requestForm.photoUrls = fileNames;
-        this.serviceRequestService.create(requestForm).toPromise().then(resp => {
-            console.log(resp);
-        }).catch(err => {
-            console.log(err);
-        });
+
+        // const photoFormData = new FormData();
+        // this.attachedFiles.forEach(photo => {
+        //     photoFormData.append('photos', photo);
+        // });
+        // this.serviceRequestService.uploadPhotos(photoFormData).toPromise().then(resp => {
+        //     console.log(resp);
+        // }).catch(err => {
+        //     console.log(err);
+        // });
+
+
+        // const reuqestLists = this.attachedFiles.map(value => {
+        //     const photoFormData = new FormData();
+        //     photoFormData.append('photo', value);
+        //     return this.serviceRequestService.uploadPhoto(photoFormData).pipe(map(el => el.photoUrl));
+        // });
+        // forkJoin([...reuqestLists])
+        //     .pipe(
+        //         switchMap((values) => {
+        //             return this.sendRequest(values);
+        //         }),
+        //     )
+        //     .subscribe();
     }
 }

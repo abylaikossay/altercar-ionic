@@ -10,6 +10,7 @@ import { ServiceHistoryPage } from './service-history.page';
 import { CommonHeaderModule } from '../../../../components/header/common-header/common-header.module';
 import { HistoryCardModule } from '../../../../components/history-card/history-card.module';
 import {AppointmentCardModule} from '../../../../components/appointment-card/appointment-card.module';
+import { RequestCardModule } from '../../../../components/request-card/request-card.module';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import {AppointmentCardModule} from '../../../../components/appointment-card/app
         CommonHeaderModule,
         HistoryCardModule,
         AppointmentCardModule,
+        RequestCardModule,
     ],
   declarations: [ServiceHistoryPage]
 })

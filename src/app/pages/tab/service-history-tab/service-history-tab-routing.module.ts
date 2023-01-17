@@ -17,6 +17,10 @@ const routes: Routes = [
         path: 'info',
         loadChildren: () => import('../../inner-tab/service-history/service-info/service-info.module').then(m => m.ServiceInfoPageModule),
       },
+      {
+        path: 'request-info',
+        loadChildren: () => import('../../inner-tab/service-history/request-info/request-info.module').then(m => m.RequestInfoPageModule),
+      },
     ]
   }
 ];

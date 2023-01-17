@@ -1,0 +1,91 @@
+<ion-content>
+  <app-common-header [header]="moviliHeader"></app-common-header>
+  <div class="page-padding">
+    <div class="user-info-grid">
+      <img *ngIf="!request.partner" src="assets/images/new-request.png" class="user-photo" alt="">
+      <img *ngIf="request?.partner?.logoUrl" src="{{fullUrl + request?.partner?.logoUrl}}" class="user-photo"
+           alt="">
+      <div class="user-name">{{(request.category ? request.category.name : 'Избранным сервисам')}}</div>
+      <div class="chat-img">
+        <img src="assets/icon/chat.svg" alt="">
+      </div>
+      <div class="user-address-info">
+        <img src="assets/icon/promo-code.svg" alt="">
+        <span class="price">{{request.price | currency:'KZT':'symbol-narrow'}}</span>
+      </div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="services-header">Фотогафии</div>
+    <div class="custom-margin-top"></div>
+    <div class="photo-list-scroll">
+      <div class="image-card" *ngFor="let photo of request.photoUrls">
+        <img class="photo-img" src="{{photoUrl + photo}}" alt="">
+      </div>
+<!--      <div class="card" *ngFor="let product of products" >-->
+<!--        <app-tire-card class="custom-margin-top"  [product]="product" (click)="goToTire(product)"></app-tire-card>-->
+<!--      </div>-->
+    </div>
+<!--    <div *ngFor="let request of request.setOfWorks">-->
+<!--      <div class="main-div">-->
+<!--        <div class="service-name">-->
+<!--          <div>{{request.jobName}}</div>-->
+<!--        </div>-->
+<!--        <label>-->
+<!--          <input type="text" disabled [value]="1" class="amount-disabled-input">-->
+<!--        </label>-->
+<!--      </div>-->
+<!--      <div class="horizontal-line"></div>-->
+<!--    </div>-->
+    <div class="custom-margin-top"></div>
+    <div class="appointment-date-info">
+      <div class="day-time">
+        <div class="description">Дата записи:</div>
+        <div class="calendar-day">{{request.requestDate | date: 'E'}}</div>
+        {{request.requestDate | date:'shortDate' }}
+      </div>
+      <div class="day-time">
+        <div class="description">Время записи: </div>
+        <img src="assets/icon/time-icon.svg" alt="">
+        {{request.requestDate | date:'shortTime'}}
+      </div>
+<!--      <div class="day-time" *ngIf="request.startFrom">-->
+<!--        <div class="description">Начало: </div>-->
+<!--        <img src="assets/icon/time-icon.svg" alt="">-->
+<!--        {{request.startFrom | date:'shortTime'}}-->
+<!--      </div>-->
+<!--      <div class="day-time" *ngIf="request.finishTill">-->
+<!--        <div class="description">Конец: </div>-->
+<!--        <img src="assets/icon/time-icon.svg" alt="">-->
+<!--        {{request.finishTill | date:'shortTime'}}-->
+<!--      </div>-->
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="user-contacts">
+      <div class="bold-text">Статус</div>
+<!--      <div class="bold-text">{{request.status === 'SUCCESS' ? 'Успешно'-->
+<!--        : request.status === 'PROCESS' ? 'В процессе'-->
+<!--          : request.status === 'CANCELED' ? 'Отменен'-->
+<!--            : 'Неизвестный'}}-->
+<!--      </div>-->
+      <a style="cursor: pointer;" class="badge {{request.status == requestStatusEnum.PROCESS ? 'badge-info' :
+            request.status == requestStatusEnum.SUCCESS ? 'badge-success' : request.status == requestStatusEnum.CANCELED ? 'badge-danger' : ''}}">
+        {{request.status == requestStatusEnum.PROCESS ? 'В процесе' :
+        request.status == requestStatusEnum.SUCCESS ? 'Успешно' : request.status == requestStatusEnum.CANCELED ? 'Отменен' : 'Неизвестный статус'}}
+      </a>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="user-contacts">
+      <div class="bold-text">Авобомиль</div>
+      <div class="bold-text">{{request?.userCar?.carBrand.name + ' ' + request?.userCar?.carModel.name}}
+      </div>
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="bold-text">Описание работы</div>
+    <div class="custom-margin-top"></div>
+    <div class="custom-div-textarea" [contentEditable]="false">{{request?.description}}
+    </div>
+    <div class="horizontal-line"></div>
+  </div>
+
+
+</ion-content>

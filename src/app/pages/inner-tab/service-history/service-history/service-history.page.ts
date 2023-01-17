@@ -6,6 +6,7 @@ import { RefreshListener } from '../../../../models/commons/RefreshListener';
 import { ResolveOnListenerService } from '../../../../services/roots/resolve-on-listener.service';
 import { ResolveControlService } from '../../../../services/roots/resolve-control.service';
 import { IonRefresher } from '@ionic/angular';
+import { ServiceRequestService } from '../../../../services/roots/business/service-request.service';
 
 @Component({
     selector: 'app-service-history',
@@ -30,14 +31,21 @@ export class ServiceHistoryPage implements OnInit, RefreshListener, OnDestroy {
             name: 'Успешные',
             selected: false,
         },
+        {
+            id: 'SERVICE_REQUEST',
+            name: 'Мои запросы',
+            selected: false,
+        },
     ];
     selectedCategory: any = {id: 'PROCESS', name: 'В процессе', selected: true};
-    history: any[] = [];
+    histories: any[] = [];
+    requests: any[] = [];
     @ViewChild('ionRefresher') ionRefresh: IonRefresher;
 
     constructor(private appointmentService: AppointmentService,
                 private resolveControlService: ResolveControlService,
                 private resolveOnListener: ResolveOnListenerService,
+                private serviceRequestService: ServiceRequestService,
     ) {
     }
     refreshPage(event) {
@@ -65,12 +73,23 @@ export class ServiceHistoryPage implements OnInit, RefreshListener, OnDestroy {
     }
 
     getAllOrders() {
-        this.appointmentService.getOrders(this.selectedCategory.id).toPromise().then(resp => {
-            console.log(resp);
-            this.history = resp;
-        }).catch(err => {
-            console.error(err);
-        });
+        if (this.selectedCategory.id !== 'SERVICE_REQUEST') {
+            this.appointmentService.getOrders(this.selectedCategory.id).toPromise().then(resp => {
+                console.log(resp);
+                this.histories = resp;
+            }).catch(err => {
+                console.error(err);
+            });
+        } else {
+            this.histories = [];
+            this.serviceRequestService.getAll().toPromise().then(resp => {
+                console.log(resp);
+                this.requests = resp;
+            }).catch(err => {
+                console.error(err);
+            });
+        }
+
     }
 
     changeProducts(category: any) {

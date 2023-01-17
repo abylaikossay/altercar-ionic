@@ -137,6 +137,10 @@ const routes: Routes = [
     path: 'create-request',
     loadChildren: () => import('./pages/inner-tab/home/create-request/create-request.module').then( m => m.CreateRequestPageModule)
   },
+  {
+    path: 'request-info',
+    loadChildren: () => import('./pages/inner-tab/service-history/request-info/request-info.module').then( m => m.RequestInfoPageModule)
+  },
 
 
 

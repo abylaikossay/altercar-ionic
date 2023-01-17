@@ -1,0 +1,197 @@
+:host {
+  .user-info-grid {
+    display: grid;
+    grid-template-columns: 2fr 5fr 1fr;
+    column-gap: 4vw;
+  }
+
+  .description {
+    margin-right: 2vw;
+  }
+
+  .user-photo {
+    grid-row: span 2;
+    align-self: center;
+    border-radius: 27px;
+    object-fit: contain;
+    width: 19vw;
+    height: 19vw;
+  }
+
+  .user-name {
+    font-weight: var(--custom-font-weight-semibold);
+    font-size: var(--custom-font-size-8);
+    line-height: var(--custom-line-height);
+    color: var(--custom-text-color-movili-dark);
+  }
+  .price {
+    font-weight: var(--custom-font-weight-semibold);
+    font-size: var(--custom-font-size-8);
+    color: var(--custom-text-color-movili-dark);
+    margin-left: 2vw;
+  }
+
+  .user-address-info {
+    & img {
+      width: 5vw;
+    }
+
+    & span.address {
+      font-weight: var(--custom-font-weight-regular);
+      font-size: var(--custom-font-size-9);
+      line-height: var(--custom-line-height);
+      color: var(--custom-text-color-black);
+    }
+  }
+
+  .services-header {
+    font-weight: var(--custom-font-weight-regular);
+    font-size: var(--custom-font-size-8);
+    line-height: var(--custom-line-height); //todo fake 18px;
+    color: var(--custom-text-color-danger);
+  }
+
+  .service-li {
+    margin-bottom: 8px;
+  }
+
+  .horizontal-line {
+    margin-top: 4vw;
+    border-bottom: 1px solid var(--custom-backgrond-color-light-gray);
+  }
+
+  .appointment-date-info {
+    display: grid;
+    grid-gap: 3vw;
+  }
+
+  .day-time {
+    display: flex;
+    align-items: center;
+    font-weight: var(--custom-font-weight-semibold);
+    font-size: var(--custom-font-size-8);
+    line-height: var(--custom-line-height);
+    letter-spacing: 0.1px;
+    color: var(--custom-text-color-movili-dark);
+
+    & img {
+      width: 24px;
+      height: 24px;
+      margin: 0 10px 0 4px;
+    }
+  }
+
+  .photo-img {
+    width: 25vw;
+    height: 25vw;
+    border-radius: 20%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  .photo-list-scroll {
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .image-card {
+      display: inline-block;
+      margin-right: 2vw;
+    }
+  }
+
+  .calendar-day {
+    border: 1px solid var(--custom-backgrond-color-light-gray);
+    box-sizing: border-box;
+    border-radius: 9px;
+    padding: 6px;
+    margin-right: 10px;
+    font-weight: var(--custom-font-weight-semibold);
+    letter-spacing: 0.1px;
+    color: var(--custom-text-color-black);
+  }
+
+  .user-contacts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .bold-text {
+    font-style: var(--custom-font-style-normal);
+    font-weight: var(--custom-font-weight-semibold);
+    font-size: var(--custom-font-size-8);
+    line-height: var(--custom-line-height); //todo fake 18px;
+    color: var(--custom-text-color-movili-dark);
+
+    & img {
+      margin-left: 3vw;
+    }
+  }
+
+  .bottom-fixed-buttons {
+    display: flex;
+    column-gap: 5vw;
+    justify-content: space-between;
+  }
+
+  .custom-transparent-button {
+    width: 100%;
+    color: var(--custom-text-color-movili);
+    border-color: var(--custom-backgrond-color-movili);
+  }
+
+  .custom-div-textarea {
+    min-height: 10vw;
+    align-self: center;
+    margin-top: 0 !important;
+  }
+
+  .set-works {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-gap: 2vw;
+  }
+
+  .next-button {
+    height: 10vw;
+    width: 10vw;
+    align-self: center;
+  }
+
+  button.call {
+    background: var(--custom-backgrond-color-white) !important;
+    border: 2px solid var(--custom-backgrond-color-movili) !important;
+    color: var(--custom-backgrond-color-movili) !important;
+  }
+
+  .main-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2vw 1vw 0vw;
+
+    & label {
+      padding: 0;
+    }
+  }
+
+  .service-name {
+    font-style: var(--custom-font-style-normal);
+    font-weight: var(--custom-font-weight-semibold);
+    font-size: var(--custom-font-size-8);
+    line-height: var(--custom-line-height); //todo fake 18px;
+    color: var(--custom-text-color-movili-dark);
+  }
+
+  .amount-disabled-input {
+    border: 1px solid var(--custom-backgrond-color-light-gray);
+    box-sizing: border-box;
+    border-radius: 9px;
+    background-color: var(--custom-backgrond-color-white);
+    width: 34px;
+    padding: 11px;
+  }
+}

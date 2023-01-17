@@ -37,7 +37,22 @@
 .custom-margin-bottom {
   margin-bottom: 10px;
 }
-
+.badge {
+  background-color: var(--custom-backgrond-color-movili);
+  color: white;
+  padding: 2px 7px;
+  text-align: center;
+  border-radius: 10px;
+}
+.badge-success {
+  background-color: #28a745;
+}
+.badge-danger {
+  background-color: var(--custom-background-color-danger);
+}
+.badge-info {
+  background-color: var(--custom-backgrond-color-movili);
+}
 
 .profile-avatar-image {
   height: 100vw;

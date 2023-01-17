@@ -16,12 +16,24 @@ export class ServiceRequestService {
         return this.serviceRequestControllerService.create(serviceRequestRequest);
     }
 
+    getAll() {
+        return this.serviceRequestControllerService.getAll();
+    }
+
+    getById(id: number) {
+        return this.serviceRequestControllerService.getById(id);
+    }
+
     update(serviceRequestRequest: any, id: number) {
         return this.serviceRequestControllerService.update(serviceRequestRequest, id);
     }
 
     uploadPhoto(photo: any) {
         return this.serviceRequestControllerService.uploadPhoto(photo);
+    }
+
+    uploadPhotos(photos: any) {
+        return this.serviceRequestControllerService.uploadPhotos(photos);
     }
 
 

@@ -18,9 +18,14 @@
       </div>
       <div class="custom-margin-top"></div>
       <div class="history-list">
-        <div class="history-card" *ngFor="let history of history">
+        <div class="history-card" *ngFor="let history of histories">
             <app-appointment-card [appointment]="history"></app-appointment-card>
 <!--          <app-history-card [order]="history"></app-history-card>-->
+        </div>
+        <div class="history-card" *ngIf="selectedCategory.id === 'SERVICE_REQUEST'">
+          <div *ngFor="let request of requests">
+            <app-request-card [request]="request"></app-request-card>
+          </div>
         </div>
       </div>
     </div>

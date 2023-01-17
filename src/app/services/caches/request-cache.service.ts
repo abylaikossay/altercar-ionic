@@ -82,6 +82,7 @@ export class RequestCacheService {
             '/api/partner-favorite',
             '/api/category/user/partners',
             '/api/purchase/order',
+            '/api/service-request/all',
             '/api/chat/all',
             '/api/user-car',
             '/api/account',

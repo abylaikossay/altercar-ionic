@@ -19,12 +19,14 @@ export class EditProfilePage implements OnInit {
     userResponse: UserResponse = new UserResponse();
     imageUrl: string = environment.imageUrl + '/isp_portfolio/';
     userRequest: UserEditRequest = new UserEditRequest();
+    max: any;
 
     constructor(private accountService: AccountService,
                 private navCtrl: NavController,
                 private toastService: ToastService,
                 private settingControllerService: SettingControllerService,
     ) {
+        this.max = new Date().toISOString();
     }
 
     ngOnInit() {
@@ -61,8 +63,8 @@ export class EditProfilePage implements OnInit {
         this.userRequest.email = this.userResponse.email;
         this.userRequest.cityId = this.userResponse.city.id;
         this.userRequest.language = this.userResponse.language;
+        this.userRequest.birthDate = this.userResponse.birthDate;
         console.log(this.userRequest);
-        console.log(this.userResponse);
         this.accountService.updateProfile(this.userRequest).toPromise().then(resp => {
             console.log(resp);
             this.toastService.present('Профиль успешно обновлен');

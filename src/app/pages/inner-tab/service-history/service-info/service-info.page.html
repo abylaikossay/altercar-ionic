@@ -69,7 +69,12 @@
     <div class="custom-margin-top"></div>
     <div class="bold-text">Автомобиль</div>
     <div class="custom-margin-top"></div>
-    <div class="custom-div-textarea" [contentEditable]="false">{{history?.userCar?.carBrand + ' ' + history?.userCar?.carModel}}
+    <div class="custom-div-textarea" [contentEditable]="false">{{history?.userCar?.carBrand + ' ' + history?.userCar?.carModel + ' / ' + history?.userCar?.carNumber}}
+    </div>
+    <div class="custom-margin-top"></div>
+    <div class="bold-text">Описание</div>
+    <div class="custom-margin-top"></div>
+    <div class="custom-div-textarea" [contentEditable]="false">{{history?.description}}
     </div>
     <div class="horizontal-line"></div>
   </div>
@@ -78,9 +83,6 @@
   <div class="page-padding bottom-fixed-buttons">
     <button *ngIf="history.status === 'PROCESS'" class="custom-button-movili call" (click)="decline(history)">
       <span>Отменить</span>
-    </button>
-    <button class="custom-button-movili" (click)="complain(history)">
-      <span>Пожаловаться</span>
     </button>
   </div>
 </ion-footer>

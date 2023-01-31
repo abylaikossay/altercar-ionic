@@ -89,7 +89,7 @@
 		<button class="custom-button-movili call" (click)="call(partner)">
 			<span>Позвонить</span>
 		</button>
-		<button class="custom-button-movili" (click)="appoint(partner)">
+		<button class="custom-button-movili" [disabled]="!appointmentRequest.appointmentDate || !this.userCarResponse" (click)="appoint(partner)">
 			<span>Записаться</span>
 		</button>
 	</div>

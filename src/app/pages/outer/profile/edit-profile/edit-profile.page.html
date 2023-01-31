@@ -37,11 +37,14 @@
                    type="text" placeholder="Выберите город">
         </div>
         <div class="custom-margin-top"></div>
-        <div class="flex-with-action">
-            <div class="bold-label">Способы связи</div>
-            <div class="d-flex">
-                <img src="assets/icon/right-arrow.svg" alt="">
-            </div>
+        <div class="flex-grid">
+            <div class="bold-label">Дата рождения</div>
+            <ion-item>
+            <ion-datetime [(ngModel)]="userResponse.birthDate" [max]="max" mode="ios"
+                          pickerFormat="YYYY/MMM/DD"
+                          placeholder="Выберите дату рождения"
+                          displayFormat="DD-MM-YYYY"></ion-datetime>
+            </ion-item>
         </div>
     </div>
 

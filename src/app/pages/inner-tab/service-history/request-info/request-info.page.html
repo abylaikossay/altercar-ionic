@@ -74,11 +74,10 @@
       </a>
     </div>
     <div class="custom-margin-top"></div>
-    <div class="user-contacts">
-      <div class="bold-text">Авобомиль</div>
-      <div class="bold-text">{{request?.userCar?.carBrand.name + ' ' + request?.userCar?.carModel.name}}
+      <div class="bold-text">Автомобиль</div>
+      <div class="custom-margin-top"></div>
+      <div class="custom-div-textarea" [contentEditable]="false">{{request?.userCar?.carBrand.name + ' ' + request?.userCar?.carModel.name + ' / ' + request?.userCar?.carNumber}}
       </div>
-    </div>
     <div class="custom-margin-top"></div>
     <div class="bold-text">Описание работы</div>
     <div class="custom-margin-top"></div>

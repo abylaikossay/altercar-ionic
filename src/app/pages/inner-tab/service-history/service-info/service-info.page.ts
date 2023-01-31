@@ -53,7 +53,4 @@ export class ServiceInfoPage implements OnInit {
 
     }
 
-    complain(history: AppointmentResponse) {
-
-    }
 }
